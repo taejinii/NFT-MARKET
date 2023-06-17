@@ -1,5 +1,10 @@
-import Image from "next/image";
-
+import FirstSection from "@/components/Landing/FirstSection";
+import SecontSection from "@/components/Landing/SecontSection";
 export default function Home() {
-  return <main className="">Hi</main>;
+  return (
+    <main>
+      <FirstSection />
+      <SecontSection />
+    </main>
+  );
 }

@@ -1,3 +1,3 @@
 export default function SecontSection() {
-  return <div className="flex h-screen bg-green-600"></div>;
+  return <div className="flex min-h-screen bg-black"></div>;
 }

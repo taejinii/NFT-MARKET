@@ -1,5 +1,6 @@
 "use client";
 import { useRef, useEffect, useState, useCallback } from "react";
+import { SlArrowDown } from "react-icons/sl";
 export default function FirstSection() {
   const [scrollY, setScrollY] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
@@ -22,7 +23,7 @@ export default function FirstSection() {
 
   return (
     <div
-      className="flex justify-center items-center flex-col min-h-screen sticky top-0 -z-10"
+      className="flex justify-center items-center flex-col min-h-screen sticky top-0 -z-10 "
       ref={ref}
     >
       <video
@@ -35,13 +36,13 @@ export default function FirstSection() {
       >
         <source src="/video-bg.mp4" type="video/mp4" />
       </video>
-      <div className="gap-4 flex flex-col text-white drop-shadow-[0_5px_3px_rgba(0,0,0,0.4)] text-center z-10 font-bold">
+      <div className="gap-4 flex flex-col  text-white drop-shadow-[0_5px_3px_rgba(0,0,0,0.4)] text-center z-10 font-bold">
         <h1 className="text-5xl">NFT-MARKET</h1>
         <h2 className="text-2xl">
           <span>Unlock infinite world of digital treasures</span>
-          <span>parllax</span>
         </h2>
       </div>
+      <SlArrowDown className="absolute bottom-10 font-extrabold text-white drop-shadow-[0_5px_3px_rgba(0,0,0,0.4)] text-7xl" />
     </div>
   );
 }

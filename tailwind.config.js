@@ -18,10 +18,20 @@ module.exports = {
           "0%": { transform: "translateY(100%)", opacity: "0" },
           "100%": { transform: "translateY(0%)", opacity: "1" },
         },
+        diagonalRight: {
+          "0%": { transform: "translate(0,0) rotate(0deg)" },
+          "100%": { transform: "translate(250px,-100px) rotate(10deg)" },
+        },
+        diagonalLeft: {
+          "0%": { transform: "translate(0,0) skew(0deg)" },
+          "100%": { transform: "translate(-250px,-100px) rotate(-10deg) " },
+        },
       },
       animation: {
         marquee: "marquee 5s linear infinite",
         slideUp: "slideUp .5s ease-in",
+        diagonalRight: "diagonalRight .5s forwards ease-out",
+        diagonalLeft: "diagonalLeft .5s forwards ease-out",
       },
     },
   },

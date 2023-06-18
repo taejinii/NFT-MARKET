@@ -6,13 +6,15 @@ export default function Card() {
   return (
     <Link
       href={"/"}
-      className="flex flex-col p-3 w-fit max-w-xs gap-4 rounded-xl bg-[#18191E] cursor-pointer"
+      className="flex flex-col p-3 w-fit  gap-4 rounded-xl bg-[#18191E] cursor-pointer"
     >
       <div className="relative w-64 rounded-xl h-72 ">
         <Image src={Azuki} alt="NFT Image" fill className="rounded-xl" />
       </div>
-      <div className="flex flex-col gap-2 font-sans font-bold">
-        <span className="text-[#5E6064]">Neural Sediments by Eko33</span>
+      <div className="flex flex-col items-start gap-2 font-sans font-bold">
+        <span className="text-[#5E6064] truncate max-w-[256px]">
+          Neural Sediments by Eko33
+        </span>
         <span className="text-white">Neural Sediments #119</span>
       </div>
       <div className="flex justify-around bg-[#212528] rounded-xl p-4">

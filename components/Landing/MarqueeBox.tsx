@@ -4,7 +4,7 @@ export default function MarqueeBox() {
       <div className="flex gap-2 text-white font-bold text-xl py-4 whitespace-nowrap ">
         {Array(15)
           .fill(1)
-          .map((index) => {
+          .map((_, index) => {
             return (
               <div key={index} className="animate-marquee ">
                 <span>NFT MARKET PLACE FOR YOU! </span>

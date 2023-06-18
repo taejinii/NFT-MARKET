@@ -9,7 +9,6 @@ export default function Header() {
     document.addEventListener("scroll", handleScrollY, { passive: true });
     return () => document.removeEventListener("scroll", handleScrollY);
   }, [handleScrollY]);
-  console.log("scrollY", scrollY);
   return (
     <div
       className={`flex justify-center items-center ${

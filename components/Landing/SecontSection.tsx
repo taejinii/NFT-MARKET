@@ -10,11 +10,11 @@ export default function SecontSection() {
     >
       <main className="flex flex-col text-center font-extrabold">
         <h1
-          className={`text-[200px] text-[#0D82F9] ${
+          className={`text-[200px] text-[#0D82F9] uppercase ${
             inView ? "animate-slideUp visible" : "invisible"
           }`}
         >
-          QWERO
+          qwero
         </h1>
         <h2 className="text-3xl">
           <span>NFT marketplace for your commuity.</span>

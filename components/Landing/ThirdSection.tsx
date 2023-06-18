@@ -2,27 +2,36 @@
 import Card from "../Card";
 import { useInView } from "react-intersection-observer";
 export default function ThirdSection() {
-  const { ref, inView } = useInView({ threshold: 0.2 });
+  const { ref, inView } = useInView({ threshold: 0 });
   return (
     <section
       ref={ref}
-      className="relative flex flex-col items-center justify-center min-h-screen font-extrabold text-center bg-black "
+      className="relative flex flex-col items-center justify-center min-h-screen font-sans font-extrabold text-center bg-black "
     >
       <div>
-        <h1 className="text-[#ECB8F3] text-2xl uppercase">comming soon</h1>
-        <article className="font-sans text-5xl text-white">
-          Qwero marketplace is a platform where individuals can buy,sell, and
-          trade non-fungible token(NFT)s.
+        <h1 className="text-[#ECB8F3] text-2xl uppercase max-md:text-xs">
+          comming soon
+        </h1>
+        <article className="flex flex-col gap-2 p-2 text-5xl text-white max-md:text-sm">
+          <p>Qwero marketplace is a platform where</p>
+          <p>individuals can buy,sell, and trade non-fungible</p>
+          <p>token(NFT)s. NFTs are unique digital assets that</p>
+          <p>are verified on a blockchain network, making</p>
+          <p>them secure and tamper-proof.</p>
         </article>
       </div>
       <div className="absolute flex justify-center -top-48">
-        <div className={`absolute ${inView ? "animate-diagonalRight" : null}`}>
+        <div
+          className={`absolute ${inView ? "animate-diagonalRight" : "hidden"} `}
+        >
           <Card />
         </div>
         <div className="absolute z-10">
           <Card />
         </div>
-        <div className={`absolute ${inView ? "animate-diagonalLeft" : null}`}>
+        <div
+          className={`absolute ${inView ? "animate-diagonalLeft" : "hidden"}`}
+        >
           <Card />
         </div>
       </div>

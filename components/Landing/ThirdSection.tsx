@@ -2,7 +2,7 @@
 import Card from "../Card";
 import { useInView } from "react-intersection-observer";
 export default function ThirdSection() {
-  const { ref, inView } = useInView({ threshold: 0.2 });
+  const { ref, inView } = useInView({ threshold: 0 });
   return (
     <section
       ref={ref}

@@ -24,7 +24,7 @@ module.exports = {
         },
         diagonalLeft: {
           "0%": { transform: "translate(0,0) skew(0deg)" },
-          "100%": { transform: "translate(-250px,-100px) rotate(-10deg) " },
+          "100%": { transform: "translate(-250px,-80px) rotate(-10deg) " },
         },
       },
       animation: {

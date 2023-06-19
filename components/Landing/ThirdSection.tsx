@@ -6,7 +6,7 @@ export default function ThirdSection() {
   return (
     <section
       ref={ref}
-      className="relative flex flex-col items-center justify-center min-h-screen font-sans font-extrabold text-center bg-black "
+      className="relative flex flex-col items-center justify-center h-screen font-sans font-extrabold text-center bg-black "
     >
       <div>
         <h1 className="text-[#ECB8F3] text-2xl uppercase max-md:text-xs">

@@ -6,7 +6,7 @@ export default function SecontSection() {
   return (
     <section
       ref={ref}
-      className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden bg-white"
+      className="relative flex flex-col items-center justify-center h-screen overflow-hidden bg-white"
     >
       <main className="flex flex-col font-extrabold text-center">
         <h1

@@ -9,8 +9,8 @@ export default function FourthSection() {
         <span>top artist</span>
         <span>collections</span>
       </h1>
-      <article className="flex flex-col w-full h-full gap-10 pb-20 lg:flex-row">
-        <Link href={"/"} className="basis-1/2">
+      <article className="flex flex-col w-full h-full gap-10 pb-20 sm:flex-row">
+        <Link href={"/"} className="w-full h-full basis-1/2">
           <Image
             src={Azuki}
             alt="TOP ARTIST COLLECTION"
@@ -19,14 +19,14 @@ export default function FourthSection() {
             className="w-full h-full rounded-xl"
           />
         </Link>
-        <div className="flex  bg-[#E7F0FF] rounded-xl basis-1/2">
+        <div className="flex flex-col lg:flex-row w-full h-full bg-[#E7F0FF] rounded-xl basis-1/2">
           <div className="flex flex-col justify-between p-10 font-sans font-extrabold basis-7/12">
-            <div className="flex flex-col text-xl lg:text-5xl">
+            <div className="flex flex-col text-2xl lg:text-5xl">
               <span>Azuki</span>
               <span>Azuki #1925</span>
             </div>
-            <div className="text-xs lg:text-lg xl:text-xl">
-              <p className="">
+            <div className="text-sm lg:text-lg xl:text-xl">
+              <p className="max-sm:truncate">
                 Azuki starts with a collection of 10,000 avatars that give you
                 membership access to The Garden: a corner of the internet where
                 artists, builders, and web3 enthusiasts meet to create a

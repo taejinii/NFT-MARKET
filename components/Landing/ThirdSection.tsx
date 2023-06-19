@@ -12,7 +12,7 @@ export default function ThirdSection() {
         <h1 className="text-[#ECB8F3] text-2xl uppercase max-md:text-xs">
           comming soon
         </h1>
-        <article className="flex flex-col gap-2 p-2 text-5xl text-white max-md:text-sm">
+        <article className="flex flex-col gap-2 p-2 text-3xl text-white 2xl:text-5xl">
           <p>Qwero marketplace is a platform where</p>
           <p>individuals can buy,sell, and trade non-fungible</p>
           <p>token(NFT)s. NFTs are unique digital assets that</p>
@@ -20,7 +20,7 @@ export default function ThirdSection() {
           <p>them secure and tamper-proof.</p>
         </article>
       </div>
-      <div className="absolute flex justify-center -top-48">
+      <div className="absolute flex justify-center -top-32 2xl:-top-48">
         <div
           className={`absolute ${inView ? "animate-diagonalRight" : "hidden"} `}
         >

@@ -22,7 +22,7 @@ export default function FirstSection() {
   }
 
   return (
-    <div
+    <section
       className="flex justify-center items-center flex-col min-h-screen sticky top-0 -z-10 "
       ref={ref}
     >
@@ -43,6 +43,6 @@ export default function FirstSection() {
         </h2>
       </div>
       <SlArrowDown className="absolute bottom-10 font-extrabold text-white drop-shadow-[0_5px_3px_rgba(0,0,0,0.4)] text-7xl" />
-    </div>
+    </section>
   );
 }

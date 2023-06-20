@@ -5,9 +5,9 @@ export default function Card() {
   return (
     <Link
       href={"/"}
-      className="flex flex-col p-3 w-full h-full gap-4 rounded-xl bg-[#18191E] cursor-pointer"
+      className="flex flex-col p-3 w-52 md:w-full h-full gap-4 rounded-xl bg-[#18191E] cursor-pointer"
     >
-      <div className="relative w-full h-40 2xl:w-72 2xl:h-80 rounded-xl">
+      <div className="relative w-full h-32 md:h-40 2xl:w-72 2xl:h-80 rounded-xl">
         <Image
           src="/images/azuki3.avif"
           alt="NFT Image"
@@ -18,7 +18,7 @@ export default function Card() {
       </div>
 
       <div className="flex flex-col items-start gap-2 font-sans font-bold">
-        <span className="text-[#5E6064] truncate  max-w-[14rem]">
+        <span className="text-[#5E6064] truncate w-40 md:w-52">
           Azuki Azuki Azuki Azuki AzukiAzukiAzukiAzukiAzukiAzukiAzukiAzuki
         </span>
         <span className="text-white">Azuki #119</span>

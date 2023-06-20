@@ -23,7 +23,7 @@ export default function FirstSection() {
 
   return (
     <section
-      className="flex justify-center items-center flex-col min-h-screen sticky top-0 -z-10 "
+      className="sticky top-0 flex flex-col items-center justify-center min-h-screen -z-10 "
       ref={ref}
     >
       <video
@@ -31,13 +31,13 @@ export default function FirstSection() {
         loop
         muted
         playsInline
-        className="absolute w-full h-full object-cover "
+        className="absolute object-cover w-full h-full "
         style={{ transform: `translateY(-${currnetHeignt * 20}vh)` }}
       >
         <source src="/video-bg.mp4" type="video/mp4" />
       </video>
       <div className="gap-4 flex flex-col  text-white drop-shadow-[0_5px_3px_rgba(0,0,0,0.4)] text-center z-10 font-bold">
-        <h1 className="text-5xl">NFT-MARKET</h1>
+        <h1 className="text-5xl">QWERO</h1>
         <h2 className="text-2xl">
           <span>Unlock infinite world of digital treasures</span>
         </h2>

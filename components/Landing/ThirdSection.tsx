@@ -20,7 +20,7 @@ export default function ThirdSection() {
           <p>them secure and tamper-proof.</p>
         </article>
       </div>
-      <div className="absolute flex justify-center -top-32 2xl:-top-48">
+      {/* <div className="absolute flex justify-center -top-28 2xl:-top-48">
         <div
           className={`absolute ${inView ? "animate-diagonalRight" : "hidden"} `}
         >
@@ -34,7 +34,7 @@ export default function ThirdSection() {
         >
           <Card />
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }

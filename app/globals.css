@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* 헤더와 페이지 섹션부분 패딩 통일을 위한 클래스 */
+.responsive-container {
+  @apply lg:px-4 xl:px-6 2xl:px-8;
+}

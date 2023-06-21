@@ -1,4 +1,4 @@
-import Ranking from "@/components/Ranking";
+import Ranking from "@/components/page/Collection/Ranking";
 
 export default function CollectionPage() {
   return (

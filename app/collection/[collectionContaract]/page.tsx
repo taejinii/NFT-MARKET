@@ -3,5 +3,6 @@ export default function CollectionDetailPage({
 }: {
   params: { collectionContaract: string };
 }) {
-  return <section className="mt-16">{params.collectionContaract}</section>;
+  const { collectionContaract } = params;
+  return <>{collectionContaract}</>;
 }

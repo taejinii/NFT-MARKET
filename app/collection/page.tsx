@@ -1,3 +1,5 @@
+import Ranking from "@/components/Ranking";
+
 export default function CollectionPage() {
   return (
     <>
@@ -8,7 +10,8 @@ export default function CollectionPage() {
           of imagination.
         </p>
         <div className="flex w-full"></div>
-        <section className="flex flex-col"></section>
+        <Ranking />
+        
       </header>
     </>
   );

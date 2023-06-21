@@ -4,6 +4,8 @@ export default function CollectionLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section className="w-full mt-16 responsive-container">{children}</section>
+    <section className="flex flex-col w-full mt-16 responsive-container">
+      {children}
+    </section>
   );
 }

@@ -10,9 +10,8 @@ export default function CollectionPage() {
           of imagination.
         </p>
         <div className="flex w-full"></div>
-        <Ranking />
-        
       </header>
+      <Ranking />
     </>
   );
 }

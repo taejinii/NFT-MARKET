@@ -7,7 +7,7 @@ export const getCollectionRanking = async () => {
     },
   };
   const res = await fetch(
-    "https://data-api.nftgo.io/eth/v1/market/rank/collection/1h?by=volume&with_rarity=false&asc=false&offset=0&limit=20",
+    "https://data-api.nftgo.io/eth/v1/market/rank/collection/24h?by=volume&with_rarity=false&asc=false&offset=0&limit=20",
     options
   );
   return res.json();

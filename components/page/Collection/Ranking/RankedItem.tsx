@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 export default function RankedItem({ rank, ...collection }: any) {
-  console.log(collection);
   const {
     volume_eth,
     name,

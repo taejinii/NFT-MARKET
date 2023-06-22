@@ -10,14 +10,15 @@ import { Suspense } from "react";
 export default async function CollectionDetailPage({
   params,
 }: {
-  params: { collectionContaract: string };
+  params: { collectionContract: string };
 }) {
-  const { collectionContaract } = params;
+  const { collectionContract } = params;
+
   const [detail, info] = await Promise.all([
-    getCollectionDetail(collectionContaract),
-    getCollectionInfo(collectionContaract),
+    getCollectionDetail(collectionContract),
+    getCollectionInfo(collectionContract),
   ]);
-  const nftList = await getCollectionNFTs(collectionContaract, 50);
+  const nftList = await getCollectionNFTs(collectionContract, 50);
   return (
     <>
       <header className="flex flex-col items-start gap-10 py-10 mt-10 font-sans font-bold">

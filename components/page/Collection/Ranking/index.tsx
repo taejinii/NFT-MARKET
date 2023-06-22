@@ -22,7 +22,9 @@ export default function Ranking() {
           <div className="flex-1 text-right">Whale Owner</div>
         </header>
         <ul>
-          {isSuccess &&
+          {isLoading ? (
+            <div>Loading...</div>
+          ) : (
             data.collections.map((collection, index: number) => {
               return (
                 <RankedItem
@@ -37,7 +39,8 @@ export default function Ranking() {
                   rank={index}
                 />
               );
-            })}
+            })
+          )}
         </ul>
       </section>
     </>

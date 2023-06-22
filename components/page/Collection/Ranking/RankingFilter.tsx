@@ -10,12 +10,12 @@ export default function RankingFilter({
     setVolumeFilter(filter);
   };
   return (
-    <ul className="flex justify-end w-full gap-2">
+    <ul className="flex justify-end w-full ">
       {RANKING_FILTER.map((filter) => {
         return (
           <li
             key={filter}
-            className="p-2 font-sans font-bold text-gray-200 rounded-md hover:text-black hover:bg-gray-100"
+            className="p-2 font-sans font-bold rounded-md text-slate-500 hover:text-black hover:bg-gray-100 drop-shadow-md"
           >
             <button onClick={() => handleVolumeFilter(filter)}>{filter}</button>
           </li>

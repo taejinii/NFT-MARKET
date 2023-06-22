@@ -2,9 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Divider from "../Divider";
 export default function Card({ ...nft }: any) {
-  console.log(nft);
   const { collection_name, last_sale, image, name } = nft;
-  console.log(image);
   const { token_symbol, price_token } = last_sale;
   return (
     <Link

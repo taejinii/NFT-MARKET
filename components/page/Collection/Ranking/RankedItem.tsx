@@ -1,16 +1,26 @@
 import Image from "next/image";
 import Link from "next/link";
-export default function RankedItem({ rank, ...collection }: any) {
+interface RankListType {
+  volume_eth: number;
+  name: string;
+  logo: string;
+  holder_num: number;
+  floor_price_eth: number;
+  whale_num: number;
+  contracts: string;
+  rank: number;
+}
+export default function RankedItem({ rank, ...collection }: RankListType) {
   const {
     volume_eth,
     name,
     logo,
     holder_num,
-    opensea_slug,
     floor_price_eth,
     whale_num,
     contracts,
   } = collection;
+  console.log(collection);
   return (
     <>
       <li className="flex items-center p-2 py-2 text-sm hover:bg-gray-200 hover:rounded-xl">

@@ -8,7 +8,7 @@ export default function Providers({ children }: PropsWithChildren) {
       new QueryClient({
         defaultOptions: {
           queries: {
-            refetchOnWindowFocus: false,
+            refetchOnWindowFocus: true,
           },
         },
       })

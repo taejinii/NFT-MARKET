@@ -2,7 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  h1 {
+    @apply text-5xl;
+  }
+  h2 {
+    @apply text-2xl;
+  }
+}
+
 /* 헤더와 페이지 섹션부분 패딩 통일을 위한 클래스 */
 .responsive-container {
-  @apply lg:px-4 xl:px-6 2xl:px-8;
+  @apply px-2 lg:px-4 xl:px-6 2xl:px-8;
 }

@@ -1,8 +1,14 @@
 "use client";
-import Card from "../Card";
+import Card from "../../ui/Card";
 import { useInView } from "react-intersection-observer";
+import { useGetNftData } from "@/hooks/queries/useGetNftData";
 export default function ThirdSection() {
   const { ref, inView } = useInView({ threshold: 0 });
+  const { data: nftData, isLoading } = useGetNftData(
+    "0xed5af388653567af2f388e6224dc7c4b3241c544",
+    3
+  );
+
   return (
     <section
       ref={ref}
@@ -20,24 +26,29 @@ export default function ThirdSection() {
           <p>them secure and tamper-proof.</p>
         </article>
       </div>
+
       <div className="absolute flex justify-center -top-28 2xl:-top-48">
-        <div
-          className={`absolute ${
-            inView ? "animate-diagonalRight" : "hidden"
-          } hover:z-20`}
-        >
-          <Card />
-        </div>
-        <div className="absolute z-10">
-          <Card />
-        </div>
-        <div
-          className={`absolute ${
-            inView ? "animate-diagonalLeft" : "hidden"
-          } hover:z-20`}
-        >
-          <Card />
-        </div>
+        {!isLoading &&
+          nftData?.nfts.map((nft, index: number) => {
+            let animateClass = "";
+            if (index === 0) {
+              animateClass = "animate-diagonalLeft hover:z-20";
+            }
+            if (index === 1) {
+              animateClass = "z-10";
+            }
+            if (index === 2) {
+              animateClass = "animate-diagonalRight hover:z-20";
+            }
+            return (
+              <div
+                key={nft.token_id}
+                className={`absolute ${inView ? animateClass : "hidden"}`}
+              >
+                <Card {...nft} />
+              </div>
+            );
+          })}
       </div>
     </section>
   );

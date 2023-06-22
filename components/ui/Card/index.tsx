@@ -2,14 +2,16 @@ import Image from "next/image";
 import Link from "next/link";
 import Divider from "../Divider";
 export default function Card({ ...nft }: any) {
+  console.log(nft);
   const { collection_name, last_sale, image, name } = nft;
+  console.log(image);
   const { token_symbol, price_token } = last_sale;
   return (
     <Link
       href={"/"}
-      className="flex flex-col p-3 w-52 md:w-full h-full gap-4 rounded-xl bg-[#18191E] cursor-pointer"
+      className="flex flex-col p-3 w-60 md:w-full h-full gap-4 rounded-xl bg-[#18191E] cursor-pointer"
     >
-      <div className="relative w-full h-32 overflow-hidden md:h-40 2xl:w-72 2xl:h-80 rounded-xl hover:scale-105">
+      <div className="relative w-full h-32 overflow-hidden md:h-40 2xl:h-80 rounded-xl hover:scale-105">
         <Image
           src={image}
           alt="NFT Image"

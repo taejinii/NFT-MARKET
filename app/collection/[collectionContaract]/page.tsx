@@ -17,7 +17,7 @@ export default async function CollectionDetailPage({
     getCollectionDetail(collectionContaract),
     getCollectionInfo(collectionContaract),
   ]);
-  const nftList = await getCollectionNFTs(collectionContaract);
+  const nftList = await getCollectionNFTs(collectionContaract, 50);
   return (
     <>
       <header className="flex flex-col items-start gap-10 py-10 mt-10 font-sans font-bold">

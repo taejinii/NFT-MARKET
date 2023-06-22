@@ -12,7 +12,8 @@ export const getCollectionRanking = async () => {
   );
   return res.json();
 };
-export const getCollectionNFTs = async (contract: string) => {
+
+export const getCollectionNFTs = async (contract: string, limit: number) => {
   const options = {
     method: "GET",
     headers: {
@@ -22,7 +23,7 @@ export const getCollectionNFTs = async (contract: string) => {
   };
   try {
     const res = await fetch(
-      `https://data-api.nftgo.io/eth/v1/collection/${contract}/nfts?offset=0&limit=50`,
+      `https://data-api.nftgo.io/eth/v1/collection/${contract}/nfts?offset=0&limit=${limit}`,
       options
     );
     return res.json();
@@ -49,6 +50,7 @@ export const getCollectionDetail = async (contract: string) => {
     console.log(error);
   }
 };
+
 export const getCollectionInfo = async (contract: string) => {
   const options = {
     method: "GET",

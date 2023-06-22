@@ -22,7 +22,7 @@ export const getCollectionNFTs = async (contract: string) => {
   };
   try {
     const res = await fetch(
-      `https://data-api.nftgo.io/eth/v1/collection/${contract}/nfts`,
+      `https://data-api.nftgo.io/eth/v1/collection/${contract}/nfts?offset=0&limit=50`,
       options
     );
     return res.json();
@@ -36,6 +36,7 @@ export const getCollectionDetail = async (contract: string) => {
     headers: {
       accept: "application/json",
       "X-API-KEY": `${process.env.NEXT_PUBLIC_NFT_GO_API_KEY}`,
+      cache: "no-store",
     },
   };
   try {

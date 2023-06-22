@@ -7,7 +7,7 @@ export default function CollectionInfo({ info }: any) {
   return (
     <>
       <div className="flex items-center ">
-        <div className="relative w-40 h-40 rounded-full">
+        <div className="relative w-40 h-40 rounded-full drop-shadow-xl">
           <Image
             src={logo}
             alt="NFT Logo"
@@ -16,7 +16,7 @@ export default function CollectionInfo({ info }: any) {
           />
         </div>
         <div className="flex flex-col gap-2 ml-8">
-          <div className="text-5xl">{name}</div>
+          <div className="text-5xl drop-shadow-md">{name}</div>
           <SocialButton twitter_url={twitter_url} discord_url={discord_url} />
         </div>
       </div>

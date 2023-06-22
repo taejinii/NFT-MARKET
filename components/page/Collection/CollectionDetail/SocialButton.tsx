@@ -17,18 +17,18 @@ export default function SocialButton({
     <div className="flex ">
       {twitter_url && (
         <button
-          className="p-2 rounded-md hover:bg-gray-200"
+          className="p-2 rounded-md hover:bg-gray-200 drop-shadow-md"
           onClick={() => directSocialLink(twitter_url)}
         >
-          <BsTwitter size={30} />
+          <BsTwitter size={30} fill="#1D96E8" />
         </button>
       )}
       {discord_url && (
         <button
-          className="p-2 rounded-md hover:bg-gray-200"
+          className="p-2 rounded-md hover:bg-gray-200 drop-shadow-md"
           onClick={() => directSocialLink(discord_url)}
         >
-          <BsDiscord size={30} />
+          <BsDiscord size={30} fill="#5462EB" />
         </button>
       )}
     </div>

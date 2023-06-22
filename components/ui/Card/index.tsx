@@ -15,7 +15,7 @@ export default function Card({ ...nft }: any) {
           alt="NFT Image"
           fill
           sizes="100vw"
-          className="object-cover duration-300 rounded-xl hover:scale-125"
+          className="object-fill duration-300 rounded-xl hover:scale-125"
         />
       </div>
 

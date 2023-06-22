@@ -5,7 +5,7 @@ interface NftListType {
   image: string;
 }
 export default function CollectionList({ nftList }: any) {
-  const { nfts } = nftList;
+  const { nfts = [] } = nftList;
 
   return (
     <div className="grid gap-4 md:grid-cols-4 lg:grid-cols-6">

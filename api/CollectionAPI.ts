@@ -1,11 +1,11 @@
+const options = {
+  method: "GET",
+  headers: {
+    accept: "application/json",
+    "X-API-KEY": process.env.NEXT_PUBLIC_NFT_GO_API_KEY!,
+  },
+};
 export const getCollectionRanking = async (volumeFilter: string) => {
-  const options = {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      "X-API-KEY": `${process.env.NEXT_PUBLIC_NFT_GO_API_KEY}`,
-    },
-  };
   const res = await fetch(
     `https://data-api.nftgo.io/eth/v1/market/rank/collection/${volumeFilter}?by=volume&with_rarity=false&asc=false&offset=0&limit=20`,
     options
@@ -14,13 +14,6 @@ export const getCollectionRanking = async (volumeFilter: string) => {
 };
 
 export const getCollectionNFTs = async (contract: string, limit: number) => {
-  const options = {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      "X-API-KEY": `${process.env.NEXT_PUBLIC_NFT_GO_API_KEY}`,
-    },
-  };
   try {
     const res = await fetch(
       `https://data-api.nftgo.io/eth/v1/collection/${contract}/nfts?offset=0&limit=${limit}`,
@@ -32,14 +25,6 @@ export const getCollectionNFTs = async (contract: string, limit: number) => {
   }
 };
 export const getCollectionDetail = async (contract: string) => {
-  const options = {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      "X-API-KEY": `${process.env.NEXT_PUBLIC_NFT_GO_API_KEY}`,
-      cache: "no-store",
-    },
-  };
   try {
     const res = await fetch(
       `https://data-api.nftgo.io/eth/v1/collection/${contract}/metrics`,
@@ -52,13 +37,6 @@ export const getCollectionDetail = async (contract: string) => {
 };
 
 export const getCollectionInfo = async (contract: string) => {
-  const options = {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      "X-API-KEY": `${process.env.NEXT_PUBLIC_NFT_GO_API_KEY}`,
-    },
-  };
   try {
     const res = await fetch(
       `https://data-api.nftgo.io/eth/v1/collection/${contract}/info`,

@@ -29,7 +29,7 @@ export default function ThirdSection() {
 
       <div className="absolute flex justify-center -top-28 2xl:-top-48">
         {!isLoading &&
-          nftData.nfts.map((nft: any, index: number) => {
+          nftData?.nfts.map((nft, index: number) => {
             let animateClass = "";
             if (index === 0) {
               animateClass = "animate-diagonalLeft hover:z-20";

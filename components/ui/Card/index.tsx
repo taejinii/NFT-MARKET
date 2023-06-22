@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Divider from "../Divider";
-export default function Card({ ...nft }: any) {
+export default function Card({ ...nft }) {
   const {
     collection_name,
     last_sale,

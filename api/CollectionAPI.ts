@@ -47,8 +47,23 @@ export const getCollectionInfo = async (contract: string) => {
     console.log(error);
   }
 };
-
-export const getNFTInfoDetail = async (contract: string, tokenId: number) => {
+interface Test {
+  type: string;
+  value: string;
+  percentage: number;
+}
+interface NftInfo {
+  collection_name: string;
+  name: string;
+  image: string;
+  traits: { type: string; value: string; percentage: number }[];
+  rarity: { score: number; rank: number; total: number };
+  owner_addresses: string;
+}
+export const getNFTInfoDetail = async (
+  contract: string,
+  tokenId: string
+): Promise<NftInfo> => {
   try {
     const res = await fetch(
       `https://data-api.nftgo.io/eth/v1/nft/${contract}/${tokenId}/info`,
@@ -57,5 +72,6 @@ export const getNFTInfoDetail = async (contract: string, tokenId: number) => {
     return res.json();
   } catch (error) {
     console.log(error);
+    throw error;
   }
 };

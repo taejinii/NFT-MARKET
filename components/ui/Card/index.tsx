@@ -16,7 +16,7 @@ export default function Card({ ...nft }) {
       href={`/collection/${contract_address}/${token_id}`}
       className="flex flex-col p-3 w-60 md:w-full h-full gap-4 rounded-xl bg-[#18191E] cursor-pointer"
     >
-      <div className="relative w-full h-32 overflow-hidden md:h-40 2xl:h-80 rounded-xl hover:scale-105">
+      <div className="relative w-full h-32 overflow-hidden md:h-40 2xl:h-80 rounded-xl ">
         <Image
           src={image}
           alt="NFT Image"

@@ -26,7 +26,7 @@ export default function Card({ ...nft }) {
         />
       </div>
 
-      <div className="flex flex-col items-start gap-2 font-sans font-bold">
+      <div className="flex flex-col items-start gap-2 font-bold">
         <span className="text-[#5E6064] truncate w-40 md:w-52">
           {collection_name}
         </span>
@@ -35,16 +35,16 @@ export default function Card({ ...nft }) {
 
       <div className="flex justify-around bg-[#212528] rounded-xl p-4">
         <div className="flex flex-col items-center justify-center">
-          <div className="text-[#5E6064] font-bold font-sans">Price</div>
-          <div className="flex gap-1 font-sans font-bold text-white">
+          <div className="text-[#5E6064] font-bold ">Price</div>
+          <div className="flex gap-1 font-bold text-white">
             <span>{last_sale ? price_token.toFixed(2) : "ETH"}</span>
             {last_sale ? token_symbol : "ETH"}
           </div>
         </div>
         <Divider direction="vertical" />
         <div className="flex flex-col items-center justify-center">
-          <div className="text-[#5E6064] font-bold font-sans">Last Price</div>
-          <div className="flex gap-1 font-sans font-bold text-white">
+          <div className="text-[#5E6064] font-bold ">Last Price</div>
+          <div className="flex gap-1 font-bold text-white">
             <span>4.5</span>
 
             {last_sale ? token_symbol : "ETH"}

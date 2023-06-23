@@ -9,6 +9,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        mono: ["var(--font-roboto-mono)"],
+      },
       keyframes: {
         marquee: {
           "0%": { transform: "translateX(0%)" },

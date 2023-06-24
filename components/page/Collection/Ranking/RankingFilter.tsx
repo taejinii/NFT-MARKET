@@ -18,7 +18,7 @@ export default function RankingFilter({
         return (
           <li
             key={filter}
-            className={`font-sans font-bold rounded-md ${
+            className={` font-bold rounded-md ${
               index === activeIndex ? "text-black" : "text-slate-500"
             } hover:text-black hover:bg-gray-100 drop-shadow-md `}
           >

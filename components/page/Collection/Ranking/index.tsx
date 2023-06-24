@@ -13,8 +13,8 @@ export default function Ranking() {
   return (
     <>
       <RankingFilter setVolumeFilter={setVolumeFilter} />
-      <section className="flex flex-col font-sans font-bold">
-        <header className="sticky z-50 flex w-full space-x-4 text-base text-gray-500 bg-white top-16">
+      <section className="flex flex-col font-bold">
+        <header className="sticky z-50 flex w-full space-x-4 text-base text-gray-500 bg-white top-16 ">
           <div className="flex-1 grow-[3]">Collection</div>
           <div className="flex-1 text-right ">Volume</div>
           <div className="flex-1 text-right">Floor Price</div>

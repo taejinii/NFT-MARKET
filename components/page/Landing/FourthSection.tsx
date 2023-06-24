@@ -4,7 +4,7 @@ import BestCollectionSlider from "./BestCollectionSlider";
 export default function FourthSection() {
   return (
     <section className="flex flex-col h-screen bg-white p-14">
-      <h1 className="flex flex-col justify-start  w-full h-full mb-10 text-[#0D82F9] font-sans font-extrabold lg:text-6xl text-3xl uppercase">
+      <h1 className="flex flex-col justify-start  w-full h-full mb-10 text-[#0D82F9]  font-extrabold lg:text-6xl text-3xl uppercase">
         <span>top artist</span>
         <span>collections</span>
       </h1>
@@ -20,7 +20,7 @@ export default function FourthSection() {
           />
         </Link>
         <div className="flex flex-col  lg:flex-row w-full h-full bg-[#E7F0FF] rounded-xl ">
-          <div className="flex flex-col justify-between gap-2 p-10 font-sans font-extrabold max-sm:p-4 basis-5/6">
+          <div className="flex flex-col justify-between gap-2 p-10  font-extrabold max-sm:p-4 basis-5/6">
             <div className="flex flex-col text-lg lg:text-3xl 2xl:text-5xl">
               <span>Azuki</span>
               <span>Azuki #1925</span>

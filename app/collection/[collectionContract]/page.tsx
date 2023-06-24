@@ -21,7 +21,7 @@ export default async function CollectionDetailPage({
   const nftList = await getCollectionNFTs(collectionContract, 50);
   return (
     <>
-      <header className="flex flex-col items-start gap-10 py-10 mt-10 font-sans font-bold">
+      <header className="flex flex-col items-start gap-10 py-10 mt-10  font-bold">
         <CollectionInfo info={info} />
         <CollectionDetail detail={detail} />
       </header>

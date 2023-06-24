@@ -47,11 +47,7 @@ export const getCollectionInfo = async (contract: string) => {
     console.log(error);
   }
 };
-interface Test {
-  type: string;
-  value: string;
-  percentage: number;
-}
+
 interface NftInfo {
   collection_name: string;
   name: string;
@@ -67,6 +63,19 @@ export const getNFTInfoDetail = async (
   try {
     const res = await fetch(
       `https://data-api.nftgo.io/eth/v1/nft/${contract}/${tokenId}/info`,
+      options
+    );
+    return res.json();
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};
+
+export const getSaleHistory = async (contract: string, tokenId: string) => {
+  try {
+    const res = await fetch(
+      `https://data-api.nftgo.io/eth/v1/history/nft/transactions?contract_address=${contract}&token_id=${tokenId}&action=all&scroll=1262304000000&scroll_limit=50`,
       options
     );
     return res.json();

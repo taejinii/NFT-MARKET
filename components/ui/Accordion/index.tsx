@@ -12,9 +12,7 @@ export default function Accordion({ title, children }: AccordionType) {
       <div className="w-full text-2xl font-bold" onClick={handleAccordion}>
         <div className="p-4 border-b-2 border-black">{title}</div>
       </div>
-      {isOpen && (
-        <div className="w-full overflow-auto max-h-52">{children}</div>
-      )}
+      {isOpen && <>{children}</>}
     </div>
   );
 }

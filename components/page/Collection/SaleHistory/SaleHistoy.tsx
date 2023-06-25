@@ -1,5 +1,5 @@
 "use client";
-import { getTimeDiffrence } from "@/utils/getTimeDifference";
+import { getTimeDifference } from "@/utils/getTimeDifference";
 interface TransActionType {
   action: string;
   sender: { address: string };
@@ -18,7 +18,7 @@ export default function SaleHistoy({ history }: { history: TransActionProps }) {
     window.open(`https://opensea.io/${contract}`, "_blank"),
   ];
   return (
-    <div className="w-full overflow-auto max-h-80">
+    <div className="w-full overflow-auto font-bold max-h-80">
       <div className="sticky top-0 flex p-2 space-x-4 bg-white border-b-2 border-black">
         <div className="flex-1">Event</div>
         <div className="flex-1">Price</div>
@@ -27,16 +27,22 @@ export default function SaleHistoy({ history }: { history: TransActionProps }) {
         <div className="flex-1">Date</div>
       </div>
 
-      {transactions.map((transaction) => {
+      {transactions.map((transaction, index) => {
         const currentTime = Date.now();
-        const transactionTime = transaction.time;
-        const timeDif = currentTime - transactionTime;
-        const timeString = getTimeDiffrence(timeDif);
-
+        const timeDif = currentTime - transaction.time;
+        const timeString = getTimeDifference(timeDif);
         return (
-          <div key={transaction.tx_hash} className="flex w-full p-2 space-x-4">
+          <div
+            key={index}
+            className="flex w-full px-2 py-4 space-x-4 border-b-2"
+          >
             <div className="flex-1">{transaction.action}</div>
-            <div className="flex-1">{transaction.price?.value}</div>
+            <div className="flex-1">
+              {transaction.price?.value
+                ? transaction.price?.value.toFixed(2)
+                : ""}
+              {transaction.price?.value ? "ETH" : ""}
+            </div>
             <div
               className="flex-1 truncate cursor-pointer"
               onClick={() => directProfile(transaction.sender.address)}

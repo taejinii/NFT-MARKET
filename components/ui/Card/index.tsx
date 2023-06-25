@@ -11,6 +11,7 @@ export default function Card({ ...nft }) {
     token_id,
   } = nft;
   const { token_symbol, price_token } = last_sale;
+
   return (
     <Link
       href={`/collection/${contract_address}/${token_id}`}
@@ -20,8 +21,11 @@ export default function Card({ ...nft }) {
         <Image
           src={image}
           alt="NFT Image"
-          fill
-          sizes="100vw"
+          fill={true}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          placeholder="blur"
+          priority
+          blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN0cPCpBwAC4QFN8b7mrwAAAABJRU5ErkJggg=="
           className="object-fill duration-300 rounded-xl hover:scale-125"
         />
       </div>

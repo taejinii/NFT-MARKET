@@ -28,6 +28,9 @@ export default async function NFTDetail({ params }: { params: ParamsType }) {
             alt="NFT Image"
             width={600}
             height={600}
+            priority
+            placeholder="blur"
+            blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN0cPCpBwAC4QFN8b7mrwAAAABJRU5ErkJggg=="
             className="w-full h-auto rounded-md drop-shadow "
           />
         </div>

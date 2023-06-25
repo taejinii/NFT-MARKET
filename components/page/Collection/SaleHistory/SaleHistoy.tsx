@@ -13,7 +13,7 @@ interface TransActionProps {
 }
 
 export default function SaleHistoy({ history }: { history: TransActionProps }) {
-  const { transactions } = history;
+  const { transactions = [] } = history;
   const directProfile = (contract: string) => [
     window.open(`https://opensea.io/${contract}`, "_blank"),
   ];

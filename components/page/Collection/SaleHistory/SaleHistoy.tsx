@@ -13,12 +13,12 @@ interface TransActionProps {
 }
 
 export default function SaleHistoy({ history }: { history: TransActionProps }) {
-  const { transactions = [] } = history;
+  const { transactions } = history;
   const directProfile = (contract: string) => [
     window.open(`https://opensea.io/${contract}`, "_blank"),
   ];
   return (
-    <div className="w-full overflow-auto max-h-80">
+    <div className="w-full overflow-auto font-bold max-h-80">
       <div className="sticky top-0 flex p-2 space-x-4 bg-white border-b-2 border-black">
         <div className="flex-1">Event</div>
         <div className="flex-1">Price</div>
@@ -34,9 +34,15 @@ export default function SaleHistoy({ history }: { history: TransActionProps }) {
         const timeString = getTimeDiffrence(timeDif);
 
         return (
-          <div key={transaction.tx_hash} className="flex w-full p-2 space-x-4">
+          <div
+            key={transaction.tx_hash}
+            className="flex w-full p-2 space-x-4 border-b-2"
+          >
             <div className="flex-1">{transaction.action}</div>
-            <div className="flex-1">{transaction.price?.value}</div>
+            <div className="flex-1">
+              {transaction.price?.value}
+              {transaction.price?.value ? "ETH" : ""}
+            </div>
             <div
               className="flex-1 truncate cursor-pointer"
               onClick={() => directProfile(transaction.sender.address)}

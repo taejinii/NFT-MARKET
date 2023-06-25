@@ -12,9 +12,9 @@ export default function ThirdSection() {
   return (
     <section
       ref={ref}
-      className="relative flex flex-col items-center justify-center h-screen  font-extrabold text-center bg-black "
+      className="relative flex flex-col items-center justify-center h-screen font-extrabold bg-black "
     >
-      <div>
+      <div className="text-center">
         <h1 className="text-[#ECB8F3] text-2xl uppercase max-md:text-xs">
           comming soon
         </h1>

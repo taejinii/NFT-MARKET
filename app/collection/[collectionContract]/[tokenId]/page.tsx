@@ -10,8 +10,12 @@ interface ParamsType {
 }
 export default async function NFTDetail({ params }: { params: ParamsType }) {
   const { collectionContract, tokenId } = params;
-  const info = await getNFTInfoDetail(collectionContract, tokenId);
-  const history = await getSaleHistory(collectionContract, tokenId);
+  // const info = await getNFTInfoDetail(collectionContract, tokenId);
+  // const history = await getSaleHistory(collectionContract, tokenId);
+  const [info, history] = await Promise.all([
+    getNFTInfoDetail(collectionContract, tokenId),
+    getSaleHistory(collectionContract, tokenId),
+  ]);
   const { image, traits } = info;
   return (
     <div className="flex flex-col w-full gap-5 py-10 m-auto max-w-7xl">

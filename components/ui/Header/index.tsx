@@ -12,7 +12,7 @@ export default function Header() {
   }, [handleScrollY]);
   return (
     <nav
-      className={`flex justify-between font-bold  text-2xl text-black items-center w-full responsive-container drop-shadow   sticky top-0 h-16 z-50 duration-300  ${
+      className={`flex justify-between font-bold  text-2xl text-black items-center w-full responsive-container drop-shadow  fixed top-0 h-16 z-50 duration-300  ${
         scrollY !== 0 ? "bg-white" : "bg-transparent"
       }`}
     >

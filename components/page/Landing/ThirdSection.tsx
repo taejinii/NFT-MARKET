@@ -43,7 +43,7 @@ export default function ThirdSection() {
             return (
               <div
                 key={nft.token_id}
-                className={`absolute ${inView ? animateClass : "hidden"}`}
+                className={`absolute ${inView ? animateClass : "hidden"} w-64`}
               >
                 <Card {...nft} />
               </div>

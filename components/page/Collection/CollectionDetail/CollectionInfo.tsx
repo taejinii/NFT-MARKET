@@ -3,23 +3,23 @@ import SocialButton from "@/components/page/Collection/CollectionDetail/SocialBu
 
 export default function CollectionInfo({ info }: any) {
   const { name, description, logo, discord_url, twitter_url } = info;
-
+  console.log(name);
   return (
     <>
-      <div className="flex items-center ">
-        <div className="w-40 h-auto">
+      <div className="flex items-center w-full ">
+        <div className="relative w-32 h-32 md:w-40 md:h-40 ">
           <Image
             src={logo}
-            alt="NFT Logo"
+            alt={name}
             priority
-            width={350}
-            height={350}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             placeholder="blur"
             blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg==" // 추가
-            className="object-cover w-full h-auto rounded-full drop-shadow-lg "
+            className="object-cover rounded-full drop-shadow-lg"
           />
         </div>
-        <div className="flex flex-col gap-2 ml-8">
+        <div className="flex flex-col gap-2 ml-4">
           <div className="text-3xl md:text-5xl drop-shadow-md">{name}</div>
           <SocialButton twitter_url={twitter_url} discord_url={discord_url} />
         </div>

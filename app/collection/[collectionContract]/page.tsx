@@ -6,6 +6,7 @@ import {
 import CollectionDetail from "@/components/page/Collection/CollectionDetail/CollectionDetail";
 import CollectionInfo from "@/components/page/Collection/CollectionDetail/CollectionInfo";
 import CollectionList from "@/components/page/Collection/CollectionDetail/CollectionList";
+import { Suspense } from "react";
 export default async function CollectionDetailPage({
   params,
 }: {
@@ -17,14 +18,18 @@ export default async function CollectionDetailPage({
     getCollectionDetail(collectionContract),
     getCollectionInfo(collectionContract),
   ]);
-  const nftList = await getCollectionNFTs(collectionContract, 20);
+  // const detail = await getCollectionDetail(collectionContract);
+  // const info = await getCollectionInfo(collectionContract);
+  const nftListData = getCollectionNFTs(collectionContract, 20);
   return (
     <>
       <header className="flex flex-col items-start gap-10 py-10 mt-10 font-bold">
         <CollectionInfo info={info} />
         <CollectionDetail detail={detail} />
       </header>
-      <CollectionList nftList={nftList} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <CollectionList promise={nftListData} />
+      </Suspense>
     </>
   );
 }

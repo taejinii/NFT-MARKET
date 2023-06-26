@@ -1,5 +1,4 @@
 import Ranking from "@/components/page/Collection/Ranking";
-import { Suspense } from "react";
 
 export default function CollectionPage() {
   return (
@@ -12,9 +11,7 @@ export default function CollectionPage() {
         </p>
         <div className="flex w-full"></div>
       </header>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Ranking />
-      </Suspense>
+      <Ranking />
     </>
   );
 }

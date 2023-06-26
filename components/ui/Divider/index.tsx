@@ -9,7 +9,7 @@ export default function Divider({ direction }: DividerType) {
     );
   } else {
     return (
-      <hr className="my-12 h-0.5 w-full border-t-0 bg-neutral-100  bg-opacity-50" />
+      <hr className="my-2 h-0.5 w-full border-t-0 bg-neutral-100  bg-opacity-50" />
     );
   }
 }

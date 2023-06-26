@@ -8,7 +8,7 @@ export default function CollectionList({ nftList }: any) {
   const { nfts = [] } = nftList;
 
   return (
-    <div className="grid gap-4 md:grid-cols-4 lg:grid-cols-6">
+    <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
       {nfts.map((nft: any) => {
         return <Card key={nft.token_id} {...nft} />;
       })}

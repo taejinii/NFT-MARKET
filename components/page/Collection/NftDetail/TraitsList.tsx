@@ -3,7 +3,7 @@ interface TraitsType {
   value: string;
   percentage: number;
 }
-export default function TraitsList({ traits }: { traits: TraitsType[] }) {
+export default function TraitsList({ traits = [] }: { traits: TraitsType[] }) {
   return (
     <section className="flex flex-col gap-2 mt-2 rounded-md ">
       <h2 className="p-1 text-center border-2 border-black rounded-md">

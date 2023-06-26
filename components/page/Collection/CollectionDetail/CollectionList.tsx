@@ -4,12 +4,12 @@ interface NftListType {
   token_id: string;
   image: string;
 }
-export default function CollectionList({ nftList }: any) {
-  const { nfts = [] } = nftList;
-
+export default async function CollectionList({ promise }: any) {
+  // const { nfts = [] } = nftList;
+  const { nfts } = await promise;
   return (
     <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
-      {nfts.map((nft: any) => {
+      {nfts?.map((nft: NftListType) => {
         return <Card key={nft.token_id} {...nft} />;
       })}
     </div>

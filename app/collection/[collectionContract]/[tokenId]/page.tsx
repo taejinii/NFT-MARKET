@@ -4,7 +4,6 @@ import NftInfo from "@/components/page/Collection/NftDetail/NftInfo";
 import TraitsList from "@/components/page/Collection/NftDetail/TraitsList";
 import Accordion from "@/components/ui/Accordion/index";
 import SaleHistoy from "@/components/page/Collection/SaleHistory/SaleHistoy";
-import { Suspense } from "react";
 interface ParamsType {
   collectionContract: string;
   tokenId: string;
@@ -36,9 +35,7 @@ export default async function NFTDetail({ params }: { params: ParamsType }) {
         </div>
       </section>
       <Accordion title="Item Activity">
-        <Suspense fallback={<div>Loading...</div>}>
-          <SaleHistoy history={history} />
-        </Suspense>
+        <SaleHistoy history={history} />
       </Accordion>
     </div>
   );

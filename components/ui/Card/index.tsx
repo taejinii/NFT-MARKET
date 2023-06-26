@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import Divider from "../Divider";
 export default function Card({ ...nft }) {
   const {
     collection_name,
@@ -15,9 +14,9 @@ export default function Card({ ...nft }) {
   return (
     <Link
       href={`/collection/${contract_address}/${token_id}`}
-      className="flex flex-col p-3 w-full h-auto gap-4 rounded-xl bg-[#18191E] cursor-pointer"
+      className="flex flex-col p-3 w-full h-auto  max-h-96 gap-4 rounded-xl bg-[#18191E] cursor-pointer"
     >
-      <div className="rounded-xl ">
+      <div className="overflow-hidden rounded-xl ">
         <Image
           src={image}
           alt="NFT Image"
@@ -26,12 +25,12 @@ export default function Card({ ...nft }) {
           placeholder="blur"
           priority
           blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN0cPCpBwAC4QFN8b7mrwAAAABJRU5ErkJggg=="
-          className="object-cover w-full h-auto duration-300 rounded-xl hover:scale-125"
+          className="object-fill w-full h-full duration-300 rounded-xl hover:scale-125"
         />
       </div>
 
       <div className="flex flex-col items-start gap-2 font-bold">
-        <span className="text-[#5E6064] truncate w-40 md:w-52">
+        <span className="text-[#5E6064] truncate w-full ">
           {collection_name}
         </span>
         <span className="text-white">{name}</span>

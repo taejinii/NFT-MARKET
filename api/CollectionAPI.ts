@@ -2,7 +2,7 @@ const options = {
   method: "GET",
   headers: {
     accept: "application/json",
-    "X-API-KEY": process.env.NEXT_PUBLIC_NFT_GO_API_KEY!,
+    "X-API-KEY": process.env.NEXT_PUBLIC_NFT_GO_API_KEY as string,
   },
 };
 export const getCollectionRanking = async (volumeFilter: string) => {

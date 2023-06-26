@@ -4,15 +4,40 @@ import NftInfo from "@/components/page/Collection/NftDetail/NftInfo";
 import TraitsList from "@/components/page/Collection/NftDetail/TraitsList";
 import Accordion from "@/components/ui/Accordion/index";
 import SaleHistoy from "@/components/page/Collection/SaleHistory/SaleHistoy";
+import { Metadata } from "next";
+
 interface ParamsType {
   collectionContract: string;
   tokenId: string;
 }
+export async function generateMetadata({
+  params,
+}: {
+  params: ParamsType;
+}): Promise<Metadata> {
+  const { tokenId, collectionContract } = params;
+  const info = await getNFTInfoDetail(collectionContract, tokenId);
+  return {
+    title: `${info.name} - ${info.collection_name} | QWERO`,
+    description: info.collection_name,
+    openGraph: {
+      images: [info.image],
+      title: info.name,
+      description: `Get Your NFT Right Now! - ${info.collection_name}`,
+      siteName: "QWERO",
+    },
+  };
+}
+
 export default async function NFTDetail({ params }: { params: ParamsType }) {
   const { collectionContract, tokenId } = params;
-  const info = await getNFTInfoDetail(collectionContract, tokenId);
-  const history = await getSaleHistory(collectionContract, tokenId);
+  const [info, history] = await Promise.all([
+    getNFTInfoDetail(collectionContract, tokenId),
+    getSaleHistory(collectionContract, tokenId),
+  ]);
+
   const { image, traits } = info;
+  console.log(info);
   return (
     <div className="flex flex-col w-full gap-5 py-10 m-auto max-w-7xl">
       <section className="flex flex-col w-full gap-5 md:flex-row">

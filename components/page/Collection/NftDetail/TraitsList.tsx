@@ -6,19 +6,19 @@ interface TraitsType {
 export default function TraitsList({ traits = [] }: { traits: TraitsType[] }) {
   return (
     <section className="flex flex-col gap-2 mt-2 rounded-md ">
-      <h2 className="p-1 text-center border-2 border-black rounded-md">
-        Traits
-      </h2>
+      <h2 className="p-1 text-center border-2 rounded-md">Traits</h2>
       <ul className="grid grid-cols-3 gap-2">
         {traits.map((trait: any) => {
           return (
             <li
               key={trait.type}
-              className="flex flex-col text-center border-[1px] border-black rounded-md hover:bg-slate-200 p-1"
+              className="flex flex-col p-1 font-bold text-center border-2 rounded-md hover:bg-slate-200"
             >
-              <div>{trait.type}</div>
+              <div className="text-gray-500 ">{trait.type}</div>
               <div className="w-full text-center truncate">{trait.value}</div>
-              <div>{trait.percentage}%</div>
+              <div className="font-normal text-gray-500">
+                {(trait.percentage * 100).toFixed(0)}%
+              </div>
             </li>
           );
         })}

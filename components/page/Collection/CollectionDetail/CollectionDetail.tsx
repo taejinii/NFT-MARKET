@@ -1,6 +1,5 @@
 export default function CollectionDetail({ detail }: any) {
-  const { total_supply, holder_num, listring_num, floor_price, volume_eth } =
-    detail;
+  const { total_supply, holder_num, floor_price, volume_eth } = detail;
   return (
     <ul className="flex flex-wrap">
       <li className="flex flex-col gap-2 p-4 border-r-2 border-gray-400">

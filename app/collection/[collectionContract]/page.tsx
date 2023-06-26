@@ -18,8 +18,6 @@ export default async function CollectionDetailPage({
     getCollectionDetail(collectionContract),
     getCollectionInfo(collectionContract),
   ]);
-  // const detail = await getCollectionDetail(collectionContract);
-  // const info = await getCollectionInfo(collectionContract);
   const nftListData = getCollectionNFTs(collectionContract, 20);
   return (
     <>

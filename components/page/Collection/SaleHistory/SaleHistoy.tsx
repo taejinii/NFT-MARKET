@@ -1,4 +1,4 @@
-"use client";
+import Link from "next/link";
 import { getTimeDifference } from "@/utils/getTimeDifference";
 interface TransActionType {
   action: string;
@@ -14,9 +14,7 @@ interface TransActionProps {
 
 export default function SaleHistoy({ history }: { history: TransActionProps }) {
   const { transactions = [] } = history;
-  const directProfile = (contract: string) => [
-    window.open(`https://opensea.io/${contract}`, "_blank"),
-  ];
+
   return (
     <div className="w-full overflow-auto font-bold max-h-80">
       <div className="sticky top-0 flex p-2 space-x-4 bg-white border-b-2 border-black">
@@ -43,18 +41,20 @@ export default function SaleHistoy({ history }: { history: TransActionProps }) {
                 : ""}
               {transaction.price?.value ? "ETH" : ""}
             </div>
-            <div
+            <Link
               className="flex-1 truncate cursor-pointer"
-              onClick={() => directProfile(transaction.sender.address)}
+              href={`https://opensea.io/${transaction.sender.address}`}
+              target="_blank"
             >
               {transaction.sender.address}
-            </div>
-            <div
+            </Link>
+            <Link
+              href={`https://opensea.io/${transaction.receiver.address}`}
+              target="_blank"
               className="flex-1 truncate cursor-pointer"
-              onClick={() => directProfile(transaction.receiver.address)}
             >
               {transaction.receiver.address}
-            </div>
+            </Link>
             <div className="flex-1">{timeString}</div>
           </div>
         );

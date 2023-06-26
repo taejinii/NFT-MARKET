@@ -4,24 +4,24 @@ import NftInfo from "@/components/page/Collection/NftDetail/NftInfo";
 import TraitsList from "@/components/page/Collection/NftDetail/TraitsList";
 import Accordion from "@/components/ui/Accordion/index";
 import SaleHistoy from "@/components/page/Collection/SaleHistory/SaleHistoy";
-import { Metadata, ResolvedMetadata } from "next";
+import { Metadata } from "next";
 
 interface ParamsType {
   collectionContract: string;
   tokenId: string;
 }
-export async function generateMetadata(
-  { params }: { params: ParamsType },
-  parent: ResolvedMetadata
-): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: ParamsType;
+}): Promise<Metadata> {
   const { tokenId, collectionContract } = params;
   const info = await getNFTInfoDetail(collectionContract, tokenId);
-  const previousImage = (await parent).openGraph?.images || [];
   return {
     title: `${info.name} - ${info.collection_name} | QWERO`,
     description: info.collection_name,
     openGraph: {
-      images: [info.image, ...previousImage],
+      images: [info.image],
       title: info.name,
       description: `Get Your NFT Right Now! - ${info.collection_name}`,
       siteName: "QWERO",

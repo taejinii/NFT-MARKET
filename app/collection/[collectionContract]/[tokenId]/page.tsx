@@ -10,8 +10,7 @@ interface ParamsType {
 }
 export default async function NFTDetail({ params }: { params: ParamsType }) {
   const { collectionContract, tokenId } = params;
-  // const info = await getNFTInfoDetail(collectionContract, tokenId);
-  // const history = await getSaleHistory(collectionContract, tokenId);
+
   const [info, history] = await Promise.all([
     getNFTInfoDetail(collectionContract, tokenId),
     getSaleHistory(collectionContract, tokenId),

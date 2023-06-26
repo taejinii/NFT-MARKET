@@ -5,7 +5,6 @@ interface NftListType {
   image: string;
 }
 export default async function CollectionList({ promise }: any) {
-  // const { nfts = [] } = nftList;
   const { nfts } = await promise;
   return (
     <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">

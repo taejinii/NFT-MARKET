@@ -28,7 +28,6 @@ export default async function CollectionDetailPage({
         <CollectionDetail detail={detail} />
       </header>
       <Suspense fallback={<div>Loading...</div>}>
-        {/* @ts-expect-error Server Component */}
         <CollectionList promise={nftListData} />
       </Suspense>
     </>

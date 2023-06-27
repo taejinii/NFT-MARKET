@@ -8,7 +8,7 @@ export default function TraitsList({ traits = [] }: { traits: TraitsType[] }) {
     <section className="flex flex-col gap-2 mt-2 rounded-md ">
       <h2 className="p-1 text-center border-2 rounded-md">Traits</h2>
       <ul className="grid grid-cols-3 gap-2">
-        {traits.map((trait: any) => {
+        {traits.map((trait) => {
           return (
             <li
               key={trait.type}

@@ -18,12 +18,14 @@ export async function generateMetadata({
   const { tokenId, collectionContract } = params;
   const info = await getNFTInfoDetail(collectionContract, tokenId);
   return {
+    metadataBase: new URL("https://nft-market-taejinii.vercel.app/"),
     title: `${info.name} - ${info.collection_name} | QWERO`,
     description: info.collection_name,
     openGraph: {
-      images: [info.image],
+      images: { url: info.image, alt: info.name },
       title: info.name,
       description: `Get Your NFT Right Now! - ${info.collection_name}`,
+      url: `/collection/${collectionContract}/${tokenId}`,
     },
   };
 }

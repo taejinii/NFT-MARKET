@@ -1,5 +1,6 @@
 import Link from "next/link";
-export default function NftInfo({ info }: any) {
+import { NFTInfo } from "@/types/types";
+export default function NftInfo({ info }: { info: NFTInfo }) {
   const { collection_name, name, rarity, owner_addresses, contract_address } =
     info;
 

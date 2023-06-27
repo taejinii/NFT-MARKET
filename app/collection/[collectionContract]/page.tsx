@@ -14,23 +14,20 @@ export default async function CollectionDetailPage({
 }) {
   const { collectionContract } = params;
 
-  // const [detail, info] = await Promise.all([
-  //   getCollectionDetail(collectionContract),
-  //   getCollectionInfo(collectionContract),
-  // ]);
-  const infoPromise = getCollectionInfo(collectionContract);
-  const detailPromise = getCollectionDetail(collectionContract);
+  const [detail, info] = await Promise.all([
+    getCollectionDetail(collectionContract),
+    getCollectionInfo(collectionContract),
+  ]);
+
   const nftListData = getCollectionNFTs(collectionContract, 20);
   return (
     <>
       <header className="flex flex-col items-start gap-10 py-10 mt-10 font-bold">
-        {/* <CollectionInfo info={info} />
-        <CollectionDetail detail={detail} /> */}
         <Suspense fallback={<div>Loading...</div>}>
-          <CollectionInfo promise={infoPromise} />
+          <CollectionInfo info={info} />
         </Suspense>
         <Suspense fallback={<div>Loading...</div>}>
-          <CollectionDetail promise={detailPromise} />
+          <CollectionDetail detail={detail} />
         </Suspense>
       </header>
       <Suspense fallback={<div>Loading...</div>}>

@@ -1,14 +1,16 @@
 import Card from "@/components/ui/Card";
-interface NftListType {
-  collection_name: string;
-  token_id: string;
-  image: string;
-}
-export default async function CollectionList({ promise }: any) {
+import { NFTCollectionList } from "@/types/types";
+
+export default async function CollectionList({
+  promise,
+}: {
+  promise: Promise<NFTCollectionList>;
+}) {
   const { nfts } = await promise;
+  console.log(promise);
   return (
     <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
-      {nfts.map((nft: NftListType) => {
+      {nfts.map((nft) => {
         return <Card key={nft.token_id} {...nft} />;
       })}
     </div>

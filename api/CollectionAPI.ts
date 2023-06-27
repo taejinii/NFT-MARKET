@@ -3,6 +3,8 @@ import {
   NFTInfo,
   NFTTransAction,
   CollectionInfo,
+  CollectionList,
+  NFTCollectionList,
 } from "@/types/types";
 const options = {
   method: "GET",
@@ -19,7 +21,10 @@ export const getCollectionRanking = async (volumeFilter: string) => {
   return res.json();
 };
 
-export const getCollectionNFTs = async (contract: string, limit: number) => {
+export const getCollectionNFTs = async (
+  contract: string,
+  limit: number
+): Promise<NFTCollectionList> => {
   try {
     const res = await fetch(
       `https://data-api.nftgo.io/eth/v1/collection/${contract}/nfts?offset=0&limit=${limit}`,
@@ -27,7 +32,8 @@ export const getCollectionNFTs = async (contract: string, limit: number) => {
     );
     return res.json();
   } catch (error) {
-    console.log(error);
+    console.error(error);
+    throw error;
   }
 };
 export const getCollectionDetail = async (

@@ -1,4 +1,3 @@
-"use client";
 import Link from "next/link";
 import { getTimeDifference } from "@/utils/getTimeDifference";
 import { NFTTransAction } from "@/types/types";

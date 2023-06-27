@@ -1,12 +1,8 @@
 import Image from "next/image";
 import SocialButton from "@/components/page/Collection/CollectionDetail/SocialButton";
 import { CollectionInfo } from "@/types/types";
-export default async function CollectionInfo({
-  promise,
-}: {
-  promise: Promise<CollectionInfo>;
-}) {
-  const { name, description, logo, discord_url, twitter_url } = await promise;
+export default function CollectionInfo({ info }: { info: CollectionInfo }) {
+  const { name, description, logo, discord_url, twitter_url } = info;
   return (
     <>
       <div className="flex items-center w-full ">

@@ -1,5 +1,4 @@
 import Ranking from "@/components/page/Collection/Ranking";
-
 export default function CollectionPage() {
   return (
     <>

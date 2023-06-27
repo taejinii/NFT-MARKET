@@ -1,20 +1,9 @@
 import Link from "next/link";
 import { getTimeDifference } from "@/utils/getTimeDifference";
-interface TransActionType {
-  action: string;
-  sender: { address: string };
-  price: { value: number } | null;
-  receiver: { address: string };
-  tx_hash: string;
-  time: number;
-}
-interface TransActionProps {
-  transactions: TransActionType[];
-}
+import { NFTTransAction } from "@/types/types";
 
-export default function SaleHistoy({ history }: { history: TransActionProps }) {
-  const { transactions = [] } = history;
-
+export default function SaleHistoy({ history }: { history: NFTTransAction }) {
+  const { transactions } = history;
   return (
     <div className="w-full overflow-auto font-bold max-h-80">
       <div className="sticky top-0 flex p-2 space-x-4 bg-white border-b-2 border-black">

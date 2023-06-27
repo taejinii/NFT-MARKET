@@ -24,7 +24,6 @@ export async function generateMetadata({
       images: [info.image],
       title: info.name,
       description: `Get Your NFT Right Now! - ${info.collection_name}`,
-      siteName: "QWERO",
     },
   };
 }
@@ -35,9 +34,7 @@ export default async function NFTDetail({ params }: { params: ParamsType }) {
     getNFTInfoDetail(collectionContract, tokenId),
     getSaleHistory(collectionContract, tokenId),
   ]);
-
   const { image, traits } = info;
-  console.log(info);
   return (
     <div className="flex flex-col w-full gap-5 py-10 m-auto max-w-7xl">
       <section className="flex flex-col w-full gap-5 md:flex-row">

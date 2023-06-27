@@ -32,6 +32,7 @@ export async function generateMetadata({
 
 export default async function NFTDetail({ params }: { params: ParamsType }) {
   const { collectionContract, tokenId } = params;
+  console.log(params);
   const [info, history] = await Promise.all([
     getNFTInfoDetail(collectionContract, tokenId),
     getSaleHistory(collectionContract, tokenId),

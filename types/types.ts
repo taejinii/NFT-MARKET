@@ -39,3 +39,12 @@ interface NFTSaleHistory {
 export interface NFTTransAction {
   transactions: NFTSaleHistory[];
 }
+
+export interface CollectionList {
+  collection_name: string;
+  token_id: string;
+  image: string;
+}
+export interface NFTCollectionList {
+  nfts: CollectionList[];
+}

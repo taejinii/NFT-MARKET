@@ -1,4 +1,3 @@
-"use client";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -17,6 +16,7 @@ export default function RankedItem({ ...props }) {
     <>
       <li className="flex items-center p-2 py-2 text-sm hover:bg-gray-200 hover:rounded-xl">
         <Link
+          prefetch={false}
           href={`/collection/${contract}`}
           className="flex w-full space-x-4"
         >

@@ -3,7 +3,6 @@ import {
   NFTInfo,
   NFTTransAction,
   CollectionInfo,
-  CollectionList,
   NFTCollectionList,
 } from "@/types/types";
 const options = {
@@ -14,11 +13,16 @@ const options = {
   },
 };
 export const getCollectionRanking = async (volumeFilter: string) => {
-  const res = await fetch(
-    `https://data-api.nftgo.io/eth/v1/market/rank/collection/${volumeFilter}?by=volume&with_rarity=false&asc=false&offset=0&limit=20`,
-    options
-  );
-  return await res.json();
+  try {
+    const res = await fetch(
+      `https://data-api.nftgo.io/eth/v1/market/rank/collection/${volumeFilter}?by=volume&with_rarity=false&asc=false&offset=0&limit=20`,
+      { cache: "no-store", ...options }
+    );
+    return await res.json();
+  } catch (error) {
+    console.error(error);
+    throw new Error("Failed to fetch data");
+  }
 };
 
 export const getCollectionNFTs = async (
@@ -28,12 +32,12 @@ export const getCollectionNFTs = async (
   try {
     const res = await fetch(
       `https://data-api.nftgo.io/eth/v1/collection/${contract}/nfts?offset=0&limit=${limit}`,
-      options
+      { cache: "no-store", ...options }
     );
     return await res.json();
   } catch (error) {
     console.error(error);
-    throw error;
+    throw new Error("Failed to fetch data");
   }
 };
 export const getCollectionDetail = async (
@@ -47,7 +51,7 @@ export const getCollectionDetail = async (
     return await res.json();
   } catch (error) {
     console.error(error);
-    throw error;
+    throw new Error("Failed to fetch data");
   }
 };
 
@@ -62,7 +66,7 @@ export const getCollectionInfo = async (
     return await res.json();
   } catch (error) {
     console.error(error);
-    throw error;
+    throw new Error("Failed to fetch data");
   }
 };
 
@@ -73,12 +77,12 @@ export const getNFTInfoDetail = async (
   try {
     const res = await fetch(
       `https://data-api.nftgo.io/eth/v1/nft/${contract}/${tokenId}/info`,
-      options
+      { cache: "no-store", ...options }
     );
     return await res.json();
   } catch (error) {
     console.error(error);
-    throw error;
+    throw new Error("Failed to fetch data");
   }
 };
 
@@ -94,6 +98,6 @@ export const getSaleHistory = async (
     return await res.json();
   } catch (error) {
     console.error(error);
-    throw error;
+    throw new Error("Failed to fetch data");
   }
 };

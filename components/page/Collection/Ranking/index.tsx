@@ -25,7 +25,7 @@ export default function Ranking() {
           {isLoading ? (
             <div>Loading...</div>
           ) : (
-            data.collections.map((collection, index: number) => {
+            data.collections?.map((collection, index: number) => {
               return (
                 <RankedItem
                   key={collection.slug}

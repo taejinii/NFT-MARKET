@@ -35,12 +35,13 @@ export default async function NFTDetailPage({
 }) {
   const { collectionContract, tokenId } = params;
 
-  // const [info, history] = await Promise.all([
-  //   getNFTInfoDetail(collectionContract, tokenId),
-  //   getSaleHistory(collectionContract, tokenId),
-  // ]);
-  const info = await getNFTInfoDetail(collectionContract, tokenId);
-  const history = await getSaleHistory(collectionContract, tokenId);
+  const [info, history] = await Promise.all([
+    getNFTInfoDetail(collectionContract, tokenId),
+    getSaleHistory(collectionContract, tokenId),
+  ]);
+  // const info = await getNFTInfoDetail(collectionContract, tokenId);
+  // const history = await getSaleHistory(collectionContract, tokenId);
+  console.log("NFT detail", info);
   return (
     <div className="flex flex-col w-full gap-5 py-10 m-auto max-w-7xl">
       <section className="flex flex-col w-full gap-5 md:flex-row">

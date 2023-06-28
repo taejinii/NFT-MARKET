@@ -13,6 +13,7 @@ export default function Card({ ...nft }) {
 
   return (
     <Link
+      prefetch={false}
       href={`/collection/${contract_address}/${token_id}`}
       className="flex flex-col p-3 w-full h-auto  max-h-96 gap-4 rounded-xl bg-[#18191E] cursor-pointer"
     >

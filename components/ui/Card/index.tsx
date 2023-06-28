@@ -25,7 +25,7 @@ export default function Card({ ...nft }) {
           placeholder="blur"
           priority
           blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN0cPCpBwAC4QFN8b7mrwAAAABJRU5ErkJggg=="
-          className="object-cover duration-200 hover:scale-125"
+          className="object-fill duration-200 hover:scale-125"
         />
       </div>
 

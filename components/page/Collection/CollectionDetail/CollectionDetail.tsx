@@ -19,11 +19,11 @@ export default function CollectionDetail({
       </li>
       <li className="flex flex-col gap-2 p-4 border-r-2 border-gray-400">
         <div className="text-base font-normal uppercase">volume</div>
-        <div className="text-4xl">{volume_eth.all.toFixed(2)} ETH</div>
+        <div className="text-4xl">{volume_eth?.all.toFixed(2)} ETH</div>
       </li>
       <li className="flex flex-col gap-2 p-4">
         <div className="text-base font-normal uppercase">floor</div>
-        <div className="text-4xl">{floor_price.value.toFixed(2)} ETH</div>
+        <div className="text-4xl">{floor_price?.value.toFixed(2)} ETH</div>
       </li>
     </ul>
   );

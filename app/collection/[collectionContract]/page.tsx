@@ -7,7 +7,7 @@ import CollectionDetail from "@/components/page/Collection/CollectionDetail/Coll
 import CollectionInfo from "@/components/page/Collection/CollectionDetail/CollectionInfo";
 import CollectionList from "@/components/page/Collection/CollectionDetail/CollectionList";
 import { Suspense } from "react";
-import CollectionListLoading from "./loading";
+import CollectionListLoading from "@/components/ui/Skeleton/CollectionListLoading";
 export default async function CollectionDetailPage({
   params,
 }: {
@@ -15,21 +15,19 @@ export default async function CollectionDetailPage({
 }) {
   const { collectionContract } = params;
 
-  const [detail, info] = await Promise.all([
-    getCollectionDetail(collectionContract),
-    getCollectionInfo(collectionContract),
-  ]);
+  // const [detail, info] = await Promise.all([
+  //   getCollectionDetail(collectionContract),
+  //   getCollectionInfo(collectionContract),
+  // ]);
+  const detail = await getCollectionDetail(collectionContract);
+  const info = await getCollectionInfo(collectionContract);
 
   const nftListData = getCollectionNFTs(collectionContract, 20);
   return (
     <>
       <header className="flex flex-col items-start gap-10 py-10 mt-10 font-bold">
-        <Suspense fallback={<div>Loading...</div>}>
-          <CollectionInfo info={info} />
-        </Suspense>
-        <Suspense fallback={<div>Loading...</div>}>
-          <CollectionDetail detail={detail} />
-        </Suspense>
+        <CollectionInfo info={info} />
+        <CollectionDetail detail={detail} />
       </header>
       <Suspense fallback={<CollectionListLoading />}>
         <CollectionList promise={nftListData} />

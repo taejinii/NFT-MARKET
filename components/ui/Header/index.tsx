@@ -13,10 +13,10 @@ export default function Header() {
     document.addEventListener("scroll", handleScrollY, { passive: true });
     return () => document.removeEventListener("scroll", handleScrollY);
   }, [handleScrollY]);
-  const handleIsOpen = () => {
+
+  const handleIsOpen = useCallback(() => {
     setIsOpen(!isOpen);
-  };
-  console.log(isOpen);
+  }, [isOpen]);
   return (
     <nav
       className={`flex justify-between font-bold  text-2xl text-black items-center w-full responsive-container drop-shadow  fixed top-0 h-16 z-50 duration-300  ${

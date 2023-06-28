@@ -18,7 +18,7 @@ export const getCollectionRanking = async (volumeFilter: string) => {
     `https://data-api.nftgo.io/eth/v1/market/rank/collection/${volumeFilter}?by=volume&with_rarity=false&asc=false&offset=0&limit=20`,
     options
   );
-  return res.json();
+  return await res.json();
 };
 
 export const getCollectionNFTs = async (
@@ -30,7 +30,7 @@ export const getCollectionNFTs = async (
       `https://data-api.nftgo.io/eth/v1/collection/${contract}/nfts?offset=0&limit=${limit}`,
       options
     );
-    return res.json();
+    return await res.json();
   } catch (error) {
     console.error(error);
     throw error;
@@ -44,7 +44,7 @@ export const getCollectionDetail = async (
       `https://data-api.nftgo.io/eth/v1/collection/${contract}/metrics`,
       options
     );
-    return res.json();
+    return await res.json();
   } catch (error) {
     console.error(error);
     throw error;
@@ -59,7 +59,7 @@ export const getCollectionInfo = async (
       `https://data-api.nftgo.io/eth/v1/collection/${contract}/info`,
       options
     );
-    return res.json();
+    return await res.json();
   } catch (error) {
     console.error(error);
     throw error;
@@ -75,7 +75,7 @@ export const getNFTInfoDetail = async (
       `https://data-api.nftgo.io/eth/v1/nft/${contract}/${tokenId}/info`,
       options
     );
-    return res.json();
+    return await res.json();
   } catch (error) {
     console.error(error);
     throw error;
@@ -91,7 +91,7 @@ export const getSaleHistory = async (
       `https://data-api.nftgo.io/eth/v1/history/nft/transactions?contract_address=${contract}&token_id=${tokenId}&action=all&scroll=1672531200000&scroll_limit=50`,
       options
     );
-    return res.json();
+    return await res.json();
   } catch (error) {
     console.error(error);
     throw error;

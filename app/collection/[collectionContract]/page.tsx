@@ -15,12 +15,12 @@ export default async function CollectionDetailPage({
 }) {
   const { collectionContract } = params;
 
-  // const [detail, info] = await Promise.all([
-  //   getCollectionDetail(collectionContract),
-  //   getCollectionInfo(collectionContract),
-  // ]);
-  const detail = await getCollectionDetail(collectionContract);
-  const info = await getCollectionInfo(collectionContract);
+  const [detail, info] = await Promise.all([
+    getCollectionDetail(collectionContract),
+    getCollectionInfo(collectionContract),
+  ]);
+  // const detail = await getCollectionDetail(collectionContract);
+  // const info = await getCollectionInfo(collectionContract);
 
   const nftListData = getCollectionNFTs(collectionContract, 20);
   return (

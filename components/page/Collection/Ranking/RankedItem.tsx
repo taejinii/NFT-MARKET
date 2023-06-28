@@ -29,6 +29,7 @@ export default function RankedItem({ ...props }) {
                 alt="Ranked NFT Image"
                 fill
                 placeholder="blur"
+                priority
                 blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN0cPCpBwAC4QFN8b7mrwAAAABJRU5ErkJggg=="
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="absolute object-cover rounded-full drop-shadow-lg"

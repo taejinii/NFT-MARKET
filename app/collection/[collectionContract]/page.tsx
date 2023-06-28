@@ -7,6 +7,7 @@ import CollectionDetail from "@/components/page/Collection/CollectionDetail/Coll
 import CollectionInfo from "@/components/page/Collection/CollectionDetail/CollectionInfo";
 import CollectionList from "@/components/page/Collection/CollectionDetail/CollectionList";
 import { Suspense } from "react";
+import CollectionListLoading from "./loading";
 export default async function CollectionDetailPage({
   params,
 }: {
@@ -30,7 +31,7 @@ export default async function CollectionDetailPage({
           <CollectionDetail detail={detail} />
         </Suspense>
       </header>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<CollectionListLoading />}>
         <CollectionList promise={nftListData} />
       </Suspense>
     </>

@@ -1,7 +1,8 @@
 "use client";
 import { useEffect } from "react";
-import LoginModal from "./LoginModal";
 import { useAppSelector } from "@/store/index";
+import LoginModal from "./LoginModal";
+import Overlay from "../Overlay";
 
 const MODAL_TYPES = {
   LoginModal: "LoginModal",
@@ -23,5 +24,10 @@ export default function GlobalModal() {
   const findModal = MODAL_COMPONENTS.find((modal) => modal.type === modalType);
   const renderModal = () => findModal?.component;
 
-  return <>{isOpen && renderModal()}</>;
+  return (
+    <>
+      {isOpen && <Overlay />}
+      {isOpen && renderModal()}
+    </>
+  );
 }

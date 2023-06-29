@@ -1,6 +1,5 @@
 import Card from "@/components/ui/Card";
 import { NFTCollectionList } from "@/types/types";
-
 export default async function CollectionList({
   promise,
 }: {

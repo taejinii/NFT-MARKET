@@ -3,6 +3,7 @@ import RankedItem from "./RankedItem";
 import RankingFilter from "./RankingFilter";
 import { useGetRankData } from "@/hooks/queries/useGetRankData";
 import { useState } from "react";
+import RankingListLoading from "@/components/ui/Skeleton/RankingListLoading";
 export default function Ranking() {
   const [volumeFilter, setVolumeFilter] = useState<string>("24h");
   const {
@@ -23,7 +24,7 @@ export default function Ranking() {
         </header>
         <ul>
           {isLoading ? (
-            <div>Loading...</div>
+            <RankingListLoading />
           ) : (
             data.collections?.map((collection, index: number) => {
               return (

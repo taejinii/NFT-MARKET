@@ -18,11 +18,10 @@ export default function RankedItem({ ...props }) {
         <Link
           prefetch={false}
           href={`/collection/${contract}`}
-          className="flex w-full space-x-4"
+          className="flex items-center w-full space-x-4"
         >
           <div className="flex items-center flex-1 grow-[3]">
             <div className="w-10 text-gray-500">{rank + 1}</div>
-
             <div className="relative w-12 h-12">
               <Image
                 src={logo}
@@ -32,7 +31,7 @@ export default function RankedItem({ ...props }) {
                 priority
                 blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN0cPCpBwAC4QFN8b7mrwAAAABJRU5ErkJggg=="
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                className="absolute object-cover rounded-full drop-shadow-lg"
+                className="absolute object-cover rounded-xl drop-shadow-lg"
               />
             </div>
 
@@ -43,12 +42,14 @@ export default function RankedItem({ ...props }) {
               </div>
             </div>
           </div>
+
           <div className="flex-1 hidden text-right md:block">
             {volume_eth.toFixed(2)} E
           </div>
           <div className="flex-1 hidden text-right md:block">
             {floorPrice.toFixed(2)} E
           </div>
+
           <div className="flex-1 hidden text-right md:block">{owner}</div>
           <div className="flex flex-col flex-1 text-right">
             <div className="hidden md:block">{whale_num}</div>

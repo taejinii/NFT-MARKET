@@ -1,11 +1,14 @@
 "use client";
-import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
+import { useState, useEffect, useCallback } from "react";
+import { useAppDispatch } from "@/store";
+import { openModal } from "@/store/modalSlice";
 import { NAVBAR_MENU } from "@/constant/constant";
 import { FiMenu } from "react-icons/fi";
 export default function Header() {
   const [scrollY, setScrollY] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
+  const dispatch = useAppDispatch();
   const handleScrollY = useCallback(() => {
     setScrollY(window.scrollY);
   }, []);
@@ -17,6 +20,9 @@ export default function Header() {
   const handleIsOpen = useCallback(() => {
     setIsOpen(!isOpen);
   }, [isOpen]);
+  const handleModalOpen = () => {
+    dispatch(openModal({ modalType: "LoginModal" }));
+  };
   return (
     <nav
       className={`flex justify-between font-bold  text-2xl text-black items-center w-full responsive-container drop-shadow  fixed top-0 h-16 z-50 duration-300  ${
@@ -58,7 +64,9 @@ export default function Header() {
       <button className="sm:hidden" onClick={handleIsOpen}>
         <FiMenu size={30} />
       </button>
-      <div className="hidden sm:block">Login</div>
+      <button className="hidden sm:block" onClick={handleModalOpen}>
+        Login
+      </button>
     </nav>
   );
 }

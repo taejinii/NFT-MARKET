@@ -77,7 +77,7 @@ export const getNFTInfoDetail = async (
   try {
     const res = await fetch(
       `https://data-api.nftgo.io/eth/v1/nft/${contract}/${tokenId}/info`,
-      { cache: "no-store", ...options }
+      options
     );
     return await res.json();
   } catch (error) {

@@ -1,4 +1,6 @@
 "use client";
+import { WagmiConfig, createConfig, configureChains, mainnet } from "wagmi";
+import { publicProvider } from "wagmi/providers/public";
 import { useState, PropsWithChildren } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { SessionProvider } from "next-auth/react";
@@ -15,10 +17,22 @@ export default function Providers({ children }: PropsWithChildren) {
         },
       })
   );
+
+  const { chains, publicClient, webSocketPublicClient } = configureChains(
+    [mainnet],
+    [publicProvider()]
+  );
+
+  const config = createConfig({
+    autoConnect: true,
+    publicClient,
+    webSocketPublicClient,
+  });
+
   return (
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
-        <SessionProvider>{children}</SessionProvider>
+        <WagmiConfig config={config}>{children}</WagmiConfig>
       </QueryClientProvider>
     </Provider>
   );

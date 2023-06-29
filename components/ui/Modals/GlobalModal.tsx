@@ -1,14 +1,14 @@
 "use client";
 import { useEffect } from "react";
 import { useAppSelector } from "@/store/index";
-import LoginModal from "./LoginModal";
+import WalletModal from "./WalletModal";
 import Overlay from "../Overlay";
 
 const MODAL_TYPES = {
-  LoginModal: "LoginModal",
+  WalletModal: "WalletModal",
 };
 const MODAL_COMPONENTS = [
-  { type: MODAL_TYPES.LoginModal, component: <LoginModal /> },
+  { type: MODAL_TYPES.WalletModal, component: <WalletModal /> },
 ];
 
 export default function GlobalModal() {

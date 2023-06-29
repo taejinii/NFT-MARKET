@@ -21,7 +21,7 @@ export default function Header() {
     setIsOpen(!isOpen);
   }, [isOpen]);
   const handleModalOpen = () => {
-    dispatch(openModal({ modalType: "LoginModal" }));
+    dispatch(openModal({ modalType: "WalletModal" }));
   };
   return (
     <nav

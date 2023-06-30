@@ -51,3 +51,20 @@ export interface CollectionList {
 export interface NFTCollectionList {
   nfts: CollectionList[];
 }
+
+/**UserInfoType */
+interface UserAssets {
+  nft: {
+    blockchain: string;
+    collection_name: string;
+    token_id: string;
+    image: string;
+    name: string;
+    contract_address: string;
+    owner_addresses: string;
+  };
+}
+export interface User {
+  total: number;
+  assets: UserAssets[];
+}

@@ -13,7 +13,7 @@ export default function UserInfo({ userInfo }: { userInfo: User }) {
           height={150}
         />
         <h2 className="w-full truncate ">{assets[0].nft.owner_addresses}</h2>
-        <button className="px-6 py-3 font-bold border-2 rounded-lg  grow-[3]">
+        <button className="px-6 py-3 font-bold border-2 rounded-lg">
           Edit
         </button>
       </div>

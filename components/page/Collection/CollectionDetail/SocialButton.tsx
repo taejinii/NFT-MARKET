@@ -1,4 +1,5 @@
-import { BsTwitter, BsDiscord } from "react-icons/bs";
+import Twitter from "../../../../public/icons/Twitter.svg";
+import Discord from "../../../../public/icons/Discord.svg";
 import Link from "next/link";
 interface SocialLinkType {
   discord_url: string;
@@ -13,20 +14,22 @@ export default function SocialButton({
     <div className="flex ">
       {twitter_url && (
         <Link
+          passHref
           href={twitter_url}
           target="_blank"
           className="p-2 rounded-md hover:bg-gray-200 drop-shadow-md"
         >
-          <BsTwitter size={30} fill="#1D96E8" />
+          <Twitter className="h-10 w-10 fill-[#1D96E8]" />
         </Link>
       )}
       {discord_url && (
         <Link
+          passHref
           className="p-2 rounded-md hover:bg-gray-200 drop-shadow-md"
           href={discord_url}
           target="_blank"
         >
-          <BsDiscord size={30} fill="#5462EB" />
+          <Discord className="h-10 w-10 fill-[#5462EB]" />
         </Link>
       )}
     </div>

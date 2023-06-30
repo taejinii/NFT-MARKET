@@ -46,6 +46,7 @@ export default function BestCollectionSlider() {
                 src={`/images/azuki${index + 1}.avif`}
                 alt="Best Collection item"
                 fill
+                priority
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="absolute object-cover w-full h-full rounded-xl"
               />

@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import { NAVBAR_MENU } from "@/constant/constant";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import MenuBar from "../../../public/icons/MenuBar.svg";
+
 export default function Header() {
   const [scrollY, setScrollY] = useState(0);
   const [isOpen, setIsOpen] = useState(false);

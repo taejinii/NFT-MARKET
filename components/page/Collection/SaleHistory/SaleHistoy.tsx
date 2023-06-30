@@ -32,14 +32,12 @@ export default function SaleHistoy({ history }: { history: NFTTransAction }) {
             </div>
             <Link
               className="flex-1 truncate cursor-pointer"
-              href={`https://opensea.io/${transaction.sender.address}`}
-              target="_blank"
+              href={`/user/${transaction.sender.address}`}
             >
               {transaction.sender.address}
             </Link>
             <Link
-              href={`https://opensea.io/${transaction.receiver.address}`}
-              target="_blank"
+              href={`/user/${transaction.receiver.address}`}
               className="flex-1 truncate cursor-pointer"
             >
               {transaction.receiver.address}

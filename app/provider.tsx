@@ -7,7 +7,6 @@ import { mainnet, polygon, optimism, arbitrum, zora } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
 import { useState, PropsWithChildren, useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { SessionProvider } from "next-auth/react";
 import { Provider } from "react-redux";
 import { store } from "@/store";
 export default function Providers({ children }: PropsWithChildren) {

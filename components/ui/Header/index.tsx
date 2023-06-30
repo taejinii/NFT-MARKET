@@ -1,10 +1,13 @@
 "use client";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { useState, useEffect, useCallback } from "react";
 import { NAVBAR_MENU } from "@/constant/constant";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
+import WalletConnectButton from "../WalletConnectButton";
 import MenuBar from "../../../public/icons/MenuBar.svg";
-
+/**모바일 뷰포트이기 전까진 사용할일이 없기때문에 처음부터 로드하지않고 필요해짐에따라 로드하여 렌더링해준다. 앱의 초기용량을 줄일수가있다.
+ */
+const MobileNavBar = dynamic(() => import("../Header/MobileNavBar"));
 export default function Header() {
   const [scrollY, setScrollY] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
@@ -38,32 +41,12 @@ export default function Header() {
           );
         })}
       </ul>
-      {isOpen && (
-        <ul className="absolute top-0 left-0 flex flex-col items-center w-full h-screen p-2 mt-16 bg-white sm:hidden">
-          {NAVBAR_MENU.map((menu) => {
-            return (
-              <li
-                key={menu.title}
-                className="flex p-4 text-center rounded-md active:bg-slate-200"
-              >
-                <Link
-                  href={menu.url}
-                  className="w-full"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {menu.title}
-                </Link>
-              </li>
-            );
-          })}
-          <ConnectButton accountStatus="avatar" chainStatus="icon" />
-        </ul>
-      )}
-      <button className="block sm:hidden" onClick={handleIsOpen}>
-        <MenuBar className="w-10 h-10 fill-black" />
-      </button>
-      <div className="hidden sm:block">
-        <ConnectButton accountStatus="avatar" chainStatus="icon" />
+      {isOpen && <MobileNavBar setIsOpen={setIsOpen} />}
+      <div className="flex gap-5 mt-2">
+        <WalletConnectButton />
+        <button className="block sm:hidden" onClick={handleIsOpen}>
+          <MenuBar className="w-8 h-8 fill-black" />
+        </button>
       </div>
     </nav>
   );

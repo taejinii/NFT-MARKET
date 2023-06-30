@@ -46,7 +46,7 @@ export interface CollectionList {
   image: string;
   name: string;
   contract_address: string;
-  last_sale: number;
+  last_sale?: { price_token: number; token_symbol: string };
 }
 export interface NFTCollectionList {
   nfts: CollectionList[];

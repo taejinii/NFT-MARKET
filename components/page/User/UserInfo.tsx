@@ -9,13 +9,16 @@ export default function UserInfo({ userInfo }: { userInfo: User }) {
           className="rounded-full grow-[3] drop-shadow-md"
           src="/images/azuki2.avif"
           alt="User Profile Image"
+          priority
+          placeholder="blur"
+          blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN0cPCpBwAC4QFN8b7mrwAAAABJRU5ErkJggg=="
           width={150}
           height={150}
         />
         <h2 className="w-full truncate ">{assets[0].nft.owner_addresses}</h2>
-        <button className="px-6 py-3 font-bold border-2 rounded-lg">
+        {/* <button className="px-6 py-3 font-bold border-2 rounded-lg">
           Edit
-        </button>
+        </button> */}
       </div>
     </header>
   );

@@ -11,8 +11,7 @@ export default function NftInfo({ info }: { info: NFTInfo }) {
       </Link>
       <h1 className="max-md:text-4xl">{name}</h1>
       <Link
-        href={`https://opensea.io/${owner_addresses}`}
-        target="_blank"
+        href={`/user/${owner_addresses}`}
         className="truncate"
       >
         Owned by {owner_addresses}

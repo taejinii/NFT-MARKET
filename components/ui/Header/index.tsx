@@ -5,9 +5,17 @@ import { useAppDispatch } from "@/store";
 import { openModal } from "@/store/modalSlice";
 import { NAVBAR_MENU } from "@/constant/constant";
 import { FiMenu } from "react-icons/fi";
+import Image from "next/image";
+import { disconnect } from "@wagmi/core";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
+
 export default function Header() {
+  const handleDisconnect = async () => {
+    await disconnect();
+  };
   const [scrollY, setScrollY] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
+  const isConnected = localStorage.getItem("wagmi.connected");
   const dispatch = useAppDispatch();
   const handleScrollY = useCallback(() => {
     setScrollY(window.scrollY);
@@ -64,9 +72,23 @@ export default function Header() {
       <button className="sm:hidden" onClick={handleIsOpen}>
         <FiMenu size={30} />
       </button>
-      <button className="hidden sm:block" onClick={handleModalOpen}>
-        Login
-      </button>
+      <div className="hidden sm:block">
+        {/* <button onClick={handleDisconnect}>disconnect</button>
+        {isConnected ? (
+          <Image
+            src="/images/azuki2.avif"
+            alt="profileImage"
+            width={50}
+            height={50}
+            className="rounded-full drop-shadow-md"
+          />
+        ) : (
+          <button onClick={handleModalOpen}>
+            <ConnectButton />
+          </button>
+        )} */}
+        <ConnectButton />
+      </div>
     </nav>
   );
 }

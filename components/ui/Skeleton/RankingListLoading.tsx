@@ -2,7 +2,7 @@ import Skeleton from ".";
 export default function RankingListLoading() {
   return (
     <>
-      {[...Array(20)].map((index) => {
+      {[...Array(20)].map((_, index) => {
         return (
           <li key={index} className="flex items-center w-full p-2 space-x-4 ">
             <Skeleton className="w-6 h-6 rounded-full" />

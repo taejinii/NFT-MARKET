@@ -1,11 +1,22 @@
 "use client";
-import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
+import { useState, useEffect, useCallback } from "react";
+import { useAppDispatch } from "@/store";
+import { openModal } from "@/store/modalSlice";
 import { NAVBAR_MENU } from "@/constant/constant";
 import { FiMenu } from "react-icons/fi";
+import Image from "next/image";
+import { disconnect } from "@wagmi/core";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
+
 export default function Header() {
+  const handleDisconnect = async () => {
+    await disconnect();
+  };
   const [scrollY, setScrollY] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
+  const isConnected = localStorage.getItem("wagmi.connected");
+  const dispatch = useAppDispatch();
   const handleScrollY = useCallback(() => {
     setScrollY(window.scrollY);
   }, []);
@@ -17,9 +28,12 @@ export default function Header() {
   const handleIsOpen = useCallback(() => {
     setIsOpen(!isOpen);
   }, [isOpen]);
+  const handleModalOpen = () => {
+    dispatch(openModal({ modalType: "WalletModal" }));
+  };
   return (
     <nav
-      className={`flex justify-between font-bold  text-2xl text-black items-center w-full responsive-container drop-shadow  fixed top-0 h-16 z-50 duration-300  ${
+      className={`flex justify-between font-bold  text-2xl text-black items-center w-full responsive-container drop-shadow  fixed top-0 h-16 z-30 duration-300  ${
         scrollY !== 0 || isOpen ? "bg-white" : "bg-transparent"
       }`}
     >
@@ -36,7 +50,7 @@ export default function Header() {
         })}
       </ul>
       {isOpen && (
-        <ul className="absolute top-0 left-0 flex flex-col w-full h-screen p-2 mt-16 bg-white sm:hidden">
+        <ul className="absolute top-0 left-0 flex flex-col items-center w-full h-screen p-2 mt-16 bg-white sm:hidden">
           {NAVBAR_MENU.map((menu) => {
             return (
               <li
@@ -53,12 +67,15 @@ export default function Header() {
               </li>
             );
           })}
+          <ConnectButton accountStatus="avatar" chainStatus="icon" />
         </ul>
       )}
       <button className="sm:hidden" onClick={handleIsOpen}>
         <FiMenu size={30} />
       </button>
-      <div className="hidden sm:block">Login</div>
+      <div className="hidden sm:block">
+        <ConnectButton accountStatus="avatar" chainStatus="icon" />
+      </div>
     </nav>
   );
 }

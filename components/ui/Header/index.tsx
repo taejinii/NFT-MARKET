@@ -1,22 +1,13 @@
 "use client";
 import Link from "next/link";
 import { useState, useEffect, useCallback } from "react";
-import { useAppDispatch } from "@/store";
-import { openModal } from "@/store/modalSlice";
 import { NAVBAR_MENU } from "@/constant/constant";
-import { FiMenu } from "react-icons/fi";
-import Image from "next/image";
-import { disconnect } from "@wagmi/core";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
+import MenuBar from "../../../public/icons/MenuBar.svg";
 
 export default function Header() {
-  const handleDisconnect = async () => {
-    await disconnect();
-  };
   const [scrollY, setScrollY] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
-  const isConnected = localStorage.getItem("wagmi.connected");
-  const dispatch = useAppDispatch();
   const handleScrollY = useCallback(() => {
     setScrollY(window.scrollY);
   }, []);
@@ -28,9 +19,7 @@ export default function Header() {
   const handleIsOpen = useCallback(() => {
     setIsOpen(!isOpen);
   }, [isOpen]);
-  const handleModalOpen = () => {
-    dispatch(openModal({ modalType: "WalletModal" }));
-  };
+
   return (
     <nav
       className={`flex justify-between font-bold  text-2xl text-black items-center w-full responsive-container drop-shadow  fixed top-0 h-16 z-30 duration-300  ${
@@ -70,8 +59,8 @@ export default function Header() {
           <ConnectButton accountStatus="avatar" chainStatus="icon" />
         </ul>
       )}
-      <button className="sm:hidden" onClick={handleIsOpen}>
-        <FiMenu size={30} />
+      <button className="block sm:hidden" onClick={handleIsOpen}>
+        <MenuBar className="w-10 h-10 fill-black" />
       </button>
       <div className="hidden sm:block">
         <ConnectButton accountStatus="avatar" chainStatus="icon" />

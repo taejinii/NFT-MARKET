@@ -1,6 +1,6 @@
 "use client";
 import { useRef, useEffect, useState, useCallback } from "react";
-import { SlArrowDown } from "react-icons/sl";
+import ArrowDown from "../../../public/icons/ArrowDown.svg";
 export default function FirstSection() {
   const [scrollY, setScrollY] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
@@ -42,7 +42,7 @@ export default function FirstSection() {
           <span>Unlock infinite world of digital treasures</span>
         </h2>
       </div>
-      <SlArrowDown className="absolute bottom-10 font-extrabold text-white drop-shadow-[0_5px_3px_rgba(0,0,0,0.4)] text-7xl" />
+      <ArrowDown className="absolute w-16 h-16 fill-white bottom-10 font-extrabold drop-shadow-[0_5px_3px_rgba(0,0,0,0.4)] text-7xl" />
     </section>
   );
 }

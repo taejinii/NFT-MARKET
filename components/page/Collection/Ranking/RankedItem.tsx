@@ -16,6 +16,7 @@ export default function RankedItem({ ...props }) {
     <>
       <li className="flex items-center p-2 py-2 text-sm hover:bg-gray-200 hover:rounded-xl">
         <Link
+          passHref
           prefetch={false}
           href={`/collection/${contract}`}
           className="flex items-center w-full space-x-4"
@@ -27,10 +28,10 @@ export default function RankedItem({ ...props }) {
                 src={logo}
                 alt="Ranked NFT Image"
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 placeholder="blur"
                 priority
                 blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN0cPCpBwAC4QFN8b7mrwAAAABJRU5ErkJggg=="
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="absolute object-cover rounded-xl drop-shadow-lg"
               />
             </div>

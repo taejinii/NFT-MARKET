@@ -2,6 +2,13 @@ import "./globals.css";
 import Header from "@/components/ui/Header";
 import Providers from "./provider";
 import GlobalModal from "@/components/ui/Modals/GlobalModal";
+import { Inter } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+});
+
 export const metadata = {
   title: "QWERO - NFT Market Place",
   description: "오직 나만의 NFT 를 소유하세요!",
@@ -13,8 +20,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko">
-      <body className="font-sans">
+    <html lang="ko" className={inter.className}>
+      <body>
         <Providers>
           <GlobalModal />
           <Header />

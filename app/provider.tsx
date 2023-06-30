@@ -30,9 +30,10 @@ export default function Providers({ children }: PropsWithChildren) {
     [mainnet, polygon, optimism, arbitrum, zora],
     [publicProvider()]
   );
+  const projectId = process.env.NEXT_PUBLIC_PROJECT_ID as string;
   const { connectors } = getDefaultWallets({
     appName: "QWERO",
-    projectId: "a4308972c799524d77bec191f743e6c1",
+    projectId,
     chains,
   });
 

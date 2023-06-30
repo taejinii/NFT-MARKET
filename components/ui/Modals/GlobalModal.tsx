@@ -1,15 +1,10 @@
 "use client";
 import { useEffect } from "react";
 import { useAppSelector } from "@/store/index";
-import WalletModal from "./WalletModal";
 import Overlay from "../Overlay";
 
-const MODAL_TYPES = {
-  WalletModal: "WalletModal",
-};
-const MODAL_COMPONENTS = [
-  { type: MODAL_TYPES.WalletModal, component: <WalletModal /> },
-];
+const MODAL_TYPES = {};
+const MODAL_COMPONENTS = [{ type: MODAL_TYPES, component: "" }];
 
 export default function GlobalModal() {
   const { isOpen, modalType } = useAppSelector((state) => state.modal);

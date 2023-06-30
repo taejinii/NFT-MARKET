@@ -50,7 +50,7 @@ export default function Header() {
         })}
       </ul>
       {isOpen && (
-        <ul className="absolute top-0 left-0 flex flex-col w-full h-screen p-2 mt-16 bg-white sm:hidden">
+        <ul className="absolute top-0 left-0 flex flex-col items-center w-full h-screen p-2 mt-16 bg-white sm:hidden">
           {NAVBAR_MENU.map((menu) => {
             return (
               <li
@@ -67,27 +67,14 @@ export default function Header() {
               </li>
             );
           })}
+          <ConnectButton accountStatus="avatar" chainStatus="icon" />
         </ul>
       )}
       <button className="sm:hidden" onClick={handleIsOpen}>
         <FiMenu size={30} />
       </button>
       <div className="hidden sm:block">
-        {/* <button onClick={handleDisconnect}>disconnect</button>
-        {isConnected ? (
-          <Image
-            src="/images/azuki2.avif"
-            alt="profileImage"
-            width={50}
-            height={50}
-            className="rounded-full drop-shadow-md"
-          />
-        ) : (
-          <button onClick={handleModalOpen}>
-            <ConnectButton />
-          </button>
-        )} */}
-        <ConnectButton />
+        <ConnectButton accountStatus="avatar" chainStatus="icon" />
       </div>
     </nav>
   );

@@ -1,13 +1,28 @@
 "use client";
 import { useEffect } from "react";
-import { useAppSelector } from "@/store/index";
-import Overlay from "../Overlay";
-
-const MODAL_TYPES = {};
-const MODAL_COMPONENTS = [{ type: MODAL_TYPES, component: "" }];
+import { useAppSelector, useAppDispatch } from "@/store/index";
+import { usePathname } from "next/navigation";
+import dynamic from "next/dynamic";
+import { closeModal } from "@/store/modalSlice";
+import { AnimatePresence } from "framer-motion";
+const Overlay = dynamic(() => import("../Overlay"));
+const SideBarModal = dynamic(() => import("./SidebarModal/SideBarModal"));
+const MODAL_TYPES = {
+  SideBarModal: "SideBarModal",
+};
+const MODAL_COMPONENTS = [
+  { type: MODAL_TYPES.SideBarModal, component: <SideBarModal /> },
+];
 
 export default function GlobalModal() {
   const { isOpen, modalType } = useAppSelector((state) => state.modal);
+  const dispatch = useAppDispatch();
+  const pathname = usePathname();
+  useEffect(() => {
+    dispatch(closeModal());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pathname]);
+
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";

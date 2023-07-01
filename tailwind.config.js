@@ -29,15 +29,10 @@ module.exports = {
           "0%": { transform: "translate(0,0) skew(0deg)" },
           "100%": { transform: "translate(-200px,-80px) rotate(-10deg) " },
         },
-        slideLeft: {
-          0: { transfrom: "translateX(0%)" },
-          "100%": { transform: "translateX(100%)" },
-        },
       },
       animation: {
         marquee: "marquee 5s linear infinite",
         slideUp: "slideUp .5s ease-in",
-        slideLeft: "slideLeft .5s ease-in",
         diagonalRight: "diagonalRight .5s forwards ease-out",
         diagonalLeft: "diagonalLeft .5s forwards ease-out",
       },

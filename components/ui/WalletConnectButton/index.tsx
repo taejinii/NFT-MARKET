@@ -1,8 +1,14 @@
 "use client";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { useAppDispatch } from "@/store";
+import { openModal } from "@/store/modalSlice";
 import Wallet from "../../../public/icons/Wallet.svg";
 import Image from "next/image";
 export default function WalletConnectButton() {
+  const dispatch = useAppDispatch();
+  const openSideBarModal = () => {
+    dispatch(openModal({ modalType: "SideBarModal" }));
+  };
   return (
     <ConnectButton.Custom>
       {({
@@ -53,23 +59,24 @@ export default function WalletConnectButton() {
                   </button>
                 );
               }
-
-              return (
-                <div>
-                  <button
-                    onClick={openAccountModal}
-                    className="relative w-12 h-12"
-                  >
-                    <Image
-                      src="/images/azuki2.avif"
-                      alt="Profile Image"
-                      fill
-                      priority
-                      className="object-cover rounded-full drop-shadow-md"
-                    />
-                  </button>
-                </div>
-              );
+              if (connected) {
+                return (
+                  <div>
+                    <button
+                      onClick={openSideBarModal}
+                      className="relative w-12 h-12"
+                    >
+                      <Image
+                        src="/images/azuki2.avif"
+                        alt="Profile Image"
+                        fill
+                        priority
+                        className="object-cover rounded-full drop-shadow-md"
+                      />
+                    </button>
+                  </div>
+                );
+              }
             })()}
           </div>
         );

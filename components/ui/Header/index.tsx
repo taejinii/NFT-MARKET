@@ -32,17 +32,17 @@ export default function Header() {
       <Link href={"/"} className="text-[#0D82F9]">
         QWERO
       </Link>
-      <ul className="justify-around hidden gap-10 sm:flex">
+      <ul className="justify-around hidden gap-5 sm:flex">
         {NAVBAR_MENU.map((menu) => {
           return (
-            <li key={menu.title}>
+            <li key={menu.title} className="p-2 rounded-md hover:bg-slate-200">
               <Link href={menu.url}>{menu.title}</Link>
             </li>
           );
         })}
       </ul>
       {isOpen && <MobileNavBar setIsOpen={setIsOpen} />}
-      <div className="flex gap-5 mt-2">
+      <div className="flex gap-5">
         <WalletConnectButton />
         <button className="block sm:hidden" onClick={handleIsOpen}>
           <MenuBar className="w-8 h-8 fill-black" />

@@ -6,15 +6,16 @@ export default function NftInfo({ info }: { info: NFTInfo }) {
 
   return (
     <header className="flex flex-col gap-4 font-bold">
-      <Link className="text-xl w-fit" href={`/collection/${contract_address}`}>
+      <Link
+        className="text-xl w-fit text-primary"
+        href={`/collection/${contract_address}`}
+      >
         {collection_name}
       </Link>
       <h1 className="max-md:text-4xl">{name}</h1>
-      <Link
-        href={`/user/${owner_addresses}`}
-        className="truncate"
-      >
-        Owned by {owner_addresses}
+      <Link href={`/user/${owner_addresses}`} passHref className="truncate">
+        <span>Owned by </span>
+        <span className="text-primary">{owner_addresses}</span>
       </Link>
       {rarity && (
         <span>

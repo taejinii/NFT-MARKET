@@ -26,6 +26,7 @@ export interface CollectionInfo {
   logo: string;
   discord_url: string;
   twitter_url: string;
+  contracts: string[];
 }
 
 interface NFTSaleHistory {

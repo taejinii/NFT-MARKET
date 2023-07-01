@@ -9,6 +9,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        primary: "#0D82F9",
+      },
       fontFamily: {
         mono: ["var(--font-roboto-mono)"],
       },

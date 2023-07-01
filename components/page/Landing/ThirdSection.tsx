@@ -2,12 +2,10 @@
 import Card from "../../ui/Card";
 import { useInView } from "react-intersection-observer";
 import { useGetNftData } from "@/hooks/queries/useGetNftData";
+import { BEST_COLLECTION } from "@/constant/constant";
 export default function ThirdSection() {
   const { ref, inView } = useInView({ threshold: 0 });
-  const { data: nftData, isLoading } = useGetNftData(
-    "0xed5af388653567af2f388e6224dc7c4b3241c544",
-    3
-  );
+  const { data: nftData, isLoading } = useGetNftData(BEST_COLLECTION, 10);
 
   return (
     <section

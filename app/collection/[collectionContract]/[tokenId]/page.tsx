@@ -39,6 +39,7 @@ export default async function NFTDetailPage({
     getNFTInfoDetail(collectionContract, tokenId),
     getSaleHistory(collectionContract, tokenId),
   ]);
+  console.log(info);
   return (
     <div className="flex flex-col w-full gap-5 py-10 m-auto max-w-7xl">
       <section className="flex flex-col w-full gap-5 md:flex-row">

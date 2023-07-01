@@ -6,11 +6,12 @@ import { useState } from "react";
 import BestCollectionSlider from "./BestCollectionSlider";
 import { useGetNftData } from "@/hooks/queries/useGetNftData";
 import { useGetCollectionInfo } from "@/hooks/queries/useGetCollectionInfo";
+import { BEST_COLLECTION } from "@/constant/constant";
+
 export default function FourthSection() {
   const router = useRouter();
-  const bestCollection = "0xed5af388653567af2f388e6224dc7c4b3241c544";
-  const { data: nftInfo } = useGetNftData(bestCollection, 10);
-  const { data: collectionInfo } = useGetCollectionInfo(bestCollection);
+  const { data: nftInfo } = useGetNftData(BEST_COLLECTION, 10);
+  const { data: collectionInfo } = useGetCollectionInfo(BEST_COLLECTION);
   const [selectedItem, setSelectedItem] = useState({
     name: nftInfo?.nfts[0].name,
     image: nftInfo?.nfts[0].image,

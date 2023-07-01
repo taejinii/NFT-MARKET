@@ -8,10 +8,10 @@ import "./carousel.css";
 import { Dispatch, SetStateAction } from "react";
 export default function BestCollectionSlider({
   data,
-  setSelectedImg,
+  setSelectedItem,
 }: {
   data?: NFTCollectionList;
-  setSelectedImg: Dispatch<SetStateAction<string>>;
+  setSelectedItem: Dispatch<SetStateAction<any>>;
 }) {
   const handleDirection = () => {
     if (typeof window !== "undefined") {
@@ -47,8 +47,11 @@ export default function BestCollectionSlider({
       {data?.nfts.map((nft) => {
         return (
           <SwiperSlide
+            className="relative w-10 h-10"
             key={nft.token_id}
-            onClick={() => setSelectedImg(nft.image)}
+            onClick={() =>
+              setSelectedItem({ name: nft.name, image: nft.image })
+            }
           >
             <Image
               src={nft.image}

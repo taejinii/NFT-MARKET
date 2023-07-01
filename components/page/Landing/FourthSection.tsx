@@ -11,7 +11,10 @@ export default function FourthSection() {
   const bestCollection = "0xed5af388653567af2f388e6224dc7c4b3241c544";
   const { data: nftInfo } = useGetNftData(bestCollection, 10);
   const { data: collectionInfo } = useGetCollectionInfo(bestCollection);
-  const [seletedImg, setSelectedImg] = useState(nftInfo?.nfts[0].image);
+  const [selectedItem, setSelectedItem] = useState({
+    name: nftInfo?.nfts[0].name,
+    image: nftInfo?.nfts[0].image,
+  });
   const directCollection = (contract: string) => {
     router.push(`/collection/${contract}`);
   };
@@ -30,8 +33,8 @@ export default function FourthSection() {
           className="relative w-full h-96 md:h-full"
         >
           <Image
-            src={seletedImg ?? "/images/azuki2.avif"}
-            alt="TOP ARTIST COLLECTION"
+            src={selectedItem.image ?? "/images/azuki2.avif"}
+            alt={selectedItem.name as string}
             priority
             fill
             sizes="100vw"
@@ -43,7 +46,7 @@ export default function FourthSection() {
           <div className="flex flex-col justify-between gap-2 p-10 font-extrabold max-sm:p-4 basis-5/6">
             <div className="flex flex-col text-lg lg:text-3xl 2xl:text-5xl">
               <span>{collectionInfo?.name}</span>
-              <span>Azuki #1925</span>
+              <span>{selectedItem.name}</span>
             </div>
             <p className="text-xs 2xl:line-clamp-none line-clamp-[8] over lg:text-base 2xl:text-xl">
               {collectionInfo?.description}
@@ -51,7 +54,7 @@ export default function FourthSection() {
             <button
               className="p-2 text-white bg-primary rounded-xl hover:contrast-125"
               onClick={() =>
-                directCollection(collectionInfo?.contracts[0] ?? "")
+                directCollection(collectionInfo?.contracts[0] ?? "/collection")
               }
             >
               Collection
@@ -61,7 +64,7 @@ export default function FourthSection() {
           <div className="flex justify-center w-full h-full p-2 overflow-hidden ">
             <BestCollectionSlider
               data={nftInfo}
-              setSelectedImg={setSelectedImg}
+              setSelectedItem={setSelectedItem}
             />
           </div>
         </div>

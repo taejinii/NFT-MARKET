@@ -1,6 +1,6 @@
 .swiper-slide {
   position: relative;
   width: 250px;
-  height: 100%;
+  min-height: 150px;
   cursor: pointer;
 }

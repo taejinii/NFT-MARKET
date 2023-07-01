@@ -1,11 +1,18 @@
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { NFTCollectionList } from "@/types/types";
+import { Autoplay } from "swiper";
 import Image from "next/image";
-import { Autoplay, Navigation } from "swiper";
 import "swiper/css";
-import "swiper/css/navigation";
 import "./carousel.css";
-export default function BestCollectionSlider() {
+import { Dispatch, SetStateAction } from "react";
+export default function BestCollectionSlider({
+  data,
+  setSelectedImg,
+}: {
+  data?: NFTCollectionList;
+  setSelectedImg: Dispatch<SetStateAction<string>>;
+}) {
   const handleDirection = () => {
     if (typeof window !== "undefined") {
       const windowWidth = window.innerWidth;
@@ -37,22 +44,23 @@ export default function BestCollectionSlider() {
       }}
       modules={[Autoplay]}
     >
-      {Array(10)
-        .fill(" ")
-        .map((_, index) => {
-          return (
-            <SwiperSlide key={index}>
-              <Image
-                src={`/images/azuki${index + 1}.avif`}
-                alt="Best Collection item"
-                fill
-                priority
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                className="absolute object-cover w-full h-full rounded-xl"
-              />
-            </SwiperSlide>
-          );
-        })}
+      {data?.nfts.map((nft) => {
+        return (
+          <SwiperSlide
+            key={nft.token_id}
+            onClick={() => setSelectedImg(nft.image)}
+          >
+            <Image
+              src={nft.image}
+              alt={nft.name}
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="absolute object-cover w-full h-full rounded-xl"
+            />
+          </SwiperSlide>
+        );
+      })}
     </Swiper>
   );
 }

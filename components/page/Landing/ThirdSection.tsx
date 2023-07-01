@@ -6,7 +6,7 @@ export default function ThirdSection() {
   const { ref, inView } = useInView({ threshold: 0 });
   const { data: nftData, isLoading } = useGetNftData(
     "0xed5af388653567af2f388e6224dc7c4b3241c544",
-    3
+    10
   );
 
   return (

@@ -10,6 +10,9 @@ const inter = Inter({
 });
 
 export const metadata = {
+  openGraph: {
+    image: "/images/azuki2.avif",
+  },
   title: "QWERO - NFT Market Place",
   description: "오직 나만의 NFT 를 소유하세요!",
 };

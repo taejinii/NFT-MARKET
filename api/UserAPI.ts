@@ -10,7 +10,7 @@ const options = {
 export const getUserInfo = async (address: string): Promise<User> => {
   try {
     const res = await fetch(
-      `https://data-api.nftgo.io/eth/v1/address/${address}/portfolio
+      `https://data-api.nftgo.io/eth/v1/address/${address}/portfolio?offset=0&limit=50
           `,
       options
     );

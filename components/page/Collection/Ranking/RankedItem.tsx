@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-
+import { handleForamtNumber } from "@/utils/handleFormatNumber";
 export default function RankedItem({ ...props }) {
   const {
     volume_eth,
@@ -45,13 +45,15 @@ export default function RankedItem({ ...props }) {
           </div>
 
           <div className="flex-1 hidden text-right md:block">
-            {volume_eth.toFixed(2)} E
+            {handleForamtNumber(volume_eth)}
           </div>
           <div className="flex-1 hidden text-right md:block">
             {floorPrice.toFixed(2)} E
           </div>
 
-          <div className="flex-1 hidden text-right md:block">{owner}</div>
+          <div className="flex-1 hidden text-right md:block">
+            {handleForamtNumber(owner)}
+          </div>
           <div className="flex flex-col flex-1 text-right">
             <div className="hidden md:block">{whale_num}</div>
             <div className="text-xs text-gray-500 md:hidden">

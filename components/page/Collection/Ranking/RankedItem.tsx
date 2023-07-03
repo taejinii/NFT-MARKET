@@ -48,7 +48,7 @@ export default function RankedItem({ ...props }) {
             {handleForamtNumber(volume_eth)}
           </div>
           <div className="flex-1 hidden text-right md:block">
-            {floorPrice.toFixed(2)} E
+            {floorPrice.toFixed(2)}
           </div>
 
           <div className="flex-1 hidden text-right md:block">
@@ -57,7 +57,7 @@ export default function RankedItem({ ...props }) {
           <div className="flex flex-col flex-1 text-right">
             <div className="hidden md:block">{whale_num}</div>
             <div className="text-xs text-gray-500 md:hidden">
-              vol. {volume_eth.toFixed(2)}E
+              vol. {volume_eth.toFixed(2)}
             </div>
           </div>
         </Link>

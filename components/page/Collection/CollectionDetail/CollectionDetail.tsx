@@ -22,13 +22,13 @@ export default function CollectionDetail({
       <li className="flex flex-col gap-2 p-4 border-r-2 border-gray-400">
         <div className="text-base font-normal uppercase">volume</div>
         <div className="text-4xl max-sm:text-2xl">
-          {handleForamtNumber(volume_eth.all)} E
+          {handleForamtNumber(volume_eth.all)}
         </div>
       </li>
       <li className="flex flex-col gap-2 p-4">
         <div className="text-base font-normal uppercase">floor</div>
         <div className="text-4xl max-sm:text-2xl">
-          {floor_price?.value.toFixed(2)} E
+          {floor_price?.value.toFixed(2)}
         </div>
       </li>
     </ul>

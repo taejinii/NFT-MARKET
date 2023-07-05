@@ -20,15 +20,6 @@ export interface NFTInfo {
   traits: Traits[];
 }
 
-export interface CollectionInfo {
-  name: string;
-  description: string;
-  logo: string;
-  discord_url: string;
-  twitter_url: string;
-  contracts: string[];
-}
-
 interface NFTSaleHistory {
   action: string;
   sender: { address: string };
@@ -81,4 +72,21 @@ interface OpenSeaCollectionListType {
 export interface CollectionList {
   next: string;
   nfts: OpenSeaCollectionListType[];
+}
+
+export interface CollectionInfo {
+  collection: {
+    name: string;
+    description: string;
+    image_url: string;
+    discord_url: string;
+    twitter_username: string;
+    banner_image_url: string;
+    stats: {
+      total_supply: number;
+      floor_price: number;
+      num_owners: number;
+      total_volume: number;
+    };
+  };
 }

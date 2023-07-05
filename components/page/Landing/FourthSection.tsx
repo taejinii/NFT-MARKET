@@ -62,7 +62,10 @@ export default function FourthSection() {
             </button>
           </div>
 
-          <div className="flex justify-center w-full h-full p-2 overflow-hidden ">
+          <div
+            className="flex justify-center w-full h-full p-2 overflow-hidden "
+            data-cy="carousel"
+          >
             <BestCollectionSlider
               data={nftInfo}
               setSelectedItem={setSelectedItem}

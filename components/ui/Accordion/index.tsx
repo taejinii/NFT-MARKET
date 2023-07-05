@@ -9,7 +9,9 @@ interface AccordionType {
 }
 export default function Accordion({ title, children }: AccordionType) {
   const [isOpen, setIsOpen] = useState(false);
-  const handleAccordion = () => [setIsOpen(!isOpen)];
+  const handleAccordion = () => {
+    setIsOpen(!isOpen);
+  };
   return (
     <div className="flex flex-col items-start justify-start w-full border-2 border-black rounded-md ">
       <div className="w-full text-2xl font-bold" onClick={handleAccordion}>

@@ -13,10 +13,11 @@ export default function RankingFilter({
     setActiveIndex(index);
   };
   return (
-    <ul className="flex justify-end w-full ">
+    <ul className="flex justify-end w-full " data-cy="ranking-filter">
       {RANKING_FILTER.map((filter, index) => {
         return (
           <li
+            data-cy="filter-element"
             key={filter}
             className={` font-bold rounded-md ${
               index === activeIndex ? "text-black" : "text-slate-500"

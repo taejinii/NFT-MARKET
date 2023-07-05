@@ -16,7 +16,7 @@ export const getCollectionRanking = async (volumeFilter: string) => {
   try {
     const res = await fetch(
       `https://data-api.nftgo.io/eth/v1/market/rank/collection/${volumeFilter}?by=volume&with_rarity=false&asc=false&offset=0&limit=20`,
-      { cache: "no-store", ...options }
+      options
     );
     return await res.json();
   } catch (error) {
@@ -40,6 +40,20 @@ export const getCollectionNFTs = async (
     throw new Error("Failed to fetch data");
   }
 };
+
+/**OpenSea API */
+export const getCollectionList = async (slug: string) => {
+  try {
+    const res = await fetch(
+      `https://api.opensea.io/v2/collection/${slug}/nfts`
+    );
+    return await res.json();
+  } catch (error) {
+    console.log(error);
+    throw new Error("Failed to fetch OpenSea-API CollectionList data");
+  }
+};
+
 export const getCollectionDetail = async (
   contract: string
 ): Promise<CollectionDetails> => {

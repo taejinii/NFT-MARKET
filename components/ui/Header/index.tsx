@@ -28,6 +28,7 @@ export default function Header() {
       className={`flex justify-between font-bold  text-2xl text-black items-center w-full responsive-container drop-shadow  fixed top-0 h-16 z-30 duration-300  ${
         scrollY !== 0 || isOpen ? "bg-white" : "bg-transparent"
       }`}
+      data-cy="header"
     >
       <Link href={"/"} className="text-[#0D82F9]">
         QWERO

@@ -1,11 +1,15 @@
-import { CollectionDetails } from "@/types/types";
+import { CollectionStatsType } from "@/types/types";
 import { handleForamtNumber } from "@/utils/handleFormatNumber";
-export default function CollectionDetail({ stats }: { stats: any }) {
+export default function CollectionDetail({
+  stats,
+}: {
+  stats: CollectionStatsType;
+}) {
   const { total_supply, floor_price, num_owners, total_volume } = stats;
 
   return (
     <ul className="flex flex-wrap gap-1 responsive-container">
-      <li className="flex flex-col gap-2 p-4 border-2 rounded-md">
+      <li className="flex flex-col gap-2 p-4 border-2 rounded-xl">
         <div className="text-base font-normal uppercase">items</div>
         <div className="text-4xl max-sm:text-2xl">
           {handleForamtNumber(total_supply)}

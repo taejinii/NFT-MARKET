@@ -74,7 +74,7 @@ export interface CollectionList {
   nfts: OpenSeaCollectionListType[];
 }
 
-export interface CollectionInfoType{
+export interface CollectionInfoType {
   name: string;
   description: string;
   image_url: string;
@@ -82,7 +82,12 @@ export interface CollectionInfoType{
   twitter_username: string;
   banner_image_url: string;
 }
-
+export interface CollectionStatsType {
+  total_supply: number;
+  floor_price: number;
+  num_owners: number;
+  total_volume: number;
+}
 export interface CollectionInfo {
   collection: {
     name: string;
@@ -91,11 +96,6 @@ export interface CollectionInfo {
     discord_url: string;
     twitter_username: string;
     banner_image_url: string;
-    stats: {
-      total_supply: number;
-      floor_price: number;
-      num_owners: number;
-      total_volume: number;
-    };
+    stats: CollectionStatsType;
   };
 }

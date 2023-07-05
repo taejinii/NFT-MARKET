@@ -10,6 +10,5 @@ describe("CollectionPage Test", () => {
   });
   it("랭킹 리스트 상호작용 ", () => {
     cy.get('[data-cy="ranking-list"]').first().click();
-    console.log("d");
   });
 });

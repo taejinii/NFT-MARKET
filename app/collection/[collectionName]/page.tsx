@@ -33,12 +33,12 @@ export default async function CollectionDetailPage({
 
   const { collection } = await getCollectionInfoOpenSea(collectionName);
   return (
-    <>
-      <header className="flex flex-col items-start gap-10 py-10 mt-10 font-bold">
+    <section className="flex flex-col gap-5 pt-16">
+      <header className="flex flex-col items-start gap-10 font-bold">
         <CollectionInfo info={collection} />
         <CollectionDetail stats={collection.stats} />
       </header>
       <CollectionList collectionName={collectionName} />
-    </>
+    </section>
   );
 }

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import SocialButton from "@/components/page/Collection/CollectionDetail/SocialButton";
-// import { CollectionInfo } from "@/types/types";
-export default function CollectionInfo({ info }: { info: any }) {
+import { CollectionInfoType } from "@/types/types";
+export default function CollectionInfo({ info }: { info: CollectionInfoType }) {
   const {
     name,
     description,
@@ -12,7 +12,18 @@ export default function CollectionInfo({ info }: { info: any }) {
   } = info;
   return (
     <>
-      <div className="flex items-center w-full ">
+      <div className="w-full h-60">
+        <Image
+          src={banner_image_url}
+          alt="Banner Image"
+          width={1000}
+          height={1000}
+          priority
+          className="object-cover max-w-full max-h-full min-w-full min-h-full "
+        />
+      </div>
+
+      <div className="flex items-center w-full responsive-container">
         <div className="relative w-32 h-32 md:w-40 md:h-40 ">
           {image_url && (
             <Image
@@ -35,7 +46,8 @@ export default function CollectionInfo({ info }: { info: any }) {
           />
         </div>
       </div>
-      <div className="max-w-[80%]  max-md:truncate font-normal">
+
+      <div className="max-w-[80%]  max-md:truncate font-normal responsive-container">
         <p>{description}</p>
       </div>
     </>

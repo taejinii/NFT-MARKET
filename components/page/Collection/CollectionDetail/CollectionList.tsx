@@ -8,9 +8,8 @@ export default function CollectionList({
   collectionName: string;
 }) {
   const { data, isLoading, Observer } = useGetCollectionList(collectionName);
-  console.log(data);
   return (
-    <>
+    <section className="responsive-container">
       {isLoading ? (
         <CollectionListLoading skeletonCount={12} />
       ) : (
@@ -21,6 +20,6 @@ export default function CollectionList({
         </div>
       )}
       <Observer />
-    </>
+    </section>
   );
 }

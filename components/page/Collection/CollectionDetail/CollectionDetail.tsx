@@ -12,7 +12,7 @@ export default function CollectionDetail({
       <li className="flex flex-col gap-2 p-4 border-r-2 border-gray-400">
         <div className="text-base font-normal uppercase">items</div>
         <div className="text-4xl max-sm:text-2xl">
-          {handleForamtNumber(total_supply)}
+          {/* {handleForamtNumber(total_supply)} */}
         </div>
       </li>
       <li className="flex flex-col gap-2 p-4 border-r-2 border-gray-400">
@@ -22,7 +22,7 @@ export default function CollectionDetail({
       <li className="flex flex-col gap-2 p-4 border-r-2 border-gray-400">
         <div className="text-base font-normal uppercase">volume</div>
         <div className="text-4xl max-sm:text-2xl">
-          {handleForamtNumber(volume_eth.all)}
+          {/* {handleForamtNumber(volume_eth.all)} */}
         </div>
       </li>
       <li className="flex flex-col gap-2 p-4">

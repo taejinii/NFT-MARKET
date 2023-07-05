@@ -11,6 +11,7 @@ export default function RankedItem({ ...props }) {
     whale_num,
     contract,
     rank,
+    opensea_slug
   } = props;
   return (
     <>
@@ -21,7 +22,7 @@ export default function RankedItem({ ...props }) {
         <Link
           passHref
           prefetch={false}
-          href={`/collection/${contract}`}
+          href={`/collection/${opensea_slug}`}
           className="flex items-center w-full space-x-4"
         >
           <div className="flex items-center flex-1 grow-[3]">

@@ -109,12 +109,13 @@ const optionsOpensea = {
   headers: { "X-API-KEY": process.env.NEXT_PUBLIC_OPENSEA_API_KEY as string },
 };
 
-export const getCollectionListOpenSea = async (slug: string) => {
+export const getCollectionListOpenSea = async (slug: string, next?: string) => {
   try {
-    const res = await fetch(
-      `https://api.opensea.io/v2/collection/${slug}/nfts`,
-      optionsOpensea
-    );
+    let url = `https://api.opensea.io/v2/collection/${slug}/nfts?limit=20`;
+    if (next) {
+      url += `&next=${next}`;
+    }
+    const res = await fetch(url, optionsOpensea);
     return await res.json();
   } catch (error) {
     console.log(error);

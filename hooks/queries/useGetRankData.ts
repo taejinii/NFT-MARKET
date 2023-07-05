@@ -8,7 +8,7 @@ export interface CollectionRankingData {
   floor_price_eth: number;
   whale_num: number;
   contracts: string;
-  slug: string;
+  opensea_slug: string;
 }
 export interface CollectionRanking {
   collections: CollectionRankingData[];

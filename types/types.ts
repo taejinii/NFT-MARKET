@@ -69,3 +69,15 @@ export interface User {
   total: number;
   assets: UserAssets[];
 }
+
+interface OpenSeaCollectionListType {
+  identifier: string;
+  contract: string;
+  image_url: string;
+  name: string;
+  collection: string;
+}
+export interface CollectionList {
+  next: string;
+  nfts: OpenSeaCollectionListType[];
+}

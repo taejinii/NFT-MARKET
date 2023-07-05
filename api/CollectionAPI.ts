@@ -1,9 +1,8 @@
 import {
-  CollectionDetails,
   NFTInfo,
   NFTTransAction,
-  CollectionInfo,
   NFTCollectionList,
+  CollectionInfo,
 } from "@/types/types";
 const options = {
   method: "GET",
@@ -33,36 +32,6 @@ export const getCollectionNFTs = async (
     const res = await fetch(
       `https://data-api.nftgo.io/eth/v1/collection/${contract}/nfts?offset=0&limit=${limit}`,
       { cache: "no-store", ...options }
-    );
-    return await res.json();
-  } catch (error) {
-    console.error(error);
-    throw new Error("Failed to fetch data");
-  }
-};
-
-export const getCollectionDetail = async (
-  contract: string
-): Promise<CollectionDetails> => {
-  try {
-    const res = await fetch(
-      `https://data-api.nftgo.io/eth/v1/collection/${contract}/metrics`,
-      options
-    );
-    return await res.json();
-  } catch (error) {
-    console.error(error);
-    throw new Error("Failed to fetch data");
-  }
-};
-
-export const getCollectionInfo = async (
-  contract: string
-): Promise<CollectionInfo> => {
-  try {
-    const res = await fetch(
-      `https://data-api.nftgo.io/eth/v1/collection/${contract}/info`,
-      options
     );
     return await res.json();
   } catch (error) {
@@ -111,7 +80,7 @@ const optionsOpensea = {
 
 export const getCollectionListOpenSea = async (slug: string, next?: string) => {
   try {
-    let url = `https://api.opensea.io/v2/collection/${slug}/nfts?limit=20`;
+    let url = `https://api.opensea.io/v2/collection/${slug}/nfts?limit=12`;
     if (next) {
       url += `&next=${next}`;
     }
@@ -123,7 +92,9 @@ export const getCollectionListOpenSea = async (slug: string, next?: string) => {
   }
 };
 
-export const getCollectionInfoOpenSea = async (collection_slug: string) => {
+export const getCollectionInfoOpenSea = async (
+  collection_slug: string
+): Promise<CollectionInfo> => {
   try {
     const res = await fetch(
       `https://api.opensea.io/api/v1/collection/${collection_slug}`,
@@ -132,6 +103,7 @@ export const getCollectionInfoOpenSea = async (collection_slug: string) => {
     return await res.json();
   } catch (error) {
     console.error(error);
+    throw new Error("Failed to fetch OpenSea-API CollectionInfo data");
   }
 };
 export const getNFTInfo = async (

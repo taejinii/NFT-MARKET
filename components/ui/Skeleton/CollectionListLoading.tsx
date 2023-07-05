@@ -1,8 +1,12 @@
 import Skeleton from "@/components/ui/Skeleton";
-export default function CollectionListLoading() {
+export default function CollectionListLoading({
+  skeletonCount,
+}: {
+  skeletonCount: number;
+}) {
   return (
     <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
-      {[...Array(20)].map((index) => {
+      {[...Array(skeletonCount)].map((_, index) => {
         return (
           <div
             key={index}

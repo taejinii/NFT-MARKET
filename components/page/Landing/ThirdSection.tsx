@@ -25,7 +25,7 @@ export default function ThirdSection() {
         </article>
       </div>
 
-      <div className="absolute flex justify-center -top-28 2xl:-top-48">
+      {/* <div className="absolute flex justify-center -top-28 2xl:-top-48">
         {!isLoading &&
           nftData?.nfts.map((nft, index: number) => {
             let animateClass = "";
@@ -47,7 +47,7 @@ export default function ThirdSection() {
               </div>
             );
           })}
-      </div>
+      </div> */}
     </section>
   );
 }

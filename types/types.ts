@@ -76,6 +76,7 @@ interface OpenSeaCollectionListType {
   image_url: string;
   name: string;
   collection: string;
+  metadata_url: string;
 }
 export interface CollectionList {
   next: string;

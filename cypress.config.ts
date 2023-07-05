@@ -7,11 +7,12 @@ export default defineConfig({
       bundler: "webpack",
     },
   },
-  videoCompression: false,
   e2e: {
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
-    baseUrl: "http://localhost:3000/",
+    video: false,
+    videoCompression: false,
+    baseUrl: "http://localhost:3000",
   },
 });

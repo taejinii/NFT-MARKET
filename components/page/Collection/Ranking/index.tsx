@@ -14,7 +14,7 @@ export default function Ranking() {
   return (
     <>
       <RankingFilter setVolumeFilter={setVolumeFilter} />
-      <section className="flex flex-col font-bold">
+      <section className="flex flex-col font-bold" data-cy="collection-ranking">
         <header className="sticky z-30 hidden w-full space-x-4 text-base text-gray-500 bg-white top-16 md:flex">
           <div className="flex-1 grow-[3]">Collection</div>
           <div className="flex-1 text-right ">Volume</div>

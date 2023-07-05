@@ -14,7 +14,10 @@ export default function RankedItem({ ...props }) {
   } = props;
   return (
     <>
-      <li className="flex items-center p-2 py-2 text-sm hover:bg-gray-200 hover:rounded-xl">
+      <li
+        className="flex items-center p-2 py-2 text-sm hover:bg-gray-200 hover:rounded-xl"
+        data-cy="ranking-list"
+      >
         <Link
           passHref
           prefetch={false}

@@ -2,7 +2,7 @@ import {
   getCollectionDetail,
   getCollectionNFTs,
   getCollectionInfo,
-} from "../../../api/CollectionAPI";
+} from "@/api/CollectionAPI";
 import { Suspense } from "react";
 import CollectionDetail from "@/components/page/Collection/CollectionDetail/CollectionDetail";
 import CollectionInfo from "@/components/page/Collection/CollectionDetail/CollectionInfo";

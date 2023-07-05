@@ -1,4 +1,4 @@
-import "./globals.css";
+import "@/styles/globals.css";
 import Header from "@/components/ui/Header";
 import Providers from "./provider";
 import GlobalModal from "@/components/ui/Modals/GlobalModal";

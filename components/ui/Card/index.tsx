@@ -3,8 +3,14 @@ import NFTInfo from "./NFTInfo";
 import NFTPrice from "./NFTPrice";
 import NFTImage from "./NFTImage";
 import { useRouter } from "next/navigation";
-export default function Card({ ...nft }) {
-  const { identifier, contract, image_url, name, collection } = nft;
+import { OpenSeaCollectionListType } from "@/types/types";
+export default function Card({
+  identifier,
+  contract,
+  image_url,
+  name,
+  collection,
+}: OpenSeaCollectionListType) {
   const invalidNFT = identifier?.length > 6 || !identifier;
   const router = useRouter();
   const handleRoute = (contract: string, identifier: string) => {

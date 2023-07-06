@@ -16,7 +16,16 @@ export default function CollectionList({
       ) : (
         <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
           {data?.pages.map((nft) => {
-            return <Card key={nft.identifier} {...nft} />;
+            return (
+              <Card
+                key={nft.identifier}
+                identifier={nft.identifier}
+                contract={nft.contract}
+                image_url={nft.image_url}
+                name={nft.name}
+                collection={nft.collection}
+              />
+            );
           })}
         </div>
       )}

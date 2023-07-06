@@ -20,3 +20,28 @@ export const getUserInfo = async (address: string): Promise<User> => {
     throw new Error("Failed fetch user info");
   }
 };
+
+export const getUserCollectionList = async (owner: string, next?: string) => {
+  const params = new URLSearchParams({
+    owner,
+    limit: "12",
+    order_direction: "desc",
+  });
+  const optionsOpensea = {
+    headers: {
+      Accept: "application/json",
+      "X-API-KEY": process.env.NEXT_PUBLIC_OPENSEA_API_KEY as string,
+    },
+  };
+  let url = `https://api.opensea.io/api/v1/assets?${params}`;
+  if (next) {
+    url += `&cursor=${next}`;
+  }
+  try {
+    const res = await fetch(url, optionsOpensea);
+    return await res.json();
+  } catch (error) {
+    console.error(error);
+    throw new Error("Failed to fetch OpenSea API User Collecion List Data");
+  }
+};

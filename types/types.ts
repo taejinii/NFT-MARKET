@@ -62,13 +62,12 @@ export interface User {
   assets: UserAssets[];
 }
 
-interface OpenSeaCollectionListType {
+export interface OpenSeaCollectionListType {
   identifier: string;
   contract: string;
   image_url: string;
   name: string;
   collection: string;
-  metadata_url: string;
 }
 export interface CollectionList {
   next: string;

@@ -5,3 +5,4 @@ export const NAVBAR_MENU = [
   { url: "/", title: "MENU2" },
 ];
 export const BEST_COLLECTION = "0xed5af388653567af2f388e6224dc7c4b3241c544";
+export const SALE_HISTORY = ["event", "price", "from", "to", "date"];

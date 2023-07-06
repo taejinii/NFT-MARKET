@@ -4,7 +4,7 @@ import { useAccount, useBalance, useDisconnect } from "wagmi";
 import { useAppDispatch } from "@/store";
 import { closeModal } from "@/store/modalSlice";
 import { motion } from "framer-motion";
-import useOutsideClick from "@/hooks/common/useOutSideCliecnk";
+import useOutsideClick from "@/hooks/common/useOutSideClick";
 import SideBarMenuList from "./SideBarMenuList";
 import SideBarUserAssets from "./SideBarUserAssets";
 import SideBarUserInfo from "./SideBarUserInfo";

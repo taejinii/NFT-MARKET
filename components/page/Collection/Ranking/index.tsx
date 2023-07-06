@@ -29,7 +29,7 @@ export default function Ranking() {
             data.collections?.map((collection, index: number) => {
               return (
                 <RankedItem
-                  key={collection.slug}
+                  key={collection.opensea_slug}
                   volume_eth={collection.volume_eth}
                   name={collection.name}
                   owner={collection.holder_num}
@@ -37,6 +37,7 @@ export default function Ranking() {
                   whale_num={collection.whale_num}
                   logo={collection.logo}
                   floorPrice={collection.floor_price_eth}
+                  opensea_slug={collection.opensea_slug}
                   rank={index}
                 />
               );

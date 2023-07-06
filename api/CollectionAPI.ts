@@ -1,9 +1,8 @@
 import {
-  CollectionDetails,
-  NFTInfo,
   NFTTransAction,
-  CollectionInfo,
   NFTCollectionList,
+  CollectionInfo,
+  OpenSeaNFTInfo,
 } from "@/types/types";
 const options = {
   method: "GET",
@@ -41,65 +40,6 @@ export const getCollectionNFTs = async (
   }
 };
 
-/**OpenSea API */
-export const getCollectionList = async (slug: string) => {
-  try {
-    const res = await fetch(
-      `https://api.opensea.io/v2/collection/${slug}/nfts`
-    );
-    return await res.json();
-  } catch (error) {
-    console.log(error);
-    throw new Error("Failed to fetch OpenSea-API CollectionList data");
-  }
-};
-
-export const getCollectionDetail = async (
-  contract: string
-): Promise<CollectionDetails> => {
-  try {
-    const res = await fetch(
-      `https://data-api.nftgo.io/eth/v1/collection/${contract}/metrics`,
-      options
-    );
-    return await res.json();
-  } catch (error) {
-    console.error(error);
-    throw new Error("Failed to fetch data");
-  }
-};
-
-export const getCollectionInfo = async (
-  contract: string
-): Promise<CollectionInfo> => {
-  try {
-    const res = await fetch(
-      `https://data-api.nftgo.io/eth/v1/collection/${contract}/info`,
-      options
-    );
-    return await res.json();
-  } catch (error) {
-    console.error(error);
-    throw new Error("Failed to fetch data");
-  }
-};
-
-export const getNFTInfoDetail = async (
-  contract: string,
-  tokenId: string
-): Promise<NFTInfo> => {
-  try {
-    const res = await fetch(
-      `https://data-api.nftgo.io/eth/v1/nft/${contract}/${tokenId}/info`,
-      options
-    );
-    return await res.json();
-  } catch (error) {
-    console.error(error);
-    throw new Error("Failed to fetch data");
-  }
-};
-
 export const getSaleHistory = async (
   contract: string,
   tokenId: string
@@ -113,5 +53,56 @@ export const getSaleHistory = async (
   } catch (error) {
     console.error(error);
     throw new Error("Failed to fetch data");
+  }
+};
+
+/**OpenSea API */
+const optionsOpensea = {
+  method: "GET",
+  headers: { "X-API-KEY": process.env.NEXT_PUBLIC_OPENSEA_API_KEY as string },
+};
+
+export const getCollectionListOpenSea = async (slug: string, next?: string) => {
+  try {
+    let url = `https://api.opensea.io/v2/collection/${slug}/nfts?limit=12`;
+    if (next) {
+      url += `&next=${next}`;
+    }
+    const res = await fetch(url, optionsOpensea);
+    return await res.json();
+  } catch (error) {
+    console.log(error);
+    throw new Error("Failed to fetch OpenSea-API CollectionList data");
+  }
+};
+
+export const getCollectionInfoOpenSea = async (
+  collection_slug: string
+): Promise<CollectionInfo> => {
+  try {
+    const res = await fetch(
+      `https://api.opensea.io/api/v1/collection/${collection_slug}`,
+      optionsOpensea
+    );
+    return await res.json();
+  } catch (error) {
+    console.error(error);
+    throw new Error("Failed to fetch OpenSea-API CollectionInfo data");
+  }
+};
+export const getNFTInfoOpenSea = async (
+  asset_contract_address: string,
+  token_id: string
+): Promise<OpenSeaNFTInfo> => {
+  try {
+    const res = await fetch(
+      `https://api.opensea.io/api/v1/asset/${asset_contract_address}/${token_id}/
+    `,
+      optionsOpensea
+    );
+    return await res.json();
+  } catch (error) {
+    console.error(error);
+    throw new Error("Failed to fetch OpenSea API NFT Info");
   }
 };

@@ -32,11 +32,10 @@ export default async function UserPage({
 }) {
   const { contract } = params;
   const userInfo = await getUserInfo(contract);
-
   return (
     <>
       <UserInfo userInfo={userInfo} />
-      <UserCollectionList userInfo={userInfo} />
+      <UserCollectionList contract={params.contract} />
     </>
   );
 }

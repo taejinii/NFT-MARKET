@@ -1,34 +1,34 @@
-import { CollectionDetails } from "@/types/types";
+import { CollectionStatsType } from "@/types/types";
 import { handleForamtNumber } from "@/utils/handleFormatNumber";
 export default function CollectionDetail({
-  detail,
+  stats,
 }: {
-  detail: CollectionDetails;
+  stats: CollectionStatsType;
 }) {
-  const { total_supply, holder_num, floor_price, volume_eth } = detail;
+  const { total_supply, floor_price, num_owners, total_volume } = stats;
 
   return (
-    <ul className="flex flex-wrap">
-      <li className="flex flex-col gap-2 p-4 border-r-2 border-gray-400">
+    <ul className="flex flex-wrap gap-1 responsive-container">
+      <li className="flex flex-col gap-2 p-4 border-2 rounded-xl">
         <div className="text-base font-normal uppercase">items</div>
         <div className="text-4xl max-sm:text-2xl">
           {handleForamtNumber(total_supply)}
         </div>
       </li>
-      <li className="flex flex-col gap-2 p-4 border-r-2 border-gray-400">
+      <li className="flex flex-col gap-2 p-4 border-2 rounded-md">
         <div className="text-base font-normal uppercase">owners</div>
-        <div className="text-4xl max-sm:text-2xl"> {holder_num}</div>
+        <div className="text-4xl max-sm:text-2xl"> {num_owners}</div>
       </li>
-      <li className="flex flex-col gap-2 p-4 border-r-2 border-gray-400">
+      <li className="flex flex-col gap-2 p-4 border-2 rounded-md">
         <div className="text-base font-normal uppercase">volume</div>
         <div className="text-4xl max-sm:text-2xl">
-          {handleForamtNumber(volume_eth.all)}
+          {handleForamtNumber(total_volume)}
         </div>
       </li>
-      <li className="flex flex-col gap-2 p-4">
+      <li className="flex flex-col gap-2 p-4 border-2 rounded-md">
         <div className="text-base font-normal uppercase">floor</div>
         <div className="text-4xl max-sm:text-2xl">
-          {floor_price?.value.toFixed(2)}
+          {handleForamtNumber(floor_price)}E
         </div>
       </li>
     </ul>

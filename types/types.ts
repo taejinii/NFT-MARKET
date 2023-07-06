@@ -5,30 +5,6 @@ export interface CollectionDetails {
   volume_eth: { all: number };
 }
 
-interface Traits {
-  type: string;
-  value: string;
-  percentage: number;
-}
-export interface NFTInfo {
-  image: string;
-  collection_name: string;
-  name: string;
-  rarity: { rank: number; total: number };
-  owner_addresses: string[];
-  contract_address: string;
-  traits: Traits[];
-}
-
-export interface CollectionInfo {
-  name: string;
-  description: string;
-  logo: string;
-  discord_url: string;
-  twitter_url: string;
-  contracts: string[];
-}
-
 interface NFTSaleHistory {
   action: string;
   sender: { address: string };
@@ -68,4 +44,72 @@ interface UserAssets {
 export interface User {
   total: number;
   assets: UserAssets[];
+}
+
+export interface OpenSeaCollectionListType {
+  identifier: string;
+  contract: string;
+  image_url: string;
+  name: string;
+  collection: string;
+}
+export interface CollectionList {
+  next: string;
+  nfts: OpenSeaCollectionListType[];
+}
+
+export interface CollectionInfoType {
+  name: string;
+  description: string;
+  image_url: string;
+  discord_url: string;
+  twitter_username: string;
+  banner_image_url: string;
+}
+export interface CollectionStatsType {
+  total_supply: number;
+  floor_price: number;
+  num_owners: number;
+  total_volume: number;
+}
+export interface CollectionInfo {
+  collection: {
+    name: string;
+    description: string;
+    image_url: string;
+    discord_url: string;
+    twitter_username: string;
+    banner_image_url: string;
+    slug: string;
+    afelist_request_status: string;
+    stats: CollectionStatsType;
+  };
+}
+export interface OpenSeaTraitsType {
+  trait_type: string;
+  trait_count: number;
+  value: string;
+}
+export interface OwnerType {
+  owner: {
+    user: {
+      username: string;
+    };
+    address: string;
+  };
+}
+export interface OpenSeaNFTInfo {
+  name: string;
+  image_url: string;
+  asset_contract: {
+    address: string;
+    owner: string;
+    name: string;
+  };
+  collection: {
+    slug: string;
+    name: string;
+  };
+  traits: OpenSeaTraitsType[];
+  top_ownerships: OwnerType[];
 }

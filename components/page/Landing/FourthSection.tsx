@@ -56,7 +56,7 @@ export default function FourthSection() {
               className="p-2 text-white bg-primary rounded-xl hover:contrast-125"
               onClick={() =>
                 directCollection(
-                  collectionInfo?.collection.name ?? "/collection"
+                  collectionInfo?.collection.slug ?? "/collection"
                 )
               }
             >

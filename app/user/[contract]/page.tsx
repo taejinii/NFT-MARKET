@@ -1,4 +1,4 @@
-import { getUserInfo, getUserCollectionList } from "@/api/UserAPI";
+import { getUserInfo } from "@/api/UserAPI";
 import UserInfo from "@/components/page/User/UserInfo";
 import UserCollectionList from "@/components/page/User/UserCollectionList";
 import { Metadata } from "next";

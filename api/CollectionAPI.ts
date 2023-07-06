@@ -1,5 +1,4 @@
 import {
-  NFTInfo,
   NFTTransAction,
   NFTCollectionList,
   CollectionInfo,
@@ -33,22 +32,6 @@ export const getCollectionNFTs = async (
     const res = await fetch(
       `https://data-api.nftgo.io/eth/v1/collection/${contract}/nfts?offset=0&limit=${limit}`,
       { cache: "no-store", ...options }
-    );
-    return await res.json();
-  } catch (error) {
-    console.error(error);
-    throw new Error("Failed to fetch data");
-  }
-};
-
-export const getNFTInfoDetail = async (
-  contract: string,
-  tokenId: string
-): Promise<NFTInfo> => {
-  try {
-    const res = await fetch(
-      `https://data-api.nftgo.io/eth/v1/nft/${contract}/${tokenId}/info`,
-      options
     );
     return await res.json();
   } catch (error) {

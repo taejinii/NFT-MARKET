@@ -80,6 +80,8 @@ export interface CollectionInfo {
     discord_url: string;
     twitter_username: string;
     banner_image_url: string;
+    slug: string;
+    afelist_request_status: string;
     stats: CollectionStatsType;
   };
 }

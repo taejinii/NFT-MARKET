@@ -1,9 +1,5 @@
 import Image from "next/image";
-import {
-  getNFTInfoDetail,
-  getNFTInfoOpenSea,
-  getSaleHistory,
-} from "@/api/CollectionAPI";
+import { getNFTInfoOpenSea, getSaleHistory } from "@/api/CollectionAPI";
 import NftInfo from "@/components/page/Collection/NftDetail/NftInfo";
 import TraitsList from "@/components/page/Collection/NftDetail/TraitsList";
 import Accordion from "@/components/ui/Accordion/index";
@@ -20,15 +16,15 @@ export async function generateMetadata({
   params: ParamsType;
 }): Promise<Metadata> {
   const { tokenId, collectionName } = params;
-  const info = await getNFTInfoDetail(collectionName, tokenId);
+  const info = await getNFTInfoOpenSea(collectionName, tokenId);
 
   return {
-    title: `${info.name} - ${info.collection_opensea_slug} | QWERO`,
-    description: info.collection_opensea_slug,
+    title: `${info.name} - ${info.collection.name} | QWERO`,
+    description: info.name,
     openGraph: {
-      images: { url: info.image, alt: info.name },
+      images: { url: info.image_url, alt: info.collection.name },
       title: info.name,
-      description: `Get Your NFT Right Now! - ${info.collection_opensea_slug}`,
+      description: `Get Your NFT Right Now! - ${info.collection.name}`,
       url: `/collection/${collectionName}/${tokenId}`,
     },
   };

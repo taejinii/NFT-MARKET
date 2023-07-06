@@ -18,6 +18,7 @@ export interface NFTInfo {
   owner_addresses: string[];
   contract_address: string;
   traits: Traits[];
+  collection_opensea_slug: string;
 }
 
 interface NFTSaleHistory {

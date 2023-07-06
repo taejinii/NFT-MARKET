@@ -11,7 +11,6 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { collectionName } = params;
   const { collection } = await getCollectionInfoOpenSea(collectionName);
-  console.log(collection);
   return {
     title: `${collection.name} | QWERO`,
     description: collection.description,

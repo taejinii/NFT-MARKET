@@ -5,7 +5,7 @@ import NFTImage from "./NFTImage";
 import { useRouter } from "next/navigation";
 export default function Card({ ...nft }) {
   const { identifier, contract, image_url, name, collection } = nft;
-  const invalidNFT = identifier.length > 6;
+  const invalidNFT = identifier?.length > 6 || !identifier;
   const router = useRouter();
   const handleRoute = (contract: string, identifier: string) => {
     if (invalidNFT) {

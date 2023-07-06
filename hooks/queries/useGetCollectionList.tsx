@@ -5,21 +5,27 @@ import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import CollectionListLoading from "@/components/ui/Skeleton/CollectionListLoading";
 export const useGetCollectionList = (collectionContract: string) => {
-  const { data, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage } =
-    useInfiniteQuery(
-      ["OpenSeaCollectionList", collectionContract],
-      async ({ pageParam }): Promise<CollectionList> =>
-        await getCollectionListOpenSea(collectionContract, pageParam),
-      {
-        getNextPageParam: (lastPage) => {
-          return lastPage.next ?? undefined;
-        },
-        select: (data) => ({
-          pageParams: data.pageParams,
-          pages: data?.pages.flatMap((page) => page.nfts),
-        }),
-      }
-    );
+  const {
+    data,
+    isLoading,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+    isSuccess,
+  } = useInfiniteQuery(
+    ["OpenSeaCollectionList", collectionContract],
+    async ({ pageParam }): Promise<CollectionList> =>
+      await getCollectionListOpenSea(collectionContract, pageParam),
+    {
+      getNextPageParam: (lastPage) => {
+        return lastPage.next ?? undefined;
+      },
+      select: (data) => ({
+        pageParams: data.pageParams,
+        pages: data?.pages.flatMap((page) => page.nfts),
+      }),
+    }
+  );
   const Observer = () => {
     const [ref, inView] = useInView({ threshold: 0 });
     useEffect(() => {
@@ -32,5 +38,5 @@ export const useGetCollectionList = (collectionContract: string) => {
       <div ref={ref} />
     );
   };
-  return { data, isLoading, fetchNextPage, Observer };
+  return { data, isLoading, fetchNextPage, Observer, isSuccess };
 };

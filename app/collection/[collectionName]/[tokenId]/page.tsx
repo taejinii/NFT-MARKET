@@ -7,7 +7,7 @@ import SaleHistoy from "@/components/page/Collection/SaleHistory/SaleHistoy";
 import { Metadata } from "next";
 
 interface ParamsType {
-  collectionContract: string;
+  collectionName: string;
   tokenId: string;
 }
 export async function generateMetadata({
@@ -15,16 +15,17 @@ export async function generateMetadata({
 }: {
   params: ParamsType;
 }): Promise<Metadata> {
-  const { tokenId, collectionContract } = params;
-  const info = await getNFTInfoDetail(collectionContract, tokenId);
+  const { tokenId, collectionName } = params;
+  const info = await getNFTInfoDetail(collectionName, tokenId);
+
   return {
-    title: `${info.name} - ${info.collection_name} | QWERO`,
-    description: info.collection_name,
+    title: `${info.name} - ${info.collection_opensea_slug} | QWERO`,
+    description: info.collection_opensea_slug,
     openGraph: {
       images: { url: info.image, alt: info.name },
       title: info.name,
-      description: `Get Your NFT Right Now! - ${info.collection_name}`,
-      url: `/collection/${collectionContract}/${tokenId}`,
+      description: `Get Your NFT Right Now! - ${info.collection_opensea_slug}`,
+      url: `/collection/${collectionName}/${tokenId}`,
     },
   };
 }
@@ -33,14 +34,14 @@ export default async function NFTDetailPage({
 }: {
   params: ParamsType;
 }) {
-  const { collectionContract, tokenId } = params;
+  const { collectionName, tokenId } = params;
 
   const [info, history] = await Promise.all([
-    getNFTInfoDetail(collectionContract, tokenId),
-    getSaleHistory(collectionContract, tokenId),
+    getNFTInfoDetail(collectionName, tokenId),
+    getSaleHistory(collectionName, tokenId),
   ]);
   return (
-    <div className="flex flex-col w-full gap-5 py-10 m-auto max-w-7xl">
+    <div className="flex flex-col w-full gap-5 pt-16 m-auto max-w-7xl responsive-container">
       <section className="flex flex-col w-full gap-5 md:flex-row">
         <div className="w-full pr-4 max-md:order-2">
           <NftInfo info={info} />

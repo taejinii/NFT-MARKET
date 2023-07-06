@@ -1,5 +1,6 @@
 import { User } from "@/types/types";
 import Card from "@/components/ui/Card";
+
 export default function UserCollectionList({ userInfo }: { userInfo: User }) {
   const { assets, total } = userInfo;
   return (

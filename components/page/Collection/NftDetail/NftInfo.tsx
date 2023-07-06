@@ -1,14 +1,19 @@
 import Link from "next/link";
 import { NFTInfo } from "@/types/types";
 export default function NftInfo({ info }: { info: NFTInfo }) {
-  const { collection_name, name, rarity, owner_addresses, contract_address } =
-    info;
+  const {
+    collection_name,
+    name,
+    rarity,
+    owner_addresses,
+    collection_opensea_slug,
+  } = info;
 
   return (
     <header className="flex flex-col gap-4 font-bold">
       <Link
         className="text-xl w-fit text-primary"
-        href={`/collection/${contract_address}`}
+        href={`/collection/${collection_opensea_slug}`}
       >
         {collection_name}
       </Link>

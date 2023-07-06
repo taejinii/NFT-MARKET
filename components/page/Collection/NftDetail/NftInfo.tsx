@@ -1,32 +1,29 @@
 import Link from "next/link";
-import { NFTInfo } from "@/types/types";
-export default function NftInfo({ info }: { info: NFTInfo }) {
-  const {
-    collection_name,
-    name,
-    rarity,
-    owner_addresses,
-    collection_opensea_slug,
-  } = info;
+import { OpenSeaNFTInfo } from "@/types/types";
+export default function NftInfo({ info }: { info: OpenSeaNFTInfo }) {
+  const { collection, top_ownerships, name } = info;
+  const { owner } = top_ownerships[0];
 
   return (
     <header className="flex flex-col gap-4 font-bold">
       <Link
         className="text-xl w-fit text-primary"
-        href={`/collection/${collection_opensea_slug}`}
+        href={`/collection/${collection.slug}`}
       >
-        {collection_name}
+        {collection.name}
       </Link>
       <h1 className="max-md:text-4xl">{name}</h1>
-      <Link href={`/user/${owner_addresses}`} passHref className="truncate">
+      <Link href={`/user/${owner.address}`} passHref className="truncate">
         <span>Owned by </span>
-        <span className="text-primary">{owner_addresses}</span>
+        <span className="text-primary">
+          {owner.user.username ?? owner.address}
+        </span>
       </Link>
-      {rarity && (
+      {/* {rarity && (
         <span>
           Rank: {rarity.rank}/{rarity.total}
         </span>
-      )}
+      )} */}
     </header>
   );
 }

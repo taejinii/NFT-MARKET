@@ -5,22 +5,6 @@ export interface CollectionDetails {
   volume_eth: { all: number };
 }
 
-interface Traits {
-  type: string;
-  value: string;
-  percentage: number;
-}
-export interface NFTInfo {
-  image: string;
-  collection_name: string;
-  name: string;
-  rarity: { rank: number; total: number };
-  owner_addresses: string[];
-  contract_address: string;
-  traits: Traits[];
-  collection_opensea_slug: string;
-}
-
 interface NFTSaleHistory {
   action: string;
   sender: { address: string };
@@ -98,4 +82,32 @@ export interface CollectionInfo {
     banner_image_url: string;
     stats: CollectionStatsType;
   };
+}
+export interface OpenSeaTraitsType {
+  trait_type: string;
+  trait_count: number;
+  value: string;
+}
+export interface OwnerType {
+  owner: {
+    user: {
+      username: string;
+    };
+    address: string;
+  };
+}
+export interface OpenSeaNFTInfo {
+  name: string;
+  image_url: string;
+  asset_contract: {
+    address: string;
+    owner: string;
+    name: string;
+  };
+  collection: {
+    slug: string;
+    name: string;
+  };
+  traits: OpenSeaTraitsType[];
+  top_ownerships: OwnerType[];
 }

@@ -16,7 +16,6 @@ export const useGetUserCollectionList = (owner: string) => {
     ({ pageParam }) => getUserCollectionList(owner, pageParam),
     {
       getNextPageParam: (lastPage) => {
-        console.log(lastPage);
         return lastPage.next ?? undefined;
       },
       select: (data) => ({

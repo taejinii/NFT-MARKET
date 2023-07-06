@@ -14,16 +14,17 @@ export default function Accordion({ title, children }: AccordionType) {
   };
   return (
     <div className="flex flex-col items-start justify-start w-full border-2 border-black rounded-md ">
-      <div className="w-full text-2xl font-bold" onClick={handleAccordion}>
-        <div className="flex items-center justify-between p-4 border-b-2 border-black cursor-pointer">
-          <div>{title}</div>
-          <div>
-            {isOpen ? (
-              <ArrowUp className="w-6 h-6" />
-            ) : (
-              <ArrowDown className="w-6 h-6" />
-            )}
-          </div>
+      <div
+        className="flex items-center justify-between w-full p-4 text-2xl font-bold border-b-2 border-black cursor-pointer"
+        onClick={handleAccordion}
+      >
+        <div>{title}</div>
+        <div>
+          {isOpen ? (
+            <ArrowUp className="w-6 h-6" />
+          ) : (
+            <ArrowDown className="w-6 h-6" />
+          )}
         </div>
       </div>
       {isOpen && <>{children}</>}

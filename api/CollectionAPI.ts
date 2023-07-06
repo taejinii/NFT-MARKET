@@ -3,6 +3,7 @@ import {
   NFTTransAction,
   NFTCollectionList,
   CollectionInfo,
+  OpenSeaNFTInfo,
 } from "@/types/types";
 const options = {
   method: "GET",
@@ -106,10 +107,10 @@ export const getCollectionInfoOpenSea = async (
     throw new Error("Failed to fetch OpenSea-API CollectionInfo data");
   }
 };
-export const getNFTInfo = async (
+export const getNFTInfoOpenSea = async (
   asset_contract_address: string,
   token_id: string
-) => {
+): Promise<OpenSeaNFTInfo> => {
   try {
     const res = await fetch(
       `https://api.opensea.io/api/v1/asset/${asset_contract_address}/${token_id}/
@@ -119,5 +120,6 @@ export const getNFTInfo = async (
     return await res.json();
   } catch (error) {
     console.error(error);
+    throw new Error("Failed to fetch OpenSea API NFT Info");
   }
 };

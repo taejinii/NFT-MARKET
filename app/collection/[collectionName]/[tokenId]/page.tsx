@@ -41,7 +41,7 @@ export default async function NFTDetailPage({
     getSaleHistory(collectionName, tokenId),
   ]);
   return (
-    <div className="flex flex-col w-full gap-5 pt-24 m-auto responsive-container max-w-7xl ">
+    <div className="flex flex-col w-full gap-5 p-20 m-auto responsive-container max-w-7xl ">
       <section className="flex flex-col w-full gap-5 md:flex-row">
         <div className="w-full max-md:order-2">
           <NftInfo info={info} />

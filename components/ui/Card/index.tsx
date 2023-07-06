@@ -21,7 +21,6 @@ export default function Card({
     }
     router.push(`/collection/${contract}/${identifier}`);
   };
-  console.log(contract, identifier);
   return (
     <div
       onClick={() => handleRoute(contract, identifier)}

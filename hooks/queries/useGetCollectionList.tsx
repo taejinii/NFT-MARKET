@@ -4,7 +4,7 @@ import { CollectionList } from "@/types/types";
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import CollectionListLoading from "@/components/ui/Skeleton/CollectionListLoading";
-export const useGetCollectionList = (collectionContract: string) => {
+export const useGetCollectionList = (collectionName: string) => {
   const {
     data,
     isLoading,
@@ -13,9 +13,9 @@ export const useGetCollectionList = (collectionContract: string) => {
     isFetchingNextPage,
     isSuccess,
   } = useInfiniteQuery(
-    ["OpenSeaCollectionList", collectionContract],
+    ["OpenSeaCollectionList", collectionName],
     async ({ pageParam }): Promise<CollectionList> =>
-      await getCollectionListOpenSea(collectionContract, pageParam),
+      await getCollectionListOpenSea(collectionName, pageParam),
     {
       getNextPageParam: (lastPage) => {
         return lastPage.next ?? undefined;

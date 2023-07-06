@@ -21,7 +21,10 @@ export const getUserInfo = async (address: string): Promise<User> => {
   }
 };
 
-export const getUserCollectionList = async (owner: string, next?: string) => {
+export const getUserCollectionListOpenSea = async (
+  owner: string,
+  next?: string
+) => {
   const params = new URLSearchParams({
     owner,
     limit: "12",

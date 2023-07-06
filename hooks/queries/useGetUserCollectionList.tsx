@@ -1,5 +1,5 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
-import { getUserCollectionList } from "@/api/UserAPI";
+import { getUserCollectionListOpenSea } from "@/api/UserAPI";
 import CollectionListLoading from "@/components/ui/Skeleton/CollectionListLoading";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
@@ -13,7 +13,7 @@ export const useGetUserCollectionList = (owner: string) => {
     isSuccess,
   } = useInfiniteQuery(
     ["OpenSeaUerCollectionList", owner],
-    ({ pageParam }) => getUserCollectionList(owner, pageParam),
+    ({ pageParam }) => getUserCollectionListOpenSea(owner, pageParam),
     {
       getNextPageParam: (lastPage) => {
         return lastPage.next ?? undefined;

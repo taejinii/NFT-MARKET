@@ -11,7 +11,8 @@ export default function Card({
   name,
   collection,
 }: OpenSeaCollectionListType) {
-  const invalidNFT = identifier?.length > 6 || !identifier;
+  const invalidNFT =
+    identifier?.length > 6 || !identifier || Number(identifier) === 0;
   const router = useRouter();
   const handleRoute = (contract: string, identifier: string) => {
     if (invalidNFT) {
@@ -20,6 +21,7 @@ export default function Card({
     }
     router.push(`/collection/${contract}/${identifier}`);
   };
+  console.log(contract, identifier);
   return (
     <div
       onClick={() => handleRoute(contract, identifier)}

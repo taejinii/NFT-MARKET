@@ -2,7 +2,6 @@
 import { useGetUserCollectionList } from "@/hooks/queries/useGetUserCollectionList";
 import Card from "@/components/ui/Card";
 import CollectionListLoading from "@/components/ui/Skeleton/CollectionListLoading";
-
 export default function UserCollectionList({ contract }: { contract: string }) {
   const { data, isLoading, Observer, isSuccess } =
     useGetUserCollectionList(contract);
@@ -17,7 +16,7 @@ export default function UserCollectionList({ contract }: { contract: string }) {
               <Card
                 key={nft.id}
                 identifier={nft.token_id}
-                contract={nft.contract}
+                contract={nft.asset_contract.address}
                 image_url={nft.image_url}
                 name={nft.name}
                 collection={nft.collection.name}

@@ -19,7 +19,6 @@ export default function FourthSection() {
   const directCollection = (contract: string) => {
     router.push(`/collection/${contract}`);
   };
-  console.log(collectionInfo);
   return (
     <section className="flex flex-col h-screen bg-white p-14">
       <h1 className="flex flex-col justify-start w-full h-full mb-10 text-3xl font-extrabold uppercase text-primary lg:text-6xl">

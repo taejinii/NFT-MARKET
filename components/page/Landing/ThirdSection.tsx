@@ -5,7 +5,7 @@ import { useGetNftData } from "@/hooks/queries/useGetNftData";
 import { BEST_COLLECTION } from "@/constant/constant";
 export default function ThirdSection() {
   const { ref, inView } = useInView({ threshold: 0 });
-  const { data: nftData, isLoading } = useGetNftData(BEST_COLLECTION, 10);
+  const { data: nftData, isLoading } = useGetNftData(BEST_COLLECTION, 3);
 
   return (
     <section
@@ -25,7 +25,7 @@ export default function ThirdSection() {
         </article>
       </div>
 
-      {/* <div className="absolute flex justify-center -top-28 2xl:-top-48">
+      <div className="absolute flex justify-center -top-28 2xl:-top-48">
         {!isLoading &&
           nftData?.nfts.map((nft, index: number) => {
             let animateClass = "";
@@ -43,11 +43,17 @@ export default function ThirdSection() {
                 key={nft.token_id}
                 className={`absolute ${inView ? animateClass : "hidden"} w-64`}
               >
-                <Card {...nft} />
+                <Card
+                  identifier={nft.token_id}
+                  contract={nft.contract_address}
+                  image_url={nft.image}
+                  name={nft.name}
+                  collection={nft.collection_name}
+                />
               </div>
             );
           })}
-      </div> */}
+      </div>
     </section>
   );
 }

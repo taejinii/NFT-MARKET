@@ -2,6 +2,8 @@
 import NFTInfo from "./NFTInfo";
 import NFTPrice from "./NFTPrice";
 import NFTImage from "./NFTImage";
+import CartButton from "../CartButton";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { OpenSeaCollectionListType } from "@/types/types";
 export default function Card({
@@ -14,6 +16,15 @@ export default function Card({
   const invalidNFT =
     identifier?.length > 6 || !identifier || Number(identifier) === 0;
   const router = useRouter();
+  const [isMouseHover, setIsMouseHover] = useState(false);
+
+  const handleActiveCart = () => {
+    setIsMouseHover(true);
+  };
+  const handleInactiveCart = () => {
+    setIsMouseHover(false);
+  };
+
   const handleRoute = (contract: string, identifier: string) => {
     if (invalidNFT) {
       alert("유효하지 않은 NFT 입니다.");
@@ -23,6 +34,8 @@ export default function Card({
   };
   return (
     <div
+      onMouseOver={handleActiveCart}
+      onMouseOut={handleInactiveCart}
       onClick={() => handleRoute(contract, identifier)}
       className={`flex flex-col p-3 w-full h-auto  max-h-96 gap-4 rounded-xl bg-[#18191E] ${
         invalidNFT ? "cursor-not-allowed" : "cursor-pointer"
@@ -35,7 +48,8 @@ export default function Card({
         invalidNFT={invalidNFT}
         identifier={identifier}
       />
-      <NFTPrice invalidNFT={invalidNFT} />
+      {!isMouseHover && <NFTPrice invalidNFT={invalidNFT} />}
+      {isMouseHover && <CartButton />}
     </div>
   );
 }

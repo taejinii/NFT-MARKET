@@ -4,7 +4,7 @@ import NFTPrice from "./NFTPrice";
 import NFTImage from "./NFTImage";
 import CartButton from "../CartButton";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { OpenSeaCollectionListType } from "@/types/types";
 export default function Card({
   identifier,
@@ -13,8 +13,7 @@ export default function Card({
   name,
   collection,
 }: OpenSeaCollectionListType) {
-  const invalidNFT =
-    identifier?.length > 6 || !identifier || Number(identifier) === 0;
+  const pathname = usePathname();
   const router = useRouter();
   const [isMouseHover, setIsMouseHover] = useState(false);
 
@@ -32,12 +31,14 @@ export default function Card({
     }
     router.push(`/collection/${contract}/${identifier}`);
   };
+  const invalidNFT =
+    identifier?.length > 6 || !identifier || Number(identifier) === 0;
   return (
     <div
       onMouseOver={handleActiveCart}
       onMouseOut={handleInactiveCart}
       onClick={() => handleRoute(contract, identifier)}
-      className={`flex flex-col p-3 w-full h-auto  max-h-96 gap-4 rounded-xl bg-[#18191E] ${
+      className={`relative z-10 flex flex-col drop-shadow-2xl w-full h-auto  max-h-96 gap-4 rounded-xl bg-[#18191E] ${
         invalidNFT ? "cursor-not-allowed" : "cursor-pointer"
       }`}
     >
@@ -48,7 +49,7 @@ export default function Card({
         invalidNFT={invalidNFT}
         identifier={identifier}
       />
-      {!isMouseHover && <NFTPrice invalidNFT={invalidNFT} />}
+      <NFTPrice invalidNFT={invalidNFT} />
       {isMouseHover && (
         <CartButton
           collection={collection}

@@ -1,17 +1,19 @@
 "use client";
+import dynamic from "next/dynamic";
 import { useEffect } from "react";
 import { useAppSelector, useAppDispatch } from "@/store/index";
 import { usePathname } from "next/navigation";
-import dynamic from "next/dynamic";
 import { closeModal } from "@/store/modalSlice";
-import { AnimatePresence } from "framer-motion";
+import CartListModal from "./CartListModal";
 const Overlay = dynamic(() => import("../Overlay"));
 const SideBarModal = dynamic(() => import("./SidebarModal/SideBarModal"));
 const MODAL_TYPES = {
   SideBarModal: "SideBarModal",
+  CartListModal: "CartListModal",
 };
 const MODAL_COMPONENTS = [
   { type: MODAL_TYPES.SideBarModal, component: <SideBarModal /> },
+  { type: MODAL_TYPES.CartListModal, component: <CartListModal /> },
 ];
 
 export default function GlobalModal() {

@@ -12,9 +12,11 @@ export default function NFTInfo({
 }: NFTInfo) {
   const isExistName = name ?? identifier;
   return (
-    <div className="flex flex-col items-start gap-2 font-bold">
+    <div className="flex flex-col items-start justify-center gap-2 p-2 font-bold">
       <span className="text-[#5E6064] truncate w-full ">{collection_name}</span>
-      <span className="text-white">{invalidNFT ? "invalid NFT" : isExistName}</span>
+      <span className="text-white">
+        {invalidNFT ? "invalid NFT" : isExistName}
+      </span>
     </div>
   );
 }

@@ -38,7 +38,7 @@ export default function Card({
       onMouseOver={handleActiveCart}
       onMouseOut={handleInactiveCart}
       onClick={() => handleRoute(contract, identifier)}
-      className={`relative z-10 flex flex-col drop-shadow-2xl w-full h-auto  max-h-96 gap-4 rounded-xl bg-[#18191E] ${
+      className={`relative z-10 flex flex-col w-full h-auto  max-h-96 gap-4 rounded-xl bg-[#18191E] shadow-2xl drop-shadow-2xl ${
         invalidNFT ? "cursor-not-allowed" : "cursor-pointer"
       }`}
     >
@@ -49,7 +49,7 @@ export default function Card({
         invalidNFT={invalidNFT}
         identifier={identifier}
       />
-      <NFTPrice invalidNFT={invalidNFT} />
+      <NFTPrice />
       {isMouseHover && (
         <CartButton
           collection={collection}

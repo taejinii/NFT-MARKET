@@ -1,7 +1,7 @@
 import Image from "next/image";
 export default function NFTImage({ image }: { image: string }) {
   return (
-    <div className="relative h-48 overflow-hidden rounded-xl ">
+    <div className="relative h-48 overflow-hidden rounded-t-xl ">
       <Image
         src={image}
         alt="NFT Image"

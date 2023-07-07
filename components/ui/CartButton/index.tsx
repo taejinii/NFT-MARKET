@@ -31,7 +31,7 @@ export default function CartButton({
       initial={{ y: 20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ ease: "easeOut", duration: 0.2 }}
-      className="absolute bottom-0 z-20 flex items-center justify-center w-full h-24 m-auto text-xl font-bold text-white bg-primary rounded-xl"
+      className="absolute bottom-0 z-20 flex items-center justify-center w-full h-24 m-auto text-xl font-bold text-white bg-primary rounded-b-xl"
       onClick={(event) => handleAddToCart(event)}
     >
       <div>Add to Cart</div>

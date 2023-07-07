@@ -49,7 +49,15 @@ export default function Card({
         identifier={identifier}
       />
       {!isMouseHover && <NFTPrice invalidNFT={invalidNFT} />}
-      {isMouseHover && <CartButton />}
+      {isMouseHover && (
+        <CartButton
+          collection={collection}
+          identifier={identifier}
+          name={name}
+          image_url={image_url}
+          contract={contract}
+        />
+      )}
     </div>
   );
 }

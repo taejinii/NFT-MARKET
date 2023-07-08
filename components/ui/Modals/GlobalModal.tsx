@@ -1,12 +1,11 @@
 "use client";
-import dynamic from "next/dynamic";
 import { useEffect } from "react";
 import { useAppSelector, useAppDispatch } from "@/store/index";
 import { usePathname } from "next/navigation";
 import { closeModal } from "@/store/modalSlice";
 import CartListModal from "./CartListModal";
-const Overlay = dynamic(() => import("../Overlay"));
-const SideBarModal = dynamic(() => import("./SidebarModal/SideBarModal"));
+import Overlay from "../Overlay";
+import SideBarModal from "./SidebarModal/SideBarModal";
 const MODAL_TYPES = {
   SideBarModal: "SideBarModal",
   CartListModal: "CartListModal",

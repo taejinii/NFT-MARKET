@@ -29,8 +29,8 @@ const cartSlice = createSlice({
       }
     },
     removeCart: (state, action) => {
-      state.cartList.filter(
-        (cart) => cart.identifier !== action.payload.idenrifier
+      state.cartList = state.cartList.filter(
+        (cart) => cart.image_url !== action.payload
       );
     },
     clearCart: (state) => {

@@ -20,9 +20,12 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action: PayloadAction<CartListType>) => {
-      const isDuplicate = state.cartList.some(
-        (cart) => cart.image_url === action.payload.image_url
-      );
+      const isDuplicate = state.cartList.some((cart) => {
+        return (
+          cart.collection === action.payload.collection &&
+          cart.identifier === action.payload.identifier
+        );
+      });
       if (isDuplicate) {
         alert("이미 담긴 아이템 입니다.");
       } else {

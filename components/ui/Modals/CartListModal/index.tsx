@@ -6,6 +6,7 @@ import { closeModal } from "@/store/modalSlice";
 import { clearCart } from "@/store/cartSlice";
 import { motion } from "framer-motion";
 import { useRef } from "react";
+import Button from "../../Button";
 export default function CartListModal() {
   const dispatch = useAppDispatch();
   const { cartList } = useAppSelector((state) => state.cart);
@@ -20,6 +21,7 @@ export default function CartListModal() {
   const totalPrice = cartList.reduce((acc, cur) => {
     return acc + cur.price;
   }, 0);
+  const isCartEmpty = cartList.length === 0;
   return (
     <motion.aside
       className="fixed right-0 z-50 flex flex-col h-full gap-5 p-4 bg-white w-[450px]"
@@ -46,6 +48,14 @@ export default function CartListModal() {
         <span>Total Price</span>
         <span>{totalPrice.toFixed(2)} ETH</span>
       </div>
+      <Button
+        size="lg"
+        variant="primary"
+        disabled={isCartEmpty}
+        onClickAction={() => alert("동작 확인 테스트")}
+      >
+        Complete purchase
+      </Button>
     </motion.aside>
   );
 }

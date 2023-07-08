@@ -12,13 +12,13 @@ export default function CollectionListLoading({
             key={index}
             className="flex flex-col w-full h-auto  max-h-96 gap-4 rounded-xl bg-[#18191E] "
           >
-            <Skeleton className="h-48 rounded-xl" />
+            <Skeleton className="h-48 " />
             <div className="flex flex-col items-start gap-2 px-2 ">
               <Skeleton className="w-full h-6" />
               <Skeleton className="w-4/6 h-6" />
             </div>
 
-            <Skeleton className="w-full h-24 rounded-xl" />
+            <Skeleton className="w-full h-24 " />
           </div>
         );
       })}

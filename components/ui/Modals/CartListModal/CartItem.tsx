@@ -3,7 +3,7 @@ import Link from "next/link";
 import { store } from "@/store";
 import { removeCart } from "@/store/cartSlice";
 export default function CartItem({ ...cart }) {
-  const { name, image_url, collection, contract, identifier } = cart;
+  const { name, image_url, collection, contract, identifier, price } = cart;
   const removeItem = (image: string) => {
     store.dispatch(removeCart(image));
   };
@@ -12,7 +12,7 @@ export default function CartItem({ ...cart }) {
       <Link
         href={`/collection/${contract}/${identifier}`}
         passHref
-        className="flex items-center w-full gap-2"
+        className="flex items-center w-full"
       >
         <div className="relative w-20 h-20 ">
           <Image
@@ -20,16 +20,19 @@ export default function CartItem({ ...cart }) {
             alt="name"
             fill
             sizes="100vw"
-            className="absolute object-cover w-full h-full rounded-md drop-shadow-xl"
+            className="absolute object-cover w-full h-full rounded-lg "
           />
         </div>
 
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col flex-1 gap-1 ml-2">
           <span>{collection}</span>
-          <span>{name}</span>
+          <span>{name ?? identifier}</span>
         </div>
+        <div>{price} ETH</div>
       </Link>
-      <button onClick={() => removeItem(image_url)}>삭제</button>
+      <button className="p-2" onClick={() => removeItem(image_url)}>
+        삭제
+      </button>
     </li>
   );
 }

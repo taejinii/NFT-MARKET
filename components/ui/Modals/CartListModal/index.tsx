@@ -17,6 +17,9 @@ export default function CartListModal() {
   const clearCartList = () => {
     dispatch(clearCart());
   };
+  const totalPrice = cartList.reduce((acc, cur) => {
+    return acc + cur.price;
+  }, 0);
   return (
     <motion.aside
       className="fixed right-0 z-50 flex flex-col h-full gap-5 p-4 bg-white w-[450px]"
@@ -28,7 +31,9 @@ export default function CartListModal() {
       </header>
       <div className="flex items-center justify-between font-bold">
         <span>{cartList.length} items</span>
-        <button onClick={clearCartList}>Clear list</button>
+        <button className="p-2" onClick={clearCartList}>
+          Clear list
+        </button>
       </div>
       <section className="overflow-auto">
         <ul className="flex flex-col">
@@ -37,6 +42,10 @@ export default function CartListModal() {
           ))}
         </ul>
       </section>
+      <div className="flex items-center justify-between w-full pt-4 text-xl font-bold border-t-2">
+        <span>Total Price</span>
+        <span>{totalPrice.toFixed(2)} ETH</span>
+      </div>
     </motion.aside>
   );
 }

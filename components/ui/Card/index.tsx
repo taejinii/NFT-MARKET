@@ -3,8 +3,8 @@ import NFTInfo from "./NFTInfo";
 import NFTPrice from "./NFTPrice";
 import NFTImage from "./NFTImage";
 import CartButton from "../CartButton";
-import { useState } from "react";
-import { useRouter, usePathname } from "next/navigation";
+import { useEffect, useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 import { OpenSeaCollectionListType } from "@/types/types";
 export default function Card({
   identifier,
@@ -13,7 +13,6 @@ export default function Card({
   name,
   collection,
 }: OpenSeaCollectionListType) {
-  const pathname = usePathname();
   const router = useRouter();
   const [isMouseHover, setIsMouseHover] = useState(false);
 
@@ -31,6 +30,9 @@ export default function Card({
     }
     router.push(`/collection/${contract}/${identifier}`);
   };
+  const randomPrice = useMemo(() => {
+    return Number((Math.random() * (0 - 50) + 50).toFixed(2));
+  }, []);
   const invalidNFT =
     identifier?.length > 6 || !identifier || Number(identifier) === 0;
   return (
@@ -49,7 +51,7 @@ export default function Card({
         invalidNFT={invalidNFT}
         identifier={identifier}
       />
-      <NFTPrice />
+      <NFTPrice price={randomPrice} />
       {isMouseHover && (
         <CartButton
           collection={collection}
@@ -57,6 +59,7 @@ export default function Card({
           name={name}
           image_url={image_url}
           contract={contract}
+          price={randomPrice}
         />
       )}
     </div>

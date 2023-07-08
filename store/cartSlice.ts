@@ -6,6 +6,7 @@ interface CartListType {
   image_url: string;
   name: string;
   collection: string;
+  price: number;
 }
 interface CartList {
   cartList: CartListType[];

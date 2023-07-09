@@ -52,6 +52,7 @@ export interface OpenSeaCollectionListType {
   image_url: string;
   name: string;
   collection: string;
+  price?: number;
 }
 export interface CollectionList {
   next: string;
@@ -101,6 +102,7 @@ export interface OwnerType {
 export interface OpenSeaNFTInfo {
   name: string;
   image_url: string;
+  token_id: string;
   asset_contract: {
     address: string;
     owner: string;

@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface ModalType {
-  modalType: "SideBarModal";
+  modalType: "SideBarModal" | "CartListModal";
 }
 
 const initialState = {

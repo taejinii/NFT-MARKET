@@ -3,16 +3,16 @@ import useOutsideClick from "@/hooks/common/useOutSideClick";
 import { useAppDispatch, useAppSelector } from "@/store";
 import { closeModal } from "@/store/modalSlice";
 import { clearCart } from "@/store/cartSlice";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useRef } from "react";
 import Button from "../../Button";
 import CartList from "./CartList";
 import TotalPrice from "./TotalPrice";
 export default function CartListModal() {
-  const dispatch = useAppDispatch();
-  const { cartList } = useAppSelector((state) => state.cart);
   const ref = useRef(null);
   useOutsideClick(ref);
+  const dispatch = useAppDispatch();
+  const { cartList } = useAppSelector((state) => state.cart);
   const handleCloseModal = () => {
     dispatch(closeModal());
   };
@@ -23,13 +23,19 @@ export default function CartListModal() {
   const isCartEmpty = cartList.length === 0;
   return (
     <motion.aside
-      className="fixed right-0 z-50 flex flex-col h-full gap-5 p-4 bg-white w-[450px]"
+      key="modal"
+      initial={{ x: "100%" }}
+      animate={{ x: 0 }}
+      transition={{ duration: 0.5 }}
+      className="fixed right-0 z-50 flex flex-col h-full gap-5 p-4 bg-white w-full  sm:w-[450px]"
       ref={ref}
       data-cy="cartList-modal"
     >
       <header className="flex justify-between w-full py-2 border-b-2">
         <h2>Cart</h2>
-        <button onClick={handleCloseModal}>x</button>
+        <button className="text-4xl font-bold" onClick={handleCloseModal}>
+          x
+        </button>
       </header>
       {!isCartEmpty ? (
         <CartList cartList={cartList} />

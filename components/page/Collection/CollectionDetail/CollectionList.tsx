@@ -8,9 +8,6 @@ export default function CollectionList({
 }: {
   collectionName: string;
 }) {
-  const randomPrice = useMemo(() => {
-    return Number((Math.random() * (0 - 50) + 50).toFixed(2));
-  }, []);
   const { data, isLoading, Observer, isSuccess } =
     useGetCollectionList(collectionName);
   return (
@@ -28,7 +25,6 @@ export default function CollectionList({
                 image_url={nft.image_url}
                 name={nft.name}
                 collection={nft.collection}
-                price={randomPrice}
               />
             );
           })}

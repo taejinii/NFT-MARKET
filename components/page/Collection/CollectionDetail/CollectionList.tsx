@@ -2,11 +2,15 @@
 import Card from "@/components/ui/Card";
 import { useGetCollectionList } from "@/hooks/queries/useGetCollectionList";
 import CollectionListLoading from "@/components/ui/Skeleton/CollectionListLoading";
+import { useMemo } from "react";
 export default function CollectionList({
   collectionName,
 }: {
   collectionName: string;
 }) {
+  const randomPrice = useMemo(() => {
+    return Number((Math.random() * (0 - 50) + 50).toFixed(2));
+  }, []);
   const { data, isLoading, Observer, isSuccess } =
     useGetCollectionList(collectionName);
   return (
@@ -24,6 +28,7 @@ export default function CollectionList({
                 image_url={nft.image_url}
                 name={nft.name}
                 collection={nft.collection}
+                price={randomPrice}
               />
             );
           })}

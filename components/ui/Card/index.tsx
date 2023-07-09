@@ -12,6 +12,7 @@ export default function Card({
   image_url,
   name,
   collection,
+  price,
 }: OpenSeaCollectionListType) {
   const router = useRouter();
   const [isMouseHover, setIsMouseHover] = useState(false);
@@ -30,9 +31,7 @@ export default function Card({
     }
     router.push(`/collection/${contract}/${identifier}`);
   };
-  const randomPrice = useMemo(() => {
-    return Number((Math.random() * (0 - 50) + 50).toFixed(2));
-  }, []);
+
   const invalidNFT =
     identifier?.length > 6 || !identifier || Number(identifier) === 0;
   return (
@@ -51,7 +50,7 @@ export default function Card({
         invalidNFT={invalidNFT}
         identifier={identifier}
       />
-      <NFTPrice price={randomPrice} />
+      <NFTPrice price={price} />
       {isMouseHover && !invalidNFT && (
         <CartButton
           collection={collection}
@@ -59,7 +58,7 @@ export default function Card({
           name={name}
           image_url={image_url}
           contract={contract}
-          price={randomPrice}
+          price={price}
         />
       )}
     </div>

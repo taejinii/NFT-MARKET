@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { OpenSeaNFTInfo } from "@/types/types";
 export default function NftInfo({ info }: { info: OpenSeaNFTInfo }) {
-  const { collection, top_ownerships, name } = info;
+  const { collection, top_ownerships, name, token_id } = info;
   const { owner } = top_ownerships[0];
   return (
     <header className="flex flex-col gap-4 font-bold">
@@ -11,7 +11,7 @@ export default function NftInfo({ info }: { info: OpenSeaNFTInfo }) {
       >
         {collection.name}
       </Link>
-      <h1 className="max-md:text-4xl">{name}</h1>
+      <h1 className="max-md:text-4xl">{name ?? token_id}</h1>
       <Link href={`/user/${owner.address}`} passHref className="truncate">
         <span>Owned by </span>
         <span className="text-primary">

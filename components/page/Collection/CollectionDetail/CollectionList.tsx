@@ -2,6 +2,7 @@
 import Card from "@/components/ui/Card";
 import { useGetCollectionList } from "@/hooks/queries/useGetCollectionList";
 import CollectionListLoading from "@/components/ui/Skeleton/CollectionListLoading";
+import { useMemo } from "react";
 export default function CollectionList({
   collectionName,
 }: {

@@ -3,23 +3,29 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { useState, useEffect, useCallback } from "react";
 import { NAVBAR_MENU } from "@/constant/constant";
+import { useAppSelector } from "@/store";
+import CartListButton from "./CartListButton";
 import WalletConnectButton from "../WalletConnectButton";
 import MenuBar from "../../../public/icons/MenuBar.svg";
 /**모바일 뷰포트이기 전까진 사용할일이 없기때문에 처음부터 로드하지않고 필요해짐에따라 로드하여 렌더링해준다. 앱의 초기용량을 줄일수가있다.
  */
 const MobileNavBar = dynamic(() => import("../Header/MobileNavBar"));
+
 export default function Header() {
   const [scrollY, setScrollY] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
+  const { cartList } = useAppSelector((state) => state.cart);
+
   const handleScrollY = useCallback(() => {
     setScrollY(window.scrollY);
   }, []);
+
   useEffect(() => {
     document.addEventListener("scroll", handleScrollY, { passive: true });
     return () => document.removeEventListener("scroll", handleScrollY);
   }, [handleScrollY]);
 
-  const handleIsOpen = useCallback(() => {
+  const handleMobileNavBar = useCallback(() => {
     setIsOpen(!isOpen);
   }, [isOpen]);
 
@@ -43,9 +49,10 @@ export default function Header() {
         })}
       </ul>
       {isOpen && <MobileNavBar setIsOpen={setIsOpen} />}
-      <div className="flex gap-5">
+      <div className="flex items-center gap-5 itmes-center">
+        <CartListButton itemCount={cartList.length} />
         <WalletConnectButton />
-        <button className="block sm:hidden" onClick={handleIsOpen}>
+        <button className="block sm:hidden" onClick={handleMobileNavBar}>
           <MenuBar className="w-8 h-8 fill-black" />
         </button>
       </div>

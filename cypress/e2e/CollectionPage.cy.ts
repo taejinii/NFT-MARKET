@@ -12,3 +12,4 @@ describe("CollectionPage Test", () => {
     cy.get('[data-cy="ranking-list"]').first().click();
   });
 });
+export {};

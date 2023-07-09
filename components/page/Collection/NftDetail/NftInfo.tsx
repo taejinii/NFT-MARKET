@@ -1,8 +1,25 @@
+"use client";
 import Link from "next/link";
+import Button from "@/components/ui/Button";
 import { OpenSeaNFTInfo } from "@/types/types";
+import { store } from "@/store";
+import { addToCart } from "@/store/cartSlice";
 export default function NftInfo({ info }: { info: OpenSeaNFTInfo }) {
   const { collection, top_ownerships, name, token_id } = info;
   const { owner } = top_ownerships[0];
+  console.log(top_ownerships);
+  const handleAddToCart = () => {
+    store.dispatch(
+      addToCart({
+        image_url: info.image_url,
+        identifier: info.token_id,
+        contract: info.asset_contract.address,
+        name: info.name,
+        collection: info.collection.name,
+        price: 1,
+      })
+    );
+  };
   return (
     <header className="flex flex-col gap-4 font-bold">
       <Link
@@ -18,11 +35,14 @@ export default function NftInfo({ info }: { info: OpenSeaNFTInfo }) {
           {owner.user?.username ?? owner.address}
         </span>
       </Link>
-      {/* {rarity && (
-        <span>
-          Rank: {rarity.rank}/{rarity.total}
-        </span>
-      )} */}
+      <div className="flex items-center w-full gap-2">
+        <Button fullWidth size="lg" onClickAction={handleAddToCart}>
+          Add to Cart
+        </Button>
+        <p className="w-full py-4 text-center border-2 rounded-lg hover:bg-slate-300">
+          Price : 1 ETH
+        </p>
+      </div>
     </header>
   );
 }

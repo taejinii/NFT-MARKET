@@ -1,5 +1,5 @@
+"use client";
 import { MouseEventHandler, ReactElement } from "react";
-
 interface ButtonType {
   children: ReactElement | string;
   size?: "sm" | "md" | "lg";

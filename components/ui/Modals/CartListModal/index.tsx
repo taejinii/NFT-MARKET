@@ -26,6 +26,7 @@ export default function CartListModal() {
     <motion.aside
       className="fixed right-0 z-50 flex flex-col h-full gap-5 p-4 bg-white w-[450px]"
       ref={ref}
+      data-cy="cartList-modal"
     >
       <header className="flex justify-between w-full py-2 border-b-2">
         <h2>Cart</h2>

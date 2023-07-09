@@ -43,6 +43,7 @@ export default function Card({
       className={`relative z-10 flex flex-col w-full h-auto  max-h-96 gap-4 rounded-xl bg-[#18191E] shadow-2xl drop-shadow-2xl ${
         invalidNFT ? "cursor-not-allowed" : "cursor-pointer"
       }`}
+      data-cy="NFT-Card"
     >
       <NFTImage image={image_url ?? "/images/error.png"} />
       <NFTInfo

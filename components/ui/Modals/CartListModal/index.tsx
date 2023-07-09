@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { useRef } from "react";
 import Button from "../../Button";
 import CartList from "./CartList";
+import TotalPrice from "./TotalPrice";
 export default function CartListModal() {
   const dispatch = useAppDispatch();
   const { cartList } = useAppSelector((state) => state.cart);
@@ -30,14 +31,14 @@ export default function CartListModal() {
         <h2>Cart</h2>
         <button onClick={handleCloseModal}>x</button>
       </header>
-      <CartList isCartEmpty={isCartEmpty} cartList={cartList} />
-      {!isCartEmpty && (
-        <div className="flex items-center justify-between w-full pt-2 text-xl font-bold border-t-2">
-          <span>Total Price</span>
-          <span>{totalPrice.toFixed(2)} ETH</span>
+      {!isCartEmpty ? (
+        <CartList cartList={cartList} />
+      ) : (
+        <div className="flex items-center justify-center w-full h-64 text-xl font-bold text-slate-300 ">
+          Add items to get started.
         </div>
       )}
-
+      {!isCartEmpty && <TotalPrice totalPrice={totalPrice} />}
       <Button
         size="lg"
         variant="primary"

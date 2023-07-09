@@ -7,7 +7,6 @@ import { addToCart } from "@/store/cartSlice";
 export default function NftInfo({ info }: { info: OpenSeaNFTInfo }) {
   const { collection, top_ownerships, name, token_id } = info;
   const { owner } = top_ownerships[0];
-  console.log(top_ownerships);
   const handleAddToCart = () => {
     store.dispatch(
       addToCart({
@@ -15,7 +14,7 @@ export default function NftInfo({ info }: { info: OpenSeaNFTInfo }) {
         identifier: info.token_id,
         contract: info.asset_contract.address,
         name: info.name,
-        collection: info.collection.name,
+        collection: info.collection.slug,
         price: 1,
       })
     );

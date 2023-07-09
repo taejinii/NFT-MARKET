@@ -46,7 +46,6 @@ export default async function NFTDetailPage({
       <section className="flex flex-col w-full gap-5 md:flex-row">
         <div className="flex flex-col w-full gap-2 max-md:order-2">
           <NftInfo info={info} />
-
           <TraitsList traits={info.traits} />
         </div>
         <div className="flex items-center justify-center w-full max-md:order-1">

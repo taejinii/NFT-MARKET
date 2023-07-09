@@ -1,10 +1,3 @@
-export interface CollectionDetails {
-  total_supply: number;
-  holder_num: number;
-  floor_price: { value: number };
-  volume_eth: { all: number };
-}
-
 interface NFTSaleHistory {
   action: string;
   sender: { address: string };

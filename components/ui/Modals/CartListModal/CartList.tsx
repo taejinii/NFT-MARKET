@@ -12,7 +12,7 @@ export default function CartList({
   const dispatch = useAppDispatch();
   return (
     <section className="overflow-auto">
-      <div className="flex items-center justify-between font-bold">
+      <div className="flex items-center justify-between py-2 font-bold">
         <span>{cartList.length} items</span>
         <Button
           size="sm"

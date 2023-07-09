@@ -32,11 +32,11 @@ export default function CartItem({ ...cart }) {
         <div>{price} ETH</div>
       </Link>
       <button
-        className="p-2"
+        className="p-2 "
         onClick={() => removeItem(image_url)}
         data-cy="remove-button"
       >
-        <TrashCan className="w-8 h-8" />
+        <TrashCan className="w-6 h-6" />
       </button>
     </li>
   );

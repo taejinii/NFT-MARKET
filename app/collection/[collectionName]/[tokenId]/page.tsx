@@ -40,14 +40,15 @@ export default async function NFTDetailPage({
     getNFTInfoOpenSea(collectionName, tokenId),
     getSaleHistory(collectionName, tokenId),
   ]);
+
   return (
     <div className="flex flex-col w-full gap-5 p-20 m-auto responsive-container max-w-7xl ">
       <section className="flex flex-col w-full gap-5 md:flex-row">
-        <div className="w-full max-md:order-2">
+        <div className="flex flex-col w-full gap-2 max-md:order-2">
           <NftInfo info={info} />
+
           <TraitsList traits={info.traits} />
         </div>
-
         <div className="flex items-center justify-center w-full max-md:order-1">
           <Image
             src={info.image_url}

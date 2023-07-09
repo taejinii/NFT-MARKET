@@ -10,7 +10,6 @@ export default function CartButton({
   image_url,
   collection,
   contract,
-  price = 0,
 }: OpenSeaCollectionListType) {
   const pathname = usePathname();
   const dispatch = useAppDispatch();
@@ -23,7 +22,7 @@ export default function CartButton({
         contract,
         image_url,
         name,
-        price,
+        price: 1,
       })
     );
   };

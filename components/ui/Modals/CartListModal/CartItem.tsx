@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { store } from "@/store";
 import { removeCart } from "@/store/cartSlice";
+import TrashCan from "../../../../public/icons/TrashCan.svg";
 export default function CartItem({ ...cart }) {
   const { name, image_url, collection, contract, identifier, price } = cart;
   const removeItem = (image: string) => {
@@ -31,7 +32,7 @@ export default function CartItem({ ...cart }) {
         <div>{price} ETH</div>
       </Link>
       <button className="p-2" onClick={() => removeItem(image_url)}>
-        삭제
+        <TrashCan className="w-8 h-8" />
       </button>
     </li>
   );

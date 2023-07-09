@@ -3,7 +3,7 @@ import NFTInfo from "./NFTInfo";
 import NFTPrice from "./NFTPrice";
 import NFTImage from "./NFTImage";
 import CartButton from "../CartButton";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { OpenSeaCollectionListType } from "@/types/types";
 export default function Card({
@@ -52,7 +52,7 @@ export default function Card({
         identifier={identifier}
       />
       <NFTPrice price={randomPrice} />
-      {isMouseHover && (
+      {isMouseHover && !invalidNFT && (
         <CartButton
           collection={collection}
           identifier={identifier}

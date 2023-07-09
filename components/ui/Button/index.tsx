@@ -37,7 +37,7 @@ export default function Button({
     <button
       onClick={onClickAction}
       disabled={disabled}
-      className={`rounded-md font-bold ${sizeClass} ${widthClass} ${className} ${variantClass} ${disabledClass}`}
+      className={`rounded-lg font-bold ${sizeClass} ${widthClass} ${className} ${variantClass} ${disabledClass}`}
     >
       {children}
     </button>

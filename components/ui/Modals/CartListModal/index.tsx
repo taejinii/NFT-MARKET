@@ -31,23 +31,32 @@ export default function CartListModal() {
         <h2>Cart</h2>
         <button onClick={handleCloseModal}>x</button>
       </header>
-      <div className="flex items-center justify-between font-bold">
-        <span>{cartList.length} items</span>
-        <button className="p-2" onClick={clearCartList}>
-          Clear list
-        </button>
-      </div>
-      <section className="overflow-auto">
-        <ul className="flex flex-col">
-          {cartList.map((cart) => (
-            <CartItem key={cart.image_url} {...cart} />
-          ))}
-        </ul>
-      </section>
-      <div className="flex items-center justify-between w-full pt-4 text-xl font-bold border-t-2">
-        <span>Total Price</span>
-        <span>{totalPrice.toFixed(2)} ETH</span>
-      </div>
+      {isCartEmpty ? (
+        <div className="flex items-center justify-center w-full h-64 text-xl font-bold text-slate-300 ">
+          Add items to get started.
+        </div>
+      ) : (
+        <section className="overflow-auto">
+          <div className="flex items-center justify-between font-bold">
+            <span>{cartList.length} items</span>
+            <button className="p-2" onClick={clearCartList}>
+              Clear list
+            </button>
+          </div>
+          <ul className="flex flex-col ">
+            {cartList.map((cart) => (
+              <CartItem key={cart.image_url} {...cart} />
+            ))}
+          </ul>
+        </section>
+      )}
+      {!isCartEmpty && (
+        <div className="flex items-center justify-between w-full pt-2 text-xl font-bold border-t-2">
+          <span>Total Price</span>
+          <span>{totalPrice.toFixed(2)} ETH</span>
+        </div>
+      )}
+
       <Button
         size="lg"
         variant="primary"

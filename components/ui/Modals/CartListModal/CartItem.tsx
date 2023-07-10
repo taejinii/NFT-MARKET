@@ -5,8 +5,8 @@ import { removeCart } from "@/store/cartSlice";
 import TrashCan from "../../../../public/icons/TrashCan.svg";
 export default function CartItem({ ...cart }) {
   const { name, image_url, collection, contract, identifier, price } = cart;
-  const removeItem = (image: string) => {
-    store.dispatch(removeCart(image));
+  const removeItem = (identifier: string) => {
+    store.dispatch(removeCart(identifier));
   };
   return (
     <li className="flex justify-between w-full p-3 font-bold rounded-lg hover:bg-slate-200">
@@ -33,7 +33,7 @@ export default function CartItem({ ...cart }) {
       </Link>
       <button
         className="p-2 "
-        onClick={() => removeItem(image_url)}
+        onClick={() => removeItem(identifier)}
         data-cy="remove-button"
       >
         <TrashCan className="w-6 h-6" />

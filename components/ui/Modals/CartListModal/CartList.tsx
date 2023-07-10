@@ -24,7 +24,7 @@ export default function CartList({
       </div>
       <ul className="flex flex-col ">
         {cartList.map((cart) => (
-          <CartItem key={cart.image_url} {...cart} />
+          <CartItem key={cart.identifier} {...cart} />
         ))}
       </ul>
     </section>

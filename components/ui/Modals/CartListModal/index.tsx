@@ -3,7 +3,7 @@ import useOutsideClick from "@/hooks/common/useOutSideClick";
 import { useAppDispatch, useAppSelector } from "@/store";
 import { closeModal } from "@/store/modalSlice";
 import { clearCart } from "@/store/cartSlice";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRef } from "react";
 import Button from "../../Button";
 import CartList from "./CartList";
@@ -16,7 +16,6 @@ export default function CartListModal() {
   const handleCloseModal = () => {
     dispatch(closeModal());
   };
-
   const totalPrice = cartList.reduce((acc, cur) => {
     return acc + cur.price;
   }, 0);

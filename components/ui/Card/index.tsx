@@ -3,7 +3,7 @@ import NFTInfo from "./NFTInfo";
 import NFTPrice from "./NFTPrice";
 import NFTImage from "./NFTImage";
 import CartButton from "../CartButton";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { OpenSeaCollectionListType } from "@/types/types";
 export default function Card({

@@ -16,7 +16,7 @@ export default function Error({
       <h1 className="">컬렉션을 불러오지 못하였습니다..</h1>
       <button
         className="p-4 font-bold text-white bg-blue-500 rounded-md hover:bg-blue-600"
-        onClick={() => reset()}
+        onClick={() => window.location.reload()}
       >
         새로고침
       </button>

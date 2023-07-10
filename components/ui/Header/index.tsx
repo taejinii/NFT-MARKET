@@ -5,7 +5,6 @@ import { useState, useEffect, useCallback } from "react";
 import { NAVBAR_MENU } from "@/constant/constant";
 import { useAppSelector } from "@/store";
 import CartListButton from "./CartListButton";
-import WalletConnectButton from "../WalletConnectButton";
 import MenuBar from "../../../public/icons/MenuBar.svg";
 /**모바일 뷰포트이기 전까진 사용할일이 없기때문에 처음부터 로드하지않고 필요해짐에따라 로드하여 렌더링해준다. 앱의 초기용량을 줄일수가있다.
  */
@@ -51,7 +50,7 @@ export default function Header() {
       {isOpen && <MobileNavBar setIsOpen={setIsOpen} />}
       <div className="flex items-center gap-5 itmes-center">
         <CartListButton itemCount={cartList.length} />
-        <WalletConnectButton />
+        {/* <WalletConnectButton /> */}
         <button className="block sm:hidden" onClick={handleMobileNavBar}>
           <MenuBar className="w-8 h-8 fill-black" />
         </button>

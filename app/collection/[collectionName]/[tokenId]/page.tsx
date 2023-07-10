@@ -19,8 +19,10 @@ export async function generateMetadata({
   const info = await getNFTInfoOpenSea(collectionName, tokenId);
 
   return {
-    title: `${info.name} - ${info.collection.name} | QWERO`,
-    description: info.name,
+    title: `${info.name ?? info.token_id} - ${info.collection.name} | QWERO`,
+    description: `${
+      info.top_ownerships[0].owner.user ?? info.asset_contract.owner
+    }님의  ${info.collection.name} - ${info.name ?? info.token_id} 입니다.`,
     openGraph: {
       images: { url: info.image_url, alt: info.collection.name },
       title: info.name,
@@ -46,7 +48,6 @@ export default async function NFTDetailPage({
       <section className="flex flex-col w-full gap-5 md:flex-row">
         <div className="flex flex-col w-full gap-2 max-md:order-2">
           <NftInfo info={info} />
-
           <TraitsList traits={info.traits} />
         </div>
         <div className="flex items-center justify-center w-full max-md:order-1">

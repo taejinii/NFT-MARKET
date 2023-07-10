@@ -6,3 +6,5 @@ export const NAVBAR_MENU = [
 ];
 export const BEST_COLLECTION = "0xed5af388653567af2f388e6224dc7c4b3241c544";
 export const SALE_HISTORY = ["event", "price", "from", "to", "date"];
+export const BLUR_DATA_URL =
+  "data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN0cPCpBwAC4QFN8b7mrwAAAABJRU5ErkJggg==";

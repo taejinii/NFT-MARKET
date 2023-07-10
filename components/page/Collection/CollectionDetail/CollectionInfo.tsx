@@ -1,6 +1,8 @@
 import Image from "next/image";
 import SocialButton from "@/components/page/Collection/CollectionDetail/SocialButton";
 import { CollectionInfoType } from "@/types/types";
+import { BLUR_DATA_URL } from "@/constant/constant";
+
 export default function CollectionInfo({ info }: { info: CollectionInfoType }) {
   const {
     name,
@@ -33,7 +35,7 @@ export default function CollectionInfo({ info }: { info: CollectionInfoType }) {
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               placeholder="blur"
-              blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg==" // 추가
+              blurDataURL={BLUR_DATA_URL}
               className="object-cover rounded-full drop-shadow-lg"
             />
           )}

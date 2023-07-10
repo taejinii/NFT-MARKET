@@ -4,7 +4,7 @@ import { useInView } from "react-intersection-observer";
 import { useGetNftData } from "@/hooks/queries/useGetNftData";
 import { BEST_COLLECTION } from "@/constant/constant";
 export default function ThirdSection() {
-  const { ref, inView } = useInView({ threshold: 0 });
+  const { ref, inView } = useInView({ threshold: 0.3 });
   const { data: nftData, isLoading } = useGetNftData(BEST_COLLECTION, 3);
 
   return (
@@ -32,16 +32,16 @@ export default function ThirdSection() {
             if (index === 0) {
               animateClass = "animate-diagonalLeft hover:z-20";
             }
-            if (index === 1) {
+            if (index === 2) {
               animateClass = "z-10";
             }
-            if (index === 2) {
+            if (index === 1) {
               animateClass = "animate-diagonalRight hover:z-20";
             }
             return (
               <div
                 key={nft.token_id}
-                className={`absolute ${inView ? animateClass : "hidden"} w-64`}
+                className={`absolute ${inView ? animateClass : ""} w-64`}
               >
                 <Card
                   identifier={nft.token_id}

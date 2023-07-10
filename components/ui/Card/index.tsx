@@ -32,7 +32,10 @@ export default function Card({
   };
 
   const invalidNFT =
-    identifier?.length > 6 || !identifier || Number(identifier) === 0;
+    identifier?.length > 6 ||
+    !identifier ||
+    Number(identifier) === 0 ||
+    !image_url;
   return (
     <div
       onMouseOver={handleActiveCart}

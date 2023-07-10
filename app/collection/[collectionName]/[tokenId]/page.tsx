@@ -5,6 +5,7 @@ import TraitsList from "@/components/page/Collection/NftDetail/TraitsList";
 import Accordion from "@/components/ui/Accordion/index";
 import SaleHistoy from "@/components/page/Collection/SaleHistory/SaleHistoy";
 import { Metadata } from "next";
+import { BLUR_DATA_URL } from "@/constant/constant";
 
 interface ParamsType {
   collectionName: string;
@@ -58,7 +59,7 @@ export default async function NFTDetailPage({
             height={600}
             priority
             placeholder="blur"
-            blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN0cPCpBwAC4QFN8b7mrwAAAABJRU5ErkJggg=="
+            blurDataURL={BLUR_DATA_URL}
             className="w-full h-auto rounded-md drop-shadow-lg "
           />
         </div>

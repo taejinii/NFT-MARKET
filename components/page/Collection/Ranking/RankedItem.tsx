@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { handleForamtNumber } from "@/utils/handleFormatNumber";
+import { BLUR_DATA_URL } from "@/constant/constant";
 export default function RankedItem({ ...props }) {
   const {
     volume_eth,
@@ -11,7 +12,7 @@ export default function RankedItem({ ...props }) {
     whale_num,
     contract,
     rank,
-    opensea_slug
+    opensea_slug,
   } = props;
   return (
     <>
@@ -35,7 +36,7 @@ export default function RankedItem({ ...props }) {
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 placeholder="blur"
                 priority
-                blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN0cPCpBwAC4QFN8b7mrwAAAABJRU5ErkJggg=="
+                blurDataURL={BLUR_DATA_URL}
                 className="absolute object-cover rounded-xl drop-shadow-lg"
               />
             </div>

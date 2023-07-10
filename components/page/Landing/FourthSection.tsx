@@ -34,7 +34,7 @@ export default function FourthSection() {
         >
           <Image
             src={selectedItem.image ?? "/images/azuki2.avif"}
-            alt={selectedItem.name as string}
+            alt={"Best NFT Image"}
             priority
             fill
             sizes="100vw"

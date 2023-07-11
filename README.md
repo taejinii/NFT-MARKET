@@ -3,9 +3,11 @@
 ![화면_기록_2023-07-03_오후_3_10_41_AdobeExpress](https://github.com/taejinii/NFT-MARKET/assets/96623949/17202cc2-bc22-4555-b90b-9179a4d5a70b)
 
 # Description
+
 평소 좋아하는 주제를 사용하였으며 개발능력 향상을 위한 NFT 거래소 프로젝트입니다. Next 13버전을 사용하였으며 app directory로 구현하였습니다.
 
 # Develop
+
 <div>
 
 ![Next.js](https://img.shields.io/static/v1?style=for-the-badge&message=Next.js&color=000000&logo=Next.js&logoColor=FFFFFF&label=)
@@ -29,13 +31,13 @@
 <div>
 
 ![Cypress](https://img.shields.io/static/v1?style=for-the-badge&color=17202C&message=cypress&logo=cypress&logoColor=FFFFFF&label=)
- 
+
 </div>
 
 ## 🌳 폴더 구조
 
 ```
-📦 
+📦
 ├─ api:API호출 함수 보관 폴더
 ├─ app:Next.js의 페이지 라우팅 app 폴더
 ├─ components
@@ -57,20 +59,25 @@
 ```
 
 # 설치
+
 ```
  git clone https://github.com/taejinii/NFT-MARKET.git
 ```
+
 ```
 npm install
 ```
+
 ```
 npm run build
 ```
+
 ```
 npm run start
 ```
 
 # 구현기능
+
 <table>
 	<tbody>
 		<tr>
@@ -86,8 +93,8 @@ npm run start
       <td> - 컬렉션 정보 확인 가능,컬렉션 리스트 무한스크롤</td>
     </tr>
     		<tr>
-			<th>NFT 상세페이지</th>
-			<th>NFT 거래기록</th>
+			<th>NFT 상세페이지</th>
+			<th>NFT 거래기록</th>
 		</tr>
 		<tr>
 			<td><img width="1421" alt="image" src="https://github.com/taejinii/NFT-MARKET/assets/96623949/930d7d15-9eb2-436d-a802-8724b318f3af"/></td>
@@ -98,7 +105,7 @@ npm run start
       <td> - 해당 NFT의 거래기록 확인가능</td>
     </tr>
         		<tr>
-			<th>마이페이지</th>
+			<th>마이페이지</th>
 			<th>징바구니</th>
 		</tr>
 		<tr>
@@ -107,11 +114,11 @@ npm run start
 </td>
 		</tr>	
       <tr>
-      <td> - 유저가 현재 가지고있는 NFT리스트 무한스크롤</td>
-	 <td> - 장바구니 추가 제거 기능</td>
+      <td> - 유저가 현재 가지고있는 NFT리스트 무한스크롤</td>
+	 <td> - 장바구니 추가 제거 기능</td>
     </tr>
     <tr>
-			<th>사이드바 모달</th>
+			<th>사이드바 모달</th>
 		</tr>
 		<tr>
 			<td><img width="1432" alt="image" src="https://github.com/taejinii/NFT-MARKET/assets/96623949/1d914437-3f7d-443d-ae9c-ccb32c87a55c"/>

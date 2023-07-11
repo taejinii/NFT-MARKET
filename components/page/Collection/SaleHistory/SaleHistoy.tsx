@@ -33,14 +33,14 @@ export default function SaleHistoy({ history }: { history: NFTTransAction }) {
               {transaction.price?.value ? "ETH" : ""}
             </div>
             <Link
-              className="flex-1 truncate cursor-pointer"
+              className="flex-1 truncate cursor-pointer text-primary"
               href={`/user/${transaction.sender.address}`}
             >
               {transaction.sender.address}
             </Link>
             <Link
               href={`/user/${transaction.receiver.address}`}
-              className="flex-1 truncate cursor-pointer"
+              className="flex-1 truncate cursor-pointer text-primary"
             >
               {transaction.receiver.address}
             </Link>

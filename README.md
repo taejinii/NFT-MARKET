@@ -81,7 +81,7 @@ npm run start
 <table>
 	<tbody>
 		<tr>
-			<th>NFT 컬렉션 랭킹 리스트 </th>
+			<th>NFT 컬렉션 랭킹 리스트 </th>
 			<th>컬렉션 상세 페이지 </th>
 		</tr>
 		<tr>
@@ -89,7 +89,7 @@ npm run start
 		<td><img width="1421" alt="image" src="https://github.com/taejinii/NFT-MARKET/assets/96623949/c70b0cef-0480-4d1d-a64e-8937042037a0"/></td>
 		</tr>	
     <tr>
-      <td> - 시간대별 거래량에 따른 랭킹 순위 확인가능</td>
+      <td> - 시간대별 거래량에 따른 랭킹 리스트 렌더링</td>
       <td> - 컬렉션 정보 확인 가능,컬렉션 리스트 무한스크롤</td>
     </tr>
     		<tr>

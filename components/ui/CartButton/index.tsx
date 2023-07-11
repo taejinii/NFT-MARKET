@@ -4,6 +4,7 @@ import { OpenSeaCollectionListType } from "@/types/types";
 import { useAppDispatch } from "@/store";
 import { addToCart } from "@/store/cartSlice";
 import { usePathname } from "next/navigation";
+import { toast } from "react-toastify";
 export default function CartButton({
   identifier,
   name,

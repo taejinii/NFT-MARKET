@@ -1,5 +1,6 @@
 import "@/styles/globals.css";
 import Header from "@/components/ui/Header";
+import Toast from "@/components/ui/Toast";
 import Providers from "./provider";
 import GlobalModal from "@/components/ui/Modals/GlobalModal";
 import { Inter } from "next/font/google";
@@ -27,6 +28,7 @@ export default function RootLayout({
         <Providers>
           <GlobalModal />
           <Header />
+          <Toast />
           <main>{children}</main>
         </Providers>
       </body>

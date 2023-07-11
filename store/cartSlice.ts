@@ -1,5 +1,5 @@
+import { toast } from "react-toastify";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
 interface CartListType {
   identifier: string;
   contract: string;
@@ -30,15 +30,18 @@ const cartSlice = createSlice({
         alert("이미 담긴 아이템 입니다.");
       } else {
         state.cartList.push(action.payload);
+        toast("Added to Cart", { icon: "✅" });
       }
     },
     removeCart: (state, action) => {
       state.cartList = state.cartList.filter(
         (cart) => cart.identifier !== action.payload
       );
+      toast("Removed the item", { icon: "✅" });
     },
     clearCart: (state) => {
       state.cartList = [];
+      toast("Cleared the list", { icon: "✅" });
     },
   },
 });

@@ -38,6 +38,7 @@ export default function Button({
       onClick={onClickAction}
       disabled={disabled}
       className={`rounded-lg font-bold ${sizeClass} ${widthClass} ${className} ${variantClass} ${disabledClass}`}
+      data-cy="styled-button"
     >
       {children}
     </button>

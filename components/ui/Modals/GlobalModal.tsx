@@ -6,16 +6,13 @@ import { closeModal } from "@/store/modalSlice";
 import CartListModal from "./CartListModal";
 import Overlay from "../Overlay";
 import SideBarModal from "./SidebarModal/SideBarModal";
-import LoginModal from "./LoginModal";
 const MODAL_TYPES = {
   SideBarModal: "SideBarModal",
   CartListModal: "CartListModal",
-  LoginModal: "LoginModal",
 };
 const MODAL_COMPONENTS = [
   { type: MODAL_TYPES.SideBarModal, component: <SideBarModal /> },
   { type: MODAL_TYPES.CartListModal, component: <CartListModal /> },
-  { type: MODAL_TYPES.LoginModal, component: <LoginModal /> },
 ];
 
 export default function GlobalModal() {

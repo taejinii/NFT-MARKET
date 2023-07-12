@@ -13,7 +13,10 @@ export default function Accordion({ title, children }: AccordionType) {
     setIsOpen(!isOpen);
   };
   return (
-    <div className="flex flex-col items-start justify-start w-full border-2 border-black rounded-md ">
+    <div
+      className="flex flex-col items-start justify-start w-full border-2 border-black rounded-md "
+      data-cy="accordion"
+    >
       <div
         className="flex items-center justify-between w-full p-4 text-2xl font-bold border-b-2 border-black cursor-pointer"
         onClick={handleAccordion}

@@ -58,24 +58,6 @@
 
 ```
 
-# 설치
-
-```
- git clone https://github.com/taejinii/NFT-MARKET.git
-```
-
-```
-npm install
-```
-
-```
-npm run build
-```
-
-```
-npm run start
-```
-
 # 구현기능
 
 <table>
@@ -85,8 +67,8 @@ npm run start
 			<th>컬렉션 상세 페이지 </th>
 		</tr>
 		<tr>
-		<td><img width="1000" alt="image" src="https://github.com/taejinii/NFT-MARKET/assets/96623949/252eed02-8473-40fc-89b4-cc21370f32ef"/></td>
-		<td><img width="1000" alt="image" src="https://github.com/taejinii/NFT-MARKET/assets/96623949/c70b0cef-0480-4d1d-a64e-8937042037a0"/></td>
+		<td><img width="400" alt="image" src="https://github.com/taejinii/NFT-MARKET/assets/96623949/252eed02-8473-40fc-89b4-cc21370f32ef"/></td>
+		<td><img width="400" alt="image" src="https://github.com/taejinii/NFT-MARKET/assets/96623949/c70b0cef-0480-4d1d-a64e-8937042037a0"/></td>
 		</tr>	
     <tr>
       <td> - 시간대별 거래량에 따른 랭킹 리스트 렌더링</td>
@@ -97,8 +79,8 @@ npm run start
 			<th>NFT 거래기록</th>
 		</tr>
 		<tr>
-			<td><img width="1000" alt="image" src="https://github.com/taejinii/NFT-MARKET/assets/96623949/930d7d15-9eb2-436d-a802-8724b318f3af"/></td>
-			<td><img width="1000" alt="image" src="https://github.com/taejinii/NFT-MARKET/assets/96623949/b9d8d958-852c-4a4b-80bd-fb4e9fb14dcf"/></td>
+			<td><img width="400" alt="image" src="https://github.com/taejinii/NFT-MARKET/assets/96623949/930d7d15-9eb2-436d-a802-8724b318f3af"/></td>
+			<td><img width="400" alt="image" src="https://github.com/taejinii/NFT-MARKET/assets/96623949/b9d8d958-852c-4a4b-80bd-fb4e9fb14dcf"/></td>
 		</tr>		
       <tr>
       <td> - NFT Trait,Owner 정보 렌더링</td>
@@ -109,8 +91,8 @@ npm run start
 			<th>징바구니</th>
 		</tr>
 		<tr>
-			<td><img width="1000" alt="image" src="https://github.com/taejinii/NFT-MARKET/assets/96623949/ddd4f110-e497-4f58-b6ca-26f98d8cda11"/></td>
-			<td><img width="1000" alt="image" src="https://github.com/taejinii/NFT-MARKET/assets/96623949/9963dc1d-42cd-49b5-b30e-66b0088a9479"/></td>
+			<td><img width="400" alt="image" src="https://github.com/taejinii/NFT-MARKET/assets/96623949/ddd4f110-e497-4f58-b6ca-26f98d8cda11"/></td>
+			<td><img width="400" alt="image" src="https://github.com/taejinii/NFT-MARKET/assets/96623949/9963dc1d-42cd-49b5-b30e-66b0088a9479"/></td>
 </td>
 		</tr>	
       <tr>
@@ -121,7 +103,7 @@ npm run start
 			<th>사이드바 모달</th>
 		</tr>
 		<tr>
-			<td><img width="1000" alt="image" src="https://github.com/taejinii/NFT-MARKET/assets/96623949/1d914437-3f7d-443d-ae9c-ccb32c87a55c"/>
+			<td><img width="400" alt="image" src="https://github.com/taejinii/NFT-MARKET/assets/96623949/1d914437-3f7d-443d-ae9c-ccb32c87a55c"/>
 </td>
         <tr>
       <td> - 지갑연결후 지갑정보 및 기타메뉴 렌더링</td>
